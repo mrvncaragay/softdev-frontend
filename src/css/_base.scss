@@ -1,0 +1,39 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 1rem;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #3c3b3b;
+  font-weight: 800;
+  //line-height: 1.65;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+}
+
+a {
+  color: #646464;
+  text-decoration: none;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+ul li {
+  display: inline-block;
+  line-height: 1;
+}
