@@ -1,15 +1,20 @@
 import React from 'react';
-import Navbar from './views/Navbar';
-import { makeStyles } from '@material-ui/styles';
+import { BrowserRouter } from 'react-router-dom';
 
-const styles = makeStyles(theme => ({}));
+// Main App
+import SoftDevApp from './SoftDevApp';
+
+// Material UI theme
+import { ThemeProvider } from '@material-ui/styles';
+import theme from './theme';
 
 function App() {
-  const classes = styles();
   return (
-    <div className={classes.root}>
-      <Navbar />
-    </div>
+    <ThemeProvider theme={theme}>
+      <BrowserRouter>
+        <SoftDevApp />
+      </BrowserRouter>
+    </ThemeProvider>
   );
 }
 

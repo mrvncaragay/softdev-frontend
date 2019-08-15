@@ -4,6 +4,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
+Join and connect with other developers.
+Discuss the best approach.
+
 ### `npm start`
 
 Runs the app in the development mode.<br>
