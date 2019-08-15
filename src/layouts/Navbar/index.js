@@ -44,39 +44,15 @@ const Navbar = () => {
               get started
             </Button>
           </div>
+
+          <div className={classes.mobile}>
+            <IconButton>
+              <MenuIcon />
+            </IconButton>
+          </div>
         </Toolbar>
       </AppBar>
     </div>
-    // <header className={classes.root}>
-    //   <div className={classes.logo}>
-    //     <h1>
-    //       <a href='/'>softdev hub</a>
-    //     </h1>
-    //   </div>
-
-    //   <List className={classes.list}>
-    //     <ListItem>
-    //       <ListItemText primary='Developers' />
-    //     </ListItem>
-    //     <ListItem>
-    //       <ListItemText primary='post' />
-    //     </ListItem>
-    //   </List>
-    //   {/* <ul>
-    //       <li>
-    //         <a href='/'> developers</a>
-    //       </li>
-    //       <li>
-    //         <a href='/'> post</a>
-    //       </li>
-    //     </ul> */}
-
-    //   {/* <div className={classes.menu}>
-    //     <IconButton className={classes.menuBtn}>
-    //       <MenuIcon />
-    //     </IconButton>
-    //   </div> */}
-    // </header>
   );
 };
 

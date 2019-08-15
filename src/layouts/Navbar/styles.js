@@ -55,16 +55,35 @@ export default makeStyles(theme => ({
 
     '& a:hover': {
       color: theme.palette.background.default
+    },
+
+    [theme.breakpoints.down('sm')]: {
+      display: 'none'
     }
   },
 
   info: {
     flexBasis: 'auto',
     padding: '0 2.3em 0 2em',
-    borderLeft: 'solid 1px rgba(160, 160, 160, 0.3)'
+    borderLeft: 'solid 1px rgba(160, 160, 160, 0.3)',
+
+    [theme.breakpoints.down('sm')]: {
+      display: 'none'
+    }
   },
 
   signUp: {
     marginLeft: '1em'
+  },
+
+  mobile: {
+    [theme.breakpoints.up('md')]: {
+      display: 'none'
+    },
+    [theme.breakpoints.down('sm')]: {
+      flexGrow: 1,
+      textAlign: 'end',
+      paddingRight: '1.5em'
+    }
   }
 }));
