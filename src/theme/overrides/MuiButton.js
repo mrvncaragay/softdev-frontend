@@ -2,6 +2,10 @@
 import palette from '../palette';
 
 export default {
+  root: {
+    borderRadius: 'none'
+  },
+
   outlined: {
     backgroundColor: palette.common.white,
     letterSpacing: '0.15em',
@@ -13,10 +17,11 @@ export default {
     },
 
     '& a': {
-      color: palette.common.muted
+      color: palette.common.muted,
+      transition: 'color 250ms ease'
     },
 
-    '&:hover a': {
+    '&:hover a, &:hover span': {
       color: palette.background.default
     }
   },
@@ -31,5 +36,10 @@ export default {
     '&:hover a': {
       color: palette.background.default
     }
+  },
+
+  label: {
+    color: palette.common.muted,
+    transition: 'color 250ms ease'
   }
 };

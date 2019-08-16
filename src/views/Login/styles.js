@@ -6,11 +6,18 @@ export default makeStyles(theme => ({
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    padding: theme.spacing(12)
+    padding: theme.spacing(12),
+
+    [theme.breakpoints.down('sm')]: {
+      padding: theme.spacing(1)
+    }
   },
 
   paper: {
-    width: '60%'
+    width: '60%',
+    [theme.breakpoints.down('sm')]: {
+      width: '100%'
+    }
   },
 
   header: {
@@ -47,5 +54,9 @@ export default makeStyles(theme => ({
     '& h5': {
       fontSize: '11px'
     }
+  },
+
+  body: {
+    padding: theme.spacing(5)
   }
 }));

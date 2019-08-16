@@ -6,6 +6,7 @@ import Paper from '@material-ui/core/Paper';
 
 // Shared Component
 import { Navbar } from 'layouts';
+import Form from './components/Form';
 
 // Component styles
 import styles from './styles';
@@ -34,9 +35,7 @@ const Login = () => {
           </div>
 
           <div className={classes.body}>
-            <div className={classes.meta}>
-              <Typography variant='h4'>body</Typography>
-            </div>
+            <Form />
           </div>
 
           <div className={classes.footer}>
