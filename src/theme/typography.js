@@ -24,5 +24,11 @@ export default {
     fontSize: '12px',
     letterSpacing: '0.25em',
     textTransform: 'uppercase'
+  },
+
+  h6: {
+    color: palette.text.secondary,
+    fontSize: '12px',
+    letterSpacing: '0.15em'
   }
 };

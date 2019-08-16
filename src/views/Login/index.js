@@ -37,12 +37,6 @@ const Login = () => {
           <div className={classes.body}>
             <Form />
           </div>
-
-          <div className={classes.footer}>
-            <div className={classes.meta}>
-              <Typography variant='h4'>footer</Typography>
-            </div>
-          </div>
         </Paper>
       </div>
     </Navbar>
