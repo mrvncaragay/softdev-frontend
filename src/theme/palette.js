@@ -9,9 +9,8 @@ export default {
   },
   text: {
     main: '#3C3B3B',
-    primary: '#12161B',
-    secondary: '#66788A',
-    disabled: '#A6B1BB'
+    secondary: '#646464',
+    disabled: '#9EA0A4'
   },
   background: {
     default: '#b93114',

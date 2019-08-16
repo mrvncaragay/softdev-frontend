@@ -24,6 +24,7 @@ export default makeStyles(theme => ({
     textAlign: 'center',
 
     '& a': {
+      color: theme.palette.text.main,
       transition: 'color 250ms ease'
     },
 
@@ -85,5 +86,9 @@ export default makeStyles(theme => ({
       textAlign: 'end',
       paddingRight: '1.5em'
     }
+  },
+
+  content: {
+    marginTop: '64px'
   }
 }));
