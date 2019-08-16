@@ -18,12 +18,9 @@ const Form = () => {
     <div className={classes.root}>
       <div className={classes.classicLogin}>
         <ValidatorForm>
+          <TextValidator label='Name' name='name' />
           <TextValidator label='Email' name='email' />
           <TextValidator label='Password' name='password' />
-
-          <Typography variant='h6'>
-            <Link to='/'> Forgot your email or passowrd? </Link>
-          </Typography>
 
           <Button
             size='medium'
@@ -37,8 +34,8 @@ const Form = () => {
         </ValidatorForm>
 
         <Typography variant='h6' className={classes.createAccountLink}>
-          No account?
-          <Link to='/signup'> Create one </Link>
+          have an account?
+          <Link to='/login'> Sign in </Link>
         </Typography>
       </div>
 
