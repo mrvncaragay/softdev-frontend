@@ -1,6 +1,10 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 
+// Externals
+import { Provider } from 'react-redux';
+import store from './store';
+
 // Main App
 import SoftDevApp from './SoftDevApp';
 
@@ -12,7 +16,9 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <BrowserRouter>
-        <SoftDevApp />
+        <Provider store={store}>
+          <SoftDevApp />
+        </Provider>
       </BrowserRouter>
     </ThemeProvider>
   );
