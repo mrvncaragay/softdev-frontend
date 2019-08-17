@@ -8,7 +8,11 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
+import Tooltip from '@material-ui/core/Tooltip';
 import IconButton from '@material-ui/core/IconButton';
+import Person from '@material-ui/icons/PermIdentityOutlined';
+import ChromeReader from '@material-ui/icons/ChromeReaderModeOutlined';
+import Input from '@material-ui/icons/Input';
 import MenuIcon from '@material-ui/icons/Menu';
 
 // Component styles
@@ -31,20 +35,44 @@ const Navbar = ({ children, user, logout }) => {
             </div>
 
             <div className={classes.linkList}>
-              <Typography variant='h5' display='inline'>
-                <Link to='/'>developers</Link>
-              </Typography>
+              {!isAuthenticated && (
+                <Fragment>
+                  <Typography variant='h5' display='inline'>
+                    <Link to='/'>developers</Link>
+                  </Typography>
 
-              <Typography variant='h5' display='inline'>
-                <Link to='/'>posts</Link>
-              </Typography>
+                  <Typography variant='h5' display='inline'>
+                    <Link to='/'>posts</Link>
+                  </Typography>
+                </Fragment>
+              )}
+            </div>
+
+            <div className={classes.info}>
+              {isAuthenticated && (
+                <Fragment>
+                  <IconButton>
+                    <Tooltip title='Posts' placement='bottom'>
+                      <ChromeReader />
+                    </Tooltip>
+                  </IconButton>
+
+                  <IconButton>
+                    <Tooltip title='Profile' placement='bottom'>
+                      <Person />
+                    </Tooltip>
+                  </IconButton>
+                </Fragment>
+              )}
             </div>
 
             <div className={classes.info}>
               {isAuthenticated ? (
-                <Button size='small' onClick={handleLogOut}>
-                  log out
-                </Button>
+                <IconButton onClick={handleLogOut}>
+                  <Tooltip title='Logout' placement='bottom'>
+                    <Input />
+                  </Tooltip>
+                </IconButton>
               ) : (
                 <Fragment>
                   <Button size='small'>

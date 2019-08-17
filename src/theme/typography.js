@@ -1,7 +1,7 @@
 import palette from './palette';
 
 export default {
-  fontFamily: ['Raleway', '"Helvetica"', 'sans-serif'].join(','),
+  fontFamily: ['Raleway', 'Helvetica', 'sans-serif'].join(','),
 
   h2: {
     color: palette.text.main,
