@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import handleInputChange from 'hooks/handleInputChange';
 
 // External
 import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
@@ -13,13 +14,36 @@ import styles from './styles';
 
 const Form = () => {
   const classes = styles();
+  const initialState = {
+    email: '',
+    password: ''
+  };
+  const [state, handleChange, reset] = handleInputChange(initialState);
 
   return (
     <div className={classes.root}>
       <div className={classes.classicLogin}>
         <ValidatorForm>
-          <TextValidator label='Email' name='email' />
-          <TextValidator label='Password' name='password' />
+          <TextValidator
+            label='Email'
+            name='email'
+            value={state.email}
+            onChange={handleChange}
+            validators={['required', 'isEmail']}
+            errorMessages={[
+              'This field is required.',
+              'Please enter a valid email address.'
+            ]}
+          />
+
+          <TextValidator
+            label='Password'
+            name='password'
+            value={state.password}
+            onChange={handleChange}
+            validators={['required']}
+            errorMessages={['This field is required.']}
+          />
 
           <Typography variant='h6'>
             <Link to='/'> Forgot your email or passowrd? </Link>

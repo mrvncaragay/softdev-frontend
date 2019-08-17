@@ -45,7 +45,7 @@ const Navbar = ({ children }) => {
                 variant='outlined'
                 size='medium'
               >
-                <Link to='/login'>get started</Link>
+                <Link to='/signup'>get started</Link>
               </Button>
             </div>
 

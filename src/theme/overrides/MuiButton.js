@@ -9,7 +9,7 @@ export default {
   outlined: {
     backgroundColor: palette.common.white,
     letterSpacing: '0.15em',
-    border: 'solid 1px rgba(160, 160, 160, 0.3)',
+    border: `1px solid ${palette.btn}`,
     '&:hover': {
       border: `1px solid ${palette.background.default}`,
       backgroundColor: palette.common.white,
