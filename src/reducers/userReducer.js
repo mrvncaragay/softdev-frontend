@@ -1,17 +1,21 @@
+import { SIGNUP } from 'actions/types';
+
 const initialState = {
-  isAuthenticated: false,
-  user: {}
+  isAuthenticated: false
 };
 
-export default function(state = initialState, action) {
+const userReducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'LOGIN_USER':
+    case SIGNUP:
       return {
         ...state,
-        user: action.payload
+        ...action.payload,
+        isAuthenticated: true
       };
 
     default:
       return state;
   }
-}
+};
+
+export default userReducer;

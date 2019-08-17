@@ -1,6 +1,10 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import handleInputChange from 'hooks/handleInputChange';
+import { signup } from 'actions/userActions';
+
+// External
+import { connect } from 'react-redux';
 
 // External
 import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
@@ -12,7 +16,7 @@ import Typography from '@material-ui/core/Typography';
 // Component styles
 import styles from './styles';
 
-const Form = () => {
+const Form = ({ signup }) => {
   const classes = styles();
   const initValue = {
     name: '',
@@ -22,13 +26,18 @@ const Form = () => {
   const [state, handleChange, reset] = handleInputChange(initValue);
 
   const handleSubmitForm = () => {
-    console.log(state);
+    signup(state);
   };
 
   useEffect(() => {
     ValidatorForm.addValidationRule(
       'isAtleastSixChars',
       val => val.length >= 6
+    );
+
+    ValidatorForm.addValidationRule(
+      'isAtleastThreeChars',
+      val => val.length >= 3
     );
   }, []);
 
@@ -41,8 +50,11 @@ const Form = () => {
             label='Name'
             name='name'
             value={state.name}
-            validators={['required']}
-            errorMessages={['This field is required.']}
+            validators={['required', 'isAtleastThreeChars']}
+            errorMessages={[
+              'This field is required.',
+              'Please password must be at least 3 characters.'
+            ]}
           />
 
           <TextValidator
@@ -66,7 +78,7 @@ const Form = () => {
             validators={['required', 'isAtleastSixChars']}
             errorMessages={[
               'This field is required.',
-              'Please password must be at least six characters.'
+              'Please password must be at least 6 characters.'
             ]}
           />
 
@@ -102,4 +114,9 @@ const Form = () => {
   );
 };
 
-export default Form;
+const mapStateToProps = state => ({});
+
+export default connect(
+  mapStateToProps,
+  { signup }
+)(Form);
