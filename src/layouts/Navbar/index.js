@@ -1,5 +1,7 @@
 import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { logout } from 'actions/userActions';
 
 // Material UI component
 import AppBar from '@material-ui/core/AppBar';
@@ -12,9 +14,11 @@ import MenuIcon from '@material-ui/icons/Menu';
 // Component styles
 import styles from './styles';
 
-const Navbar = ({ children }) => {
+const Navbar = ({ children, user, logout }) => {
   const classes = styles();
+  const { isAuthenticated } = user;
 
+  const handleLogOut = () => logout();
   return (
     <Fragment>
       <div className={classes.root}>
@@ -37,16 +41,24 @@ const Navbar = ({ children }) => {
             </div>
 
             <div className={classes.info}>
-              <Button size='small'>
-                <Link to='/login'>log in</Link>
-              </Button>
-              <Button
-                className={classes.signUp}
-                variant='outlined'
-                size='medium'
-              >
-                <Link to='/signup'>get started</Link>
-              </Button>
+              {isAuthenticated ? (
+                <Button size='small' onClick={handleLogOut}>
+                  log out
+                </Button>
+              ) : (
+                <Fragment>
+                  <Button size='small'>
+                    <Link to='/login'>log in</Link>
+                  </Button>
+                  <Button
+                    className={classes.signUp}
+                    variant='outlined'
+                    size='medium'
+                  >
+                    <Link to='/signup'>get started</Link>
+                  </Button>{' '}
+                </Fragment>
+              )}
             </div>
 
             <div className={classes.mobile}>
@@ -63,4 +75,11 @@ const Navbar = ({ children }) => {
   );
 };
 
-export default Navbar;
+const myStateToProps = state => ({
+  user: state.user
+});
+
+export default connect(
+  myStateToProps,
+  { logout }
+)(Navbar);

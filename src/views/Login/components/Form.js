@@ -1,9 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import handleInputChange from 'hooks/handleInputChange';
+import { login } from 'actions/authActions';
 
 // External
 import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
+import { connect } from 'react-redux';
 
 // Material components
 import Button from '@material-ui/core/Button';
@@ -12,7 +14,7 @@ import Typography from '@material-ui/core/Typography';
 // Component styles
 import styles from './styles';
 
-const Form = () => {
+const Form = ({ login }) => {
   const classes = styles();
   const initialState = {
     email: '',
@@ -20,10 +22,14 @@ const Form = () => {
   };
   const [state, handleChange, reset] = handleInputChange(initialState);
 
+  const handleSubmitForm = () => {
+    login(state);
+  };
+
   return (
     <div className={classes.root}>
       <div className={classes.classicLogin}>
-        <ValidatorForm>
+        <ValidatorForm onSubmit={handleSubmitForm}>
           <TextValidator
             label='Email'
             name='email'
@@ -39,6 +45,7 @@ const Form = () => {
           <TextValidator
             label='Password'
             name='password'
+            type='password'
             value={state.password}
             onChange={handleChange}
             validators={['required']}
@@ -81,4 +88,9 @@ const Form = () => {
   );
 };
 
-export default Form;
+const myStateToProps = state => ({});
+
+export default connect(
+  myStateToProps,
+  { login }
+)(Form);
