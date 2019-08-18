@@ -9,14 +9,14 @@ const userReducer = (state = initialState, action) => {
     case SIGNUP:
       return {
         ...state,
-        ...action.payload,
+        info: { ...action.payload },
         isAuthenticated: true
       };
 
     case LOGIN: {
       return {
         ...state,
-        ...action.payload,
+        info: { ...action.payload },
         isAuthenticated: true
       };
     }
