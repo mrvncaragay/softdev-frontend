@@ -26,5 +26,10 @@ export default makeStyles(theme => ({
 
   createAccountLink: {
     textAlign: 'end'
+  },
+
+  error: {
+    color: 'red',
+    marginBottom: theme.spacing(1)
   }
 }));

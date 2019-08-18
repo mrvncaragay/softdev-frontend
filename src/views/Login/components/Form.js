@@ -14,7 +14,7 @@ import Typography from '@material-ui/core/Typography';
 // Component styles
 import styles from './styles';
 
-const Form = ({ login }) => {
+const Form = ({ login, error }) => {
   const classes = styles();
   const initialState = {
     email: '',
@@ -52,6 +52,10 @@ const Form = ({ login }) => {
             errorMessages={['This field is required.']}
           />
 
+          <Typography variant='h6' className={classes.error}>
+            {error.error}
+          </Typography>
+
           <Typography variant='h6'>
             <Link to='/'> Forgot your email or passowrd? </Link>
           </Typography>
@@ -88,9 +92,11 @@ const Form = ({ login }) => {
   );
 };
 
-const myStateToProps = state => ({});
+const mapStateToProps = state => ({
+  error: state.error
+});
 
 export default connect(
-  myStateToProps,
+  mapStateToProps,
   { login }
 )(Form);
