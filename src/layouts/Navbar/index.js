@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { logout } from 'actions/userActions';
+import { logout, profile } from 'actions/userActions';
 
 // Material UI component
 import AppBar from '@material-ui/core/AppBar';
@@ -18,7 +18,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 // Component styles
 import styles from './styles';
 
-const Navbar = ({ children, user, logout }) => {
+const Navbar = ({ children, user, logout, profile }) => {
   const classes = styles();
   const { isAuthenticated } = user;
 
@@ -51,17 +51,24 @@ const Navbar = ({ children, user, logout }) => {
             <div className={classes.info}>
               {isAuthenticated && (
                 <Fragment>
-                  <IconButton>
-                    <Tooltip title='Posts' placement='bottom'>
-                      <ChromeReader />
-                    </Tooltip>
-                  </IconButton>
+                  <NavLink activeClassName={classes.activeLink} to='/post/me'>
+                    <IconButton>
+                      <Tooltip title='Posts' placement='bottom'>
+                        <ChromeReader />
+                      </Tooltip>
+                    </IconButton>
+                  </NavLink>
 
-                  <IconButton>
-                    <Tooltip title='Profile' placement='bottom'>
-                      <Person />
-                    </Tooltip>
-                  </IconButton>
+                  <NavLink
+                    activeClassName={classes.activeLink}
+                    to='/profile/me'
+                  >
+                    <IconButton>
+                      <Tooltip title='Profile' placement='bottom'>
+                        <Person />
+                      </Tooltip>
+                    </IconButton>
+                  </NavLink>
                 </Fragment>
               )}
             </div>
@@ -109,5 +116,5 @@ const myStateToProps = state => ({
 
 export default connect(
   myStateToProps,
-  { logout }
+  { logout, profile }
 )(Navbar);

@@ -90,5 +90,12 @@ export default makeStyles(theme => ({
 
   content: {
     marginTop: '64px'
+  },
+
+  activeLink: {
+    '& svg': {
+      color: theme.palette.background.default,
+      borderBottom: `1px solid ${theme.palette.background.default}`
+    }
   }
 }));

@@ -41,6 +41,23 @@ export const signup = input => async dispatch => {
  *  @param    none
  *  @return   none
  */
+export const profile = () => async dispatch => {
+  try {
+    const profile = await axios.get('/api/profiles/me');
+    console.log(profile);
+  } catch (error) {
+    dispatch({
+      type: Error,
+      payload: error.response.data
+    });
+  }
+};
+
+/*
+ *  @desc     Logout
+ *  @param    none
+ *  @return   none
+ */
 export const logout = () => dispatch => {
   // remove jwt token in axios header
   axiosHelper.removeJwt();
