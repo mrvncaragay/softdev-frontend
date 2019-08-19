@@ -1,7 +1,14 @@
-import { SIGNUP, LOGIN, LOGOUT, POST_PROFILE } from 'actions/types';
+import {
+  SIGNUP,
+  LOGIN,
+  LOGOUT,
+  POST_PROFILE,
+  SET_LOADNG_USER
+} from 'actions/types';
 
 const initialState = {
-  isAuthenticated: false
+  isAuthenticated: false,
+  isLoading: false
 };
 
 const userReducer = (state = initialState, action) => {
@@ -10,27 +17,37 @@ const userReducer = (state = initialState, action) => {
       return {
         ...state,
         info: { ...action.payload },
-        isAuthenticated: true
+        isAuthenticated: true,
+        isLoading: false
       };
 
     case LOGIN: {
       return {
         ...state,
         info: { ...action.payload },
-        isAuthenticated: true
+        isAuthenticated: true,
+        isLoading: false
       };
     }
 
     case POST_PROFILE: {
       return {
         ...state,
-        profile: { ...action.payload }
+        profile: { ...action.payload },
+        isLoading: false
       };
     }
 
     case LOGOUT: {
       return {
         ...initialState
+      };
+    }
+
+    case SET_LOADNG_USER: {
+      return {
+        ...state,
+        isLoading: !state.isLoading
       };
     }
 

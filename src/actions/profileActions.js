@@ -1,4 +1,4 @@
-import { POST_PROFILE, ERROR } from './types';
+import { POST_PROFILE, ERROR, SET_LOADNG_USER } from './types';
 import axios from 'axios';
 import history from 'util/history';
 
@@ -8,6 +8,10 @@ import history from 'util/history';
  *  @return   none
  */
 export const createProfile = input => async dispatch => {
+  dispatch({
+    type: SET_LOADNG_USER
+  });
+
   try {
     const { data } = await axios.post('/api/profiles', {
       ...input
@@ -17,6 +21,28 @@ export const createProfile = input => async dispatch => {
 
     // Redirect to User Home Page
     history.push('/profile/me');
+  } catch (error) {
+    dispatch({
+      type: ERROR,
+      payload: error.response.data
+    });
+  }
+};
+
+/*
+ *  @desc     Get current user profile
+ *  @param    none
+ *  @return   none
+ */
+export const fetchProfile = () => async dispatch => {
+  dispatch({
+    type: SET_LOADNG_USER
+  });
+
+  try {
+    const { data } = await axios.get('/api/profiles/me');
+
+    dispatch({ type: POST_PROFILE, payload: data });
   } catch (error) {
     dispatch({
       type: ERROR,

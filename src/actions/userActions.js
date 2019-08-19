@@ -1,4 +1,4 @@
-import { SIGNUP, LOGOUT, ERROR } from './types';
+import { SIGNUP, LOGOUT, ERROR, SET_LOADNG_USER } from './types';
 import axios from 'axios';
 import history from 'util/history';
 import jwtHelper from 'util/jwtHelper';
@@ -10,6 +10,10 @@ import axiosHelper from 'util/axiosHelper';
  *  @return   none
  */
 export const signup = input => async dispatch => {
+  dispatch({
+    type: SET_LOADNG_USER
+  });
+
   try {
     const { data, headers } = await axios.post('/api/users/', {
       ...input
