@@ -11,6 +11,14 @@ export default {
     textTransform: 'uppercase'
   },
 
+  h3: {
+    color: palette.text.main,
+    fontSize: '24px',
+    fontWeight: 900,
+    letterSpacing: '0.25em',
+    textTransform: 'uppercase'
+  },
+
   h4: {
     color: palette.text.main,
     fontWeight: '800',

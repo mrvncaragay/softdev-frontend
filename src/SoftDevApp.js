@@ -8,6 +8,9 @@ import Login from './views/Login';
 import Signup from './views/Signup';
 import Profile from './views/Profile';
 
+// Private uitl/Routes
+import PrivateRoutes from 'util/privateRoutes';
+
 // Persist user data if jwt token is valid, if not return to login
 let token = localStorage.getItem('x-auth-token');
 if (token) {
@@ -20,8 +23,8 @@ const SoftDevApp = () => {
       <Route exact path='/' component={Homepage} />
       <Route exact path='/login' component={Login} />
       <Route exact path='/signup' component={Signup} />
-      <Route exact path='/profile/me' component={Profile} />
-      <Route exact path='/post/me' component={Profile} />
+      <PrivateRoutes exact path='/profile/me' component={Profile} />
+      <PrivateRoutes exact path='/post/me' component={Profile} />
     </Switch>
   );
 };

@@ -37,7 +37,7 @@ const Form = () => {
 
   return (
     <div className={classes.root}>
-      <Typography variant='h4'>Create a New Profile</Typography>
+      <Typography variant='h3'>Create a New Profile</Typography>
 
       <ValidatorForm onSubmit={handleSubmitForm}>
         <TextValidator

@@ -36,7 +36,7 @@ const ModalForm = ({ children }) => {
       <AddBox title='add profile' handleOpen={handleOpen} />
 
       <Dialog
-        open={true}
+        open={open}
         scroll='body'
         TransitionComponent={Transition}
         keepMounted
