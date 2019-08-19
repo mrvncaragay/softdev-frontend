@@ -1,8 +1,10 @@
 import React from 'react';
 import handleInputChange from 'hooks/handleInputChange';
+import { createProfile } from 'actions/profileActions';
 
 // External
 import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
+import { connect } from 'react-redux';
 
 // Material UI component
 import Button from '@material-ui/core/Button';
@@ -12,7 +14,7 @@ import TextField from '@material-ui/core/TextField';
 // Component styles
 import styles from './styles';
 
-const Form = () => {
+const Form = ({ createProfile, error }) => {
   const classes = styles();
   const initialState = {
     handle: '',
@@ -32,7 +34,7 @@ const Form = () => {
   const [state, handleChange] = handleInputChange(initialState);
 
   const handleSubmitForm = () => {
-    console.log(state);
+    createProfile(state);
   };
 
   return (
@@ -68,7 +70,7 @@ const Form = () => {
         />
 
         <TextValidator
-          label='Carreer Status (required)'
+          label='Career Status (required)'
           name='status'
           placeholder='Student, Software Developer...'
           value={state.status}
@@ -114,11 +116,7 @@ const Form = () => {
           Optional
         </Typography>
 
-        {/* <Typography variant='h6' className={classes.error}>
-          {error.error}
-        </Typography> */}
-
-        <TextField
+        <TextValidator
           className={classes.url}
           name='youtube'
           value={state.youtube}
@@ -127,7 +125,7 @@ const Form = () => {
           margin='dense'
           onChange={handleChange}
         />
-        <TextField
+        <TextValidator
           className={classes.url}
           label='Facebook'
           name='facebook'
@@ -136,7 +134,7 @@ const Form = () => {
           margin='dense'
           onChange={handleChange}
         />
-        <TextField
+        <TextValidator
           className={classes.url}
           name='twitter'
           value={state.twitter}
@@ -145,7 +143,7 @@ const Form = () => {
           margin='dense'
           onChange={handleChange}
         />
-        <TextField
+        <TextValidator
           className={classes.url}
           name='linkedin'
           value={state.linkedin}
@@ -164,6 +162,10 @@ const Form = () => {
           onChange={handleChange}
         />
 
+        <Typography variant='h6' className={classes.error}>
+          {error.error}
+        </Typography>
+
         <Button
           className={classes.btnSubmit}
           fullWidth={true}
@@ -177,4 +179,11 @@ const Form = () => {
   );
 };
 
-export default Form;
+const mapStateToProps = state => ({
+  error: state.error
+});
+
+export default connect(
+  mapStateToProps,
+  { createProfile }
+)(Form);

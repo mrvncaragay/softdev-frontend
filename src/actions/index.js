@@ -2,4 +2,7 @@
 export { login } from './authActions';
 
 // User
-export { signup, logout, profile } from './userActions';
+export { signup, logout } from './userActions';
+
+// Profile
+export { createProfile } from './profileActions';

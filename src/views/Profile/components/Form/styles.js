@@ -31,5 +31,10 @@ export default makeStyles(theme => ({
 
   url: {
     marginBottom: '0px'
+  },
+
+  error: {
+    color: 'red',
+    margin: theme.spacing(1, 0, 1, 0)
   }
 }));

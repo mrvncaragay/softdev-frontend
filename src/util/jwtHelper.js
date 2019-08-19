@@ -42,12 +42,13 @@ const jwtHelper = {
   },
 
   /*
-   *  @desc     Save the decoded data to Redux if token is valid
+   *  @desc     Save the decoded data to Redux and the token o axios header if token is valid
    *  @param    jwt Token
    *  @return   none
    */
   persist(token) {
     const payload = this.decode(token);
+    axiosHelper.addJwt(token);
 
     store.dispatch({
       type: LOGIN,

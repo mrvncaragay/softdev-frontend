@@ -1,4 +1,4 @@
-import { SIGNUP, LOGIN, LOGOUT } from 'actions/types';
+import { SIGNUP, LOGIN, LOGOUT, POST_PROFILE } from 'actions/types';
 
 const initialState = {
   isAuthenticated: false
@@ -18,6 +18,13 @@ const userReducer = (state = initialState, action) => {
         ...state,
         info: { ...action.payload },
         isAuthenticated: true
+      };
+    }
+
+    case POST_PROFILE: {
+      return {
+        ...state,
+        profile: { ...action.payload }
       };
     }
 

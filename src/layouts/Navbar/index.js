@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { logout, profile } from 'actions/userActions';
+import { logout } from 'actions/userActions';
 
 // Material UI component
 import AppBar from '@material-ui/core/AppBar';
@@ -18,7 +18,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 // Component styles
 import styles from './styles';
 
-const Navbar = ({ children, user, logout, profile }) => {
+const Navbar = ({ children, user, logout }) => {
   const classes = styles();
   const { isAuthenticated } = user;
 
@@ -116,5 +116,5 @@ const myStateToProps = state => ({
 
 export default connect(
   myStateToProps,
-  { logout, profile }
+  { logout }
 )(Navbar);
