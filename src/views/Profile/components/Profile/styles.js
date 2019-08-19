@@ -3,46 +3,40 @@ import { makeStyles } from '@material-ui/styles';
 export default makeStyles(theme => ({
   root: {
     display: 'flex',
-    height: '20vh',
-    width: '100%',
-    alignItems: 'center',
+    flexWrap: 'wrap',
+    height: '100vh',
+    width: '80%',
+    padding: theme.spacing(8),
+    border: `1px solid ${theme.palette.border}`,
+
+    [theme.breakpoints.down('md')]: {
+      width: '100%',
+      padding: theme.spacing(4)
+    }
+  },
+
+  sidePanel: {
+    flex: '0 0 300px',
+    padding: theme.spacing(4),
+    marginRight: theme.spacing(1),
+    border: `1px solid ${theme.palette.border}`,
     backgroundColor: theme.palette.common.white,
-    borderBottom: `1px solid ${theme.palette.border}`,
-    padding: theme.spacing(0, 8, 0, 8)
+    [theme.breakpoints.down('md')]: {
+      flex: '1 1 300px',
+      marginRight: theme.spacing(0),
+      marginBottom: theme.spacing(1)
+    }
   },
 
-  bigAvatar: {
-    margin: 10,
-    width: 120,
-    height: 120
-  },
-
-  info: {
-    flex: 1,
-    display: 'flex',
-    flexDirection: 'column',
-    alignSelf: 'stretch',
-    paddingTop: theme.spacing(4)
-  },
-
-  name: {
-    flex: 1,
-    color: 'red'
-  },
-
-  bio: {
-    flex: 1,
-    color: 'red'
-  },
-
-  footer: {
-    flex: 1,
-    display: 'flex',
-
-    color: 'red',
-
-    '& h6': {
-      alignSelf: 'flex-end'
+  mainPanel: {
+    flex: '1 1 400px',
+    marginLeft: theme.spacing(1),
+    padding: theme.spacing(4),
+    backgroundColor: theme.palette.common.white,
+    border: `1px solid ${theme.palette.border}`,
+    [theme.breakpoints.down('md')]: {
+      marginLeft: theme.spacing(0),
+      marginTop: theme.spacing(1)
     }
   }
 }));
