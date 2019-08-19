@@ -17,6 +17,10 @@ const styles = makeStyles(theme => ({
     padding: theme.spacing(2),
     border: `1px solid ${theme.palette.border}`,
     cursor: 'pointer',
+    '&:hover': {
+      border: `1px solid ${theme.palette.background.default}`
+    },
+
     '&:hover h4, &:hover button': {
       color: theme.palette.background.default
     }
@@ -30,11 +34,15 @@ const styles = makeStyles(theme => ({
   }
 }));
 
-const AddProfileBox = () => {
+const AddBox = ({ title, handleOpen }) => {
   const classes = styles();
 
+  const handleClick = () => {
+    handleOpen(true);
+  };
+
   return (
-    <div className={classes.root}>
+    <div className={classes.root} onClick={handleClick}>
       <Fab
         color='default'
         size='small'
@@ -43,9 +51,9 @@ const AddProfileBox = () => {
       >
         <AddIcon />
       </Fab>
-      <Typography variant='h4'>Add profile</Typography>
+      <Typography variant='h4'>{title}</Typography>
     </div>
   );
 };
 
-export default AddProfileBox;
+export default AddBox;

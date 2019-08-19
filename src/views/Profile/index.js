@@ -1,13 +1,11 @@
 import React from 'react';
 
-// Material UI components
-
 // External
 import { connect } from 'react-redux';
 
 // Shared component
-import { Navbar } from 'layouts';
-import { AddProfileBox } from './components';
+import { Navbar, ModalForm } from 'layouts';
+import { Form } from './components';
 
 // Component styles
 import styles from './styles';
@@ -17,7 +15,13 @@ const Profile = ({ user }) => {
 
   return (
     <Navbar>
-      <div className={classes.root}>{!user.profile && <AddProfileBox />}</div>
+      <div className={classes.root}>
+        {!user.profile && (
+          <ModalForm>
+            <Form />
+          </ModalForm>
+        )}
+      </div>
     </Navbar>
   );
 };

@@ -1,3 +1,5 @@
+import axiosHelper from './axiosHelper';
+
 // External
 import jwt from 'jsonwebtoken';
 import history from './history';
@@ -33,6 +35,8 @@ const jwtHelper = {
     try {
       return jwt.verify(token, process.env.REACT_APP_JWT);
     } catch (err) {
+      axiosHelper.removeJwt();
+      this.clearLS();
       history.push('/');
     }
   },

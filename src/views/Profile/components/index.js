@@ -1,1 +1,1 @@
-export { default as AddProfileBox } from './AddProfileBox';
+export { default as Form } from './Form';
