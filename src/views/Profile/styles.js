@@ -4,7 +4,7 @@ export default makeStyles(theme => ({
   root: {
     display: 'flex',
     height: '100vh',
-    margin: theme.spacing(0, 8, 0, 8),
+    margin: theme.spacing(0, 0, 0, 0),
     justifyContent: 'center'
   }
 }));

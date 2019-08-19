@@ -17,6 +17,7 @@ const userReducer = (state = initialState, action) => {
       return {
         ...state,
         info: { ...action.payload },
+        profile: false,
         isAuthenticated: true,
         isLoading: false
       };
@@ -33,7 +34,7 @@ const userReducer = (state = initialState, action) => {
     case POST_PROFILE: {
       return {
         ...state,
-        profile: { ...action.payload },
+        profile: action.payload && { ...action.payload },
         isLoading: false
       };
     }

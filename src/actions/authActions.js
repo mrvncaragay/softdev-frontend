@@ -34,7 +34,7 @@ export const login = input => async dispatch => {
     axiosHelper.addJwt(token);
 
     // Redirect to homepage
-    history.push('/');
+    history.push('/profile/me');
   } catch (error) {
     dispatch({
       type: ERROR,

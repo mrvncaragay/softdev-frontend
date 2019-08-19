@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 
 // Shared component
 import { Navbar, ModalForm, CircularLoading } from 'layouts';
-import { Form } from './components';
+import { Form, Profile as ProfileLayout } from './components';
 
 // Component styles
 import styles from './styles';
@@ -20,20 +20,18 @@ const Profile = ({ user, fetchProfile }) => {
   }, []);
   /* eslint-enable */
 
-  const profileForm = () => {
-    return (
-      !user.profile && (
-        <ModalForm>
-          <Form />
-        </ModalForm>
-      )
-    );
-  };
-
   return (
     <Navbar>
       <div className={classes.root}>
-        {user.isLoading ? <CircularLoading /> : profileForm()}
+        {user.isLoading ? (
+          <CircularLoading />
+        ) : user.profile ? (
+          <ProfileLayout user={user} />
+        ) : (
+          <ModalForm>
+            <Form />
+          </ModalForm>
+        )}
       </div>
     </Navbar>
   );

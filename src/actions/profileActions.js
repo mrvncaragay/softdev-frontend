@@ -41,7 +41,6 @@ export const fetchProfile = () => async dispatch => {
 
   try {
     const { data } = await axios.get('/api/profiles/me');
-
     dispatch({ type: POST_PROFILE, payload: data });
   } catch (error) {
     dispatch({
