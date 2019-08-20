@@ -9,7 +9,8 @@ export default {
   },
   text: {
     main: '#3C3B3B',
-    secondary: '#646464',
+    primary: '#717171',
+    secondary: '#949494',
     disabled: '#9EA0A4'
   },
   background: {

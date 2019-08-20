@@ -1,8 +1,4 @@
 import React from 'react';
-import Avatar from '@material-ui/core/Avatar';
-
-// Material UI component
-import Typography from '@material-ui/core/Typography';
 
 // Component Styles
 import styles from './styles';
@@ -17,7 +13,7 @@ const Profile = ({ user }) => {
   return (
     <div className={classes.root}>
       <div className={classes.sidePanel}>
-        <SidePanel />
+        <SidePanel profile={profile} />
       </div>
 
       <div className={classes.mainPanel}>
