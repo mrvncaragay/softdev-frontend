@@ -1,6 +1,6 @@
 import React from 'react';
 import handleInputChange from 'hooks/handleInputChange';
-import { createProfile } from 'actions/profileActions';
+import { createProfile, updateProfile } from 'actions/profileActions';
 
 // External
 import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
@@ -14,9 +14,22 @@ import TextField from '@material-ui/core/TextField';
 // Component styles
 import styles from './styles';
 
-const Form = ({ createProfile, error }) => {
+const Form = ({
+  createProfile,
+  updateProfile,
+  error,
+  data,
+  update = false
+}) => {
   const classes = styles();
-  const initialState = {
+  let socialFields;
+
+  // If data is in props retrieve the social fields
+  if (data) {
+    socialFields = { ...data.social };
+  }
+
+  const initialState = { ...data, ...socialFields } || {
     handle: '',
     bio: '',
     location: '',
@@ -34,7 +47,7 @@ const Form = ({ createProfile, error }) => {
   const [state, handleChange] = handleInputChange(initialState);
 
   const handleSubmitForm = () => {
-    createProfile(state);
+    update ? updateProfile(state) : createProfile(state);
   };
 
   return (
@@ -172,7 +185,7 @@ const Form = ({ createProfile, error }) => {
           variant='outlined'
           type='submit'
         >
-          Create Profile
+          {update ? 'Update Profile' : 'Create Profile'}
         </Button>
       </ValidatorForm>
     </div>
@@ -185,5 +198,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { createProfile }
+  { createProfile, updateProfile }
 )(Form);

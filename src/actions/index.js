@@ -5,4 +5,4 @@ export { login } from './authActions';
 export { signup, logout } from './userActions';
 
 // Profile
-export { createProfile } from './profileActions';
+export { createProfile, updateProfile } from './profileActions';

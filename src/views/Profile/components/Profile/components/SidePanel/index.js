@@ -5,6 +5,10 @@ import Typography from '@material-ui/core/Typography';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 
+// Shared Components
+import { ModalForm } from 'layouts';
+import { Form } from '../../../../components';
+
 // Component Styles
 import styles from './styles';
 
@@ -13,7 +17,11 @@ const SidePanel = ({ profile }) => {
 
   return (
     <div className={classes.root}>
-      <div className={classes.editBtn}>edit</div>
+      <div className={classes.editBtn}>
+        <ModalForm button={true}>
+          <Form data={profile} update={true} />
+        </ModalForm>
+      </div>
 
       <Avatar
         alt='User Avatar'
@@ -27,7 +35,7 @@ const SidePanel = ({ profile }) => {
         <Typography variant='h5'>{profile.location}</Typography>
       </div>
 
-      <div className={classes.follow}>
+      <div className={classes.followBtn}>
         <Button fullWidth={true} variant='outlined'>
           Follow
         </Button>
@@ -35,12 +43,12 @@ const SidePanel = ({ profile }) => {
 
       <div className={classes.stats}>
         <div className={classes.following}>
-          <Typography variant='h3'>200</Typography>
+          <Typography variant='h3'>132</Typography>
           <Typography variant='h6'>Following</Typography>
         </div>
 
         <div className={classes.followers}>
-          <Typography variant='h3'>200</Typography>
+          <Typography variant='h3'>54</Typography>
           <Typography variant='h6'>Followers</Typography>
         </div>
       </div>

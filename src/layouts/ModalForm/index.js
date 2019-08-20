@@ -19,7 +19,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide ref={ref} {...props} />;
 });
 
-const ModalForm = ({ children }) => {
+const ModalForm = ({ children, button = false }) => {
   const classes = styles();
   const [open, setOpen] = React.useState(false);
 
@@ -33,7 +33,13 @@ const ModalForm = ({ children }) => {
 
   return (
     <div>
-      <AddBox title='add profile' handleOpen={handleOpen} />
+      {button ? (
+        <Button fullWidth={true} variant='outlined' onClick={handleOpen}>
+          Edit
+        </Button>
+      ) : (
+        <AddBox title='add profile' handleOpen={handleOpen} />
+      )}
 
       <Dialog
         open={open}

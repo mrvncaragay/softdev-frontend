@@ -25,9 +25,10 @@ export default makeStyles(theme => ({
     textAlign: 'center',
 
     '& h3': {
-      fontSize: '16px',
+      fontSize: '1.2em',
+      fontWeight: '500',
       textTransform: 'initial',
-      letterSpacing: '0.1em',
+      letterSpacing: '0.05em',
       margin: theme.spacing(0, 0, 1, 0)
     },
 
@@ -49,8 +50,8 @@ export default makeStyles(theme => ({
     }
   },
 
-  follow: {
-    margin: theme.spacing(2, 0, 1, 0)
+  followBtn: {
+    margin: theme.spacing(4, 0, 1, 0)
   },
 
   stats: {
@@ -63,8 +64,8 @@ export default makeStyles(theme => ({
 
     '& h3': {
       letterSpacing: '0em',
-      fontSize: '18px',
-      fontWeight: '600',
+      fontSize: '1em',
+      fontWeight: '500',
       marginBottom: '1px',
       color: theme.palette.text.primary
     },
