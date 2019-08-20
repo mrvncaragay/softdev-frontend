@@ -6,8 +6,7 @@ import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 
 // Shared Components
-import { ModalForm } from 'layouts';
-import { Form } from '../../../../components';
+import { ModalForm, NewProfile } from 'layouts';
 
 // Component Styles
 import styles from './styles';
@@ -19,7 +18,7 @@ const SidePanel = ({ profile }) => {
     <div className={classes.root}>
       <div className={classes.editBtn}>
         <ModalForm button={true}>
-          <Form data={profile} update={true} />
+          <NewProfile data={profile} update={true} />
         </ModalForm>
       </div>
 

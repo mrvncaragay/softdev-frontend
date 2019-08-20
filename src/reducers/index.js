@@ -3,6 +3,6 @@ import userReducer from './userReducer';
 import errorReducer from './errorReducer';
 
 export default combineReducers({
-  user: userReducer,
+  currentUser: userReducer,
   error: errorReducer
 });

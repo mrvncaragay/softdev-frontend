@@ -18,9 +18,9 @@ import MenuIcon from '@material-ui/icons/Menu';
 // Component styles
 import styles from './styles';
 
-const Navbar = ({ children, user, logout }) => {
+const Navbar = ({ children, currentUser, logout }) => {
   const classes = styles();
-  const { isAuthenticated } = user;
+  const { isAuthenticated } = currentUser;
 
   const handleLogOut = () => logout();
   return (
@@ -111,7 +111,7 @@ const Navbar = ({ children, user, logout }) => {
 };
 
 const myStateToProps = state => ({
-  user: state.user
+  currentUser: state.currentUser
 });
 
 export default connect(

@@ -8,7 +8,7 @@ export const LOGOUT = 'LOGOUT';
 export const SET_LOADNG_USER = 'SET_LOADNG_USER';
 
 // Profile
-export const POST_PROFILE = 'SAVE_PROFILE';
+export const SAVE_PROFILE = 'SAVE_PROFILE';
 export const SET_LOADNG_PROFILE = 'SET_LOADNG_PROFILE';
 
 // Error

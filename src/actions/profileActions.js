@@ -1,7 +1,6 @@
-import { POST_PROFILE, ERROR, SET_LOADNG_USER } from './types';
+import { SAVE_PROFILE, ERROR, SET_LOADNG_USER } from './types';
 import axios from 'axios';
 import history from 'util/history';
-import Profile from 'views/Profile';
 
 /*
  *  @desc     Create new profile
@@ -18,7 +17,7 @@ export const createProfile = input => async dispatch => {
       ...input
     });
 
-    dispatch({ type: POST_PROFILE, payload: data });
+    dispatch({ type: SAVE_PROFILE, payload: data });
 
     // Redirect to User Home Page
     history.push('/profile/me');
@@ -45,17 +44,17 @@ export const updateProfile = input => async dispatch => {
     website,
     githubusername,
     instagram,
-    facebool,
+    facebook,
     twitter,
     linkedin
   } = input;
 
-  // dispatch({
-  //   type: SET_LOADNG_USER
-  // });
+  dispatch({
+    type: SET_LOADNG_USER
+  });
 
   try {
-    const data = await axios.put('/api/profiles/' + input._id, {
+    const { data } = await axios.put('/api/profiles/' + input._id, {
       user: input.user._id,
       handle,
       bio,
@@ -68,15 +67,13 @@ export const updateProfile = input => async dispatch => {
         ? input.skills.toString()
         : input.skills,
       instagram,
-      facebool,
+      facebook,
       twitter,
       linkedin
     });
 
-    console.log(data);
-
-    //dispatch({ type: POST_PROFILE, payload: data });
-    // Redirect to User Home Page
+    dispatch({ type: SAVE_PROFILE, payload: data });
+    //Redirect to User Home Page
     //history.push('/profile/me');
   } catch (error) {
     dispatch({
@@ -98,7 +95,7 @@ export const fetchProfile = () => async dispatch => {
 
   try {
     const { data } = await axios.get('/api/profiles/me');
-    dispatch({ type: POST_PROFILE, payload: data });
+    dispatch({ type: SAVE_PROFILE, payload: data });
   } catch (error) {
     dispatch({
       type: ERROR,

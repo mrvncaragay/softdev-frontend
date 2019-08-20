@@ -2,7 +2,7 @@ import {
   SIGNUP,
   LOGIN,
   LOGOUT,
-  POST_PROFILE,
+  SAVE_PROFILE,
   SET_LOADNG_USER
 } from 'actions/types';
 
@@ -31,7 +31,7 @@ const userReducer = (state = initialState, action) => {
       };
     }
 
-    case POST_PROFILE: {
+    case SAVE_PROFILE: {
       return {
         ...state,
         profile: action.payload && { ...action.payload },

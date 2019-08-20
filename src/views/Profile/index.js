@@ -5,13 +5,18 @@ import { fetchProfile } from 'actions/profileActions';
 import { connect } from 'react-redux';
 
 // Shared component
-import { Navbar, ModalForm, CircularLoading } from 'layouts';
-import { Form, Profile as ProfileLayout } from './components';
+import {
+  Navbar,
+  ModalForm,
+  CircularLoading,
+  Profile as ProfileLayout,
+  NewProfile
+} from 'layouts';
 
 // Component styles
 import styles from './styles';
 
-const Profile = ({ user, fetchProfile }) => {
+const Profile = ({ currentUser, fetchProfile }) => {
   const classes = styles();
 
   /* eslint-disable */
@@ -23,13 +28,13 @@ const Profile = ({ user, fetchProfile }) => {
   return (
     <Navbar>
       <div className={classes.root}>
-        {user.isLoading ? (
+        {currentUser.isLoading ? (
           <CircularLoading />
-        ) : user.profile ? (
-          <ProfileLayout user={user} />
+        ) : currentUser.profile ? (
+          <ProfileLayout currentUser={currentUser} />
         ) : (
           <ModalForm>
-            <Form />
+            <NewProfile />
           </ModalForm>
         )}
       </div>
@@ -38,7 +43,7 @@ const Profile = ({ user, fetchProfile }) => {
 };
 
 const mapStateToProps = state => ({
-  user: state.user
+  currentUser: state.currentUser
 });
 
 export default connect(

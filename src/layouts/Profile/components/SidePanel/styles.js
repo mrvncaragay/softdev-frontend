@@ -58,16 +58,17 @@ export default makeStyles(theme => ({
     width: '100%',
     display: 'flex',
     justifyContent: 'center',
-    margin: theme.spacing(4, 0, 1, 0),
+    margin: theme.spacing(4, 0, 4, 0),
     borderTop: `1px solid ${theme.palette.border}`,
     borderBottom: `1px solid ${theme.palette.border}`,
 
     '& h3': {
       letterSpacing: '0em',
-      fontSize: '1em',
-      fontWeight: '500',
+      fontSize: '1.5em',
       marginBottom: '1px',
-      color: theme.palette.text.primary
+      color: theme.palette.text.primary,
+      fontFamily: 'monospace',
+      fontWeight: '700'
     },
 
     '& span': {
