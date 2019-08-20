@@ -34,7 +34,7 @@ export default makeStyles(theme => ({
     height: 'fit-content',
     marginLeft: theme.spacing(1),
     // padding: theme.spacing(4),
-    backgroundColor: theme.palette.common.white,
+    backgroundColor: 'inherit',
     // border: `1px solid ${theme.palette.border}`,
     [theme.breakpoints.down('md')]: {
       marginLeft: theme.spacing(0),
