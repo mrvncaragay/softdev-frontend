@@ -1,4 +1,5 @@
 import React from 'react';
+import { randomPics, randomNums } from 'util/randomHelpers';
 
 // Material UI component
 import Card from '@material-ui/core/Card';
@@ -24,7 +25,12 @@ const InfoCardSkills = ({ title, icon, skills }) => {
         </div>
 
         {arrSkills.map(skill => (
-          <SkillTab key={skill} skill={skill} />
+          <SkillTab
+            key={skill}
+            skill={skill}
+            pics={randomPics()}
+            score={randomNums()}
+          />
         ))}
       </CardContent>
     </Card>

@@ -8,36 +8,27 @@ import Typography from '@material-ui/core/Typography';
 // Component styles
 import styles from './styles';
 
-const SkillTab = ({ skill }) => {
+const SkillTab = ({ skill, pics, score }) => {
   const classes = styles();
 
   return (
     <div className={classes.root}>
       <div className={classes.skillScore}>
-        <Badge className={classes.margin} badgeContent={32} max={999} />
+        <Badge className={classes.margin} badgeContent={score} max={999} />
         <Typography variant='body2'>{skill}</Typography>
       </div>
 
       <div className={classes.likers}>
-        <Avatar
-          alt='Remy Sharp'
-          src='https://placekitten.com/640/360'
-          className={classes.avatar}
-        />
+        {pics.map((pic, i) => (
+          <Avatar
+            key={i}
+            alt='Random Pic'
+            src={`${pic}`}
+            className={classes.avatar}
+          />
+        ))}
 
-        <Avatar
-          alt='Remy Sharp'
-          src='https://baconmockup.com/640/360'
-          className={classes.avatar}
-        />
-
-        <Avatar
-          alt='Remy Sharp'
-          src='https://www.placecage.com/640/360'
-          className={classes.avatar}
-        />
-
-        <Badge badgeContent={32} max={32 - 3} />
+        <Badge badgeContent={score} max={score - 4} />
       </div>
     </div>
   );
