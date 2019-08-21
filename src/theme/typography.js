@@ -1,4 +1,5 @@
 import palette from './palette';
+import theme from 'theme';
 
 export default {
   fontFamily: ['Raleway', 'Helvetica', 'sans-serif'].join(','),
@@ -38,5 +39,13 @@ export default {
     color: palette.text.secondary,
     fontSize: '12px',
     letterSpacing: '0.15em'
+  },
+
+  body2: {
+    color: palette.text.primary,
+    fontSize: '0.8em',
+    letterSpacing: '0.20em',
+    fontWeight: 500,
+    lineHeight: 1.5
   }
 };
