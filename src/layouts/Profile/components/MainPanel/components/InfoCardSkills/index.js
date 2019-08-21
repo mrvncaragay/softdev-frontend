@@ -1,13 +1,18 @@
 import React from 'react';
+
+// Material UI component
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
-import Typography from '@material-ui/core/Typography';
+
+// Shared Component
+import SkillTab from './component/SkillTab';
 
 // Component styles
 import styles from './styles';
 
-const InfoCard = ({ title, icon, bio }) => {
+const InfoCardSkills = ({ title, icon, skills }) => {
   const classes = styles();
+  const arrSkills = skills[0].split(',');
 
   return (
     <Card className={classes.card}>
@@ -18,12 +23,12 @@ const InfoCard = ({ title, icon, bio }) => {
           <p>{title}</p>
         </div>
 
-        <div className={classes.body}>
-          <Typography variant='body2'>{bio}</Typography>
-        </div>
+        {arrSkills.map(skill => (
+          <SkillTab key={skill} skill={skill} />
+        ))}
       </CardContent>
     </Card>
   );
 };
 
-export default InfoCard;
+export default InfoCardSkills;

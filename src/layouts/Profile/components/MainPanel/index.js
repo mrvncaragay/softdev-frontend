@@ -10,7 +10,7 @@ import Following from '@material-ui/icons/DeviceHub';
 import Recomendation from '@material-ui/icons/ThumbUp';
 
 // Shared Component
-import { InfoCard, Card } from './components';
+import { InfoCard, InfoCardSkills, Card } from './components';
 
 // Component Styles
 import styles from './styles';
@@ -30,16 +30,16 @@ const MainPanel = ({ profile }) => {
           title='Summary'
           icon={<CustomIcon type={<Assignment />} />}
         />
-        <InfoCard
+        <InfoCardSkills
           skills={profile.skills}
           title='Skills'
           icon={<CustomIcon type={<Skills />} />}
         />
-        <InfoCard title='Experience' icon={<CustomIcon type={<Work />} />} />
+        {/* <InfoCard title='Experience' icon={<CustomIcon type={<Work />} />} />
         <InfoCard title='Education' icon={<CustomIcon type={<School />} />} />
-        <InfoCard title='Interest' icon={<CustomIcon type={<Interest />} />} />
+        <InfoCard title='Interest' icon={<CustomIcon type={<Interest />} />} /> */}
       </Card>
-
+      {/* 
       <Card title='Recommendations'>
         <InfoCard
           title='Recomendation'
@@ -49,7 +49,7 @@ const MainPanel = ({ profile }) => {
 
       <Card title='Following'>
         <InfoCard title='Interest' icon={<CustomIcon type={<Following />} />} />
-      </Card>
+      </Card> */}
     </div>
   );
 };
