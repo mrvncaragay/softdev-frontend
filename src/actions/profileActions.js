@@ -1,4 +1,4 @@
-import { SAVE_PROFILE, ERROR, SET_LOADNG_USER } from './types';
+import { SAVE_PROFILE, ERROR, SET_LOADNG_USER, SAVE_EXPERIENCE } from './types';
 import axios from 'axios';
 import history from 'util/history';
 
@@ -74,6 +74,32 @@ export const updateProfile = input => async dispatch => {
 
     dispatch({ type: SAVE_PROFILE, payload: data });
     //Redirect to User Home Page
+    //history.push('/profile/me');
+  } catch (error) {
+    dispatch({
+      type: ERROR,
+      payload: error.response.data
+    });
+  }
+};
+
+/*
+ *  @desc     Create new profile
+ *  @param    user input
+ *  @return   none
+ */
+export const createExperience = input => async dispatch => {
+  // dispatch({
+  //   type: SET_LOADNG_USER
+  // });
+
+  try {
+    const { data } = await axios.put('/api/profiles/me/experience', {
+      ...input
+    });
+
+    dispatch({ type: SAVE_EXPERIENCE, payload: data });
+    // Redirect to User Home Page
     //history.push('/profile/me');
   } catch (error) {
     dispatch({

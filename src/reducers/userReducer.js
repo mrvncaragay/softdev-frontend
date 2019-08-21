@@ -3,7 +3,8 @@ import {
   LOGIN,
   LOGOUT,
   SAVE_PROFILE,
-  SET_LOADNG_USER
+  SET_LOADNG_USER,
+  SAVE_EXPERIENCE
 } from 'actions/types';
 
 const initialState = {
@@ -36,6 +37,16 @@ const userReducer = (state = initialState, action) => {
         ...state,
         profile: action.payload && { ...action.payload },
         isLoading: false
+      };
+    }
+
+    case SAVE_EXPERIENCE: {
+      return {
+        ...state,
+        profile: {
+          ...state.profile,
+          experience: [...action.payload.experience]
+        }
       };
     }
 

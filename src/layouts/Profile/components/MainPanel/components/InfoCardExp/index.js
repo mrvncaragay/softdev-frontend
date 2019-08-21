@@ -14,7 +14,7 @@ import CardContent from '@material-ui/core/CardContent';
 // Shared Components
 import { ModalForm, NewExperience } from 'layouts';
 
-const InfoCardExp = ({ title, icon, skills }) => {
+const InfoCardExp = ({ title, icon, experience }) => {
   const classes = styles();
 
   const iconButton = ({ handleClick }) => {
@@ -40,7 +40,9 @@ const InfoCardExp = ({ title, icon, skills }) => {
           </div>
         </div>
 
-        <ExperienceTab />
+        {experience.map(exp => (
+          <ExperienceTab key={exp._id} experience={exp} />
+        ))}
       </CardContent>
     </Card>
   );

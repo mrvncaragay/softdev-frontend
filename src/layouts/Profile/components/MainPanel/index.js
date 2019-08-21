@@ -31,7 +31,11 @@ const MainPanel = ({ profile }) => {
           icon={<CustomIcon type={<Assignment />} />}
         />
 
-        <InfoCardExp title='Experience' icon={<CustomIcon type={<Work />} />} />
+        <InfoCardExp
+          experience={profile.experience}
+          title='Experience'
+          icon={<CustomIcon type={<Work />} />}
+        />
 
         <InfoCardSkills
           skills={profile.skills}

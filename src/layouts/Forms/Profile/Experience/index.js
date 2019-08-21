@@ -1,6 +1,6 @@
 import React from 'react';
 import handleInputChange from 'hooks/handleInputChange';
-import { createProfile, updateProfile } from 'actions/profileActions';
+import { createExperience } from 'actions/profileActions';
 
 // External
 import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
@@ -15,13 +15,7 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 // Component styles
 import styles from './styles';
 
-const Experience = ({
-  createProfile,
-  updateProfile,
-  error,
-  data,
-  update = false
-}) => {
+const Experience = ({ createExperience, error, data, update = false }) => {
   const classes = styles();
 
   const initialState = { ...data } && {
@@ -36,10 +30,10 @@ const Experience = ({
   const [state, handleChange] = handleInputChange(initialState);
 
   const handleSubmitForm = () => {
-    update ? updateProfile(state) : createProfile(state);
+    createExperience(state);
+    //update ? updateProfile(state) : createProfile(state);
   };
 
-  console.log(state);
   return (
     <div className={classes.root}>
       <Typography variant='h3'>Add New Experience</Typography>
@@ -135,5 +129,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { createProfile, updateProfile }
+  { createExperience }
 )(Experience);
