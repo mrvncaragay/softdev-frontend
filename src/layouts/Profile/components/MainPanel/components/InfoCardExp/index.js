@@ -12,7 +12,7 @@ import styles from './styles';
 import CardContent from '@material-ui/core/CardContent';
 
 // Shared Components
-import { ModalForm } from 'layouts';
+import { ModalForm, NewExperience } from 'layouts';
 
 const InfoCardExp = ({ title, icon, skills }) => {
   const classes = styles();
@@ -34,7 +34,9 @@ const InfoCardExp = ({ title, icon, skills }) => {
           <p>{title}</p>
 
           <div className={classes.addExperience}>
-            <ModalForm CustomButton={iconButton} />
+            <ModalForm CustomButton={iconButton}>
+              <NewExperience />
+            </ModalForm>
           </div>
         </div>
 

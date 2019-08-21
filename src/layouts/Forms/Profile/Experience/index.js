@@ -14,7 +14,7 @@ import TextField from '@material-ui/core/TextField';
 // Component styles
 import styles from './styles';
 
-const ExperienceForm = ({
+const Experience = ({
   createProfile,
   updateProfile,
   error,
@@ -30,19 +30,13 @@ const ExperienceForm = ({
   }
 
   const initialState = { ...data, ...socialFields } || {
-    handle: '',
-    bio: '',
-    location: '',
-    status: '',
-    skills: '',
+    title: '',
     company: '',
-    website: '',
-    githubusername: '',
-    youtube: '',
-    facebook: '',
-    twitter: '',
-    linkedin: '',
-    instagram: ''
+    location: '',
+    from: '',
+    to: '',
+    current: '',
+    description: ''
   };
   const [state, handleChange] = handleInputChange(initialState);
 
@@ -52,126 +46,60 @@ const ExperienceForm = ({
 
   return (
     <div className={classes.root}>
-      <Typography variant='h3'>Create a New Profile</Typography>
+      <Typography variant='h3'>Add New Experience</Typography>
 
       <ValidatorForm onSubmit={handleSubmitForm}>
         <TextValidator
-          label='Profile Name (required)'
-          name='handle'
-          value={state.handle}
-          onChange={handleChange}
-          validators={['required']}
-          errorMessages={['This field is required.']}
-        />
-
-        <TextField
-          label='About'
-          name='bio'
-          value={state.bio}
-          onChange={handleChange}
-          multiline
-          rows='4'
-          className={classes.textField}
-        />
-
-        <TextValidator
-          label='Location'
-          name='location'
-          value={state.location}
-          placeholder='City & State... e.g San Francisco, CA'
-          onChange={handleChange}
-        />
-
-        <TextValidator
-          label='Career Status (required)'
-          name='status'
-          placeholder='Student, Software Developer...'
-          value={state.status}
+          label='Title (required)'
+          name='title'
+          value={state.title}
           onChange={handleChange}
           validators={['required']}
           errorMessages={['This field is required.']}
         />
 
         <TextValidator
-          label='Company'
+          label='Company (required)'
           name='company'
           value={state.company}
+          placeholder='Google, Facebook...'
           onChange={handleChange}
         />
 
         <TextValidator
-          label='Website'
-          name='website'
-          value={state.website}
-          placeholder='Your porfolio or company...'
+          label='location'
+          name='location'
+          value={state.location}
           onChange={handleChange}
         />
 
         <TextValidator
-          label='Github'
-          name='githubusername'
-          placeholder='Link you github repos...'
-          value={state.githubusername}
+          label='From'
+          name='from'
+          type='date'
+          value={state.from}
           onChange={handleChange}
         />
 
         <TextValidator
-          label='Skills (required)'
-          name='skills'
-          placeholder='C++, Java, JavaScript...'
-          value={state.skills}
+          label='To'
+          name='to'
+          type='date'
+          value={state.to}
           onChange={handleChange}
-          validators={['required']}
-          errorMessages={['This field is required.']}
         />
 
-        <Typography variant='h4' className={classes.optional}>
-          Optional
-        </Typography>
+        <TextValidator
+          label='Current'
+          name='current'
+          value={state.current}
+          onChange={handleChange}
+        />
 
         <TextValidator
-          className={classes.url}
-          name='youtube'
-          value={state.youtube}
-          label='Youtube'
-          placeholder='Url...'
-          margin='dense'
-          onChange={handleChange}
-        />
-        <TextValidator
-          className={classes.url}
-          label='Facebook'
-          name='facebook'
-          value={state.facebok}
-          placeholder='Url...'
-          margin='dense'
-          onChange={handleChange}
-        />
-        <TextValidator
-          className={classes.url}
-          name='twitter'
-          value={state.twitter}
-          label='Twitter'
-          placeholder='Url...'
-          margin='dense'
-          onChange={handleChange}
-        />
-        <TextValidator
-          className={classes.url}
-          name='linkedin'
-          value={state.linkedin}
-          label='LinkedIn'
-          placeholder='Url...'
-          margin='dense'
-          onChange={handleChange}
-        />
-        <TextField
-          className={classes.url}
-          name='instagram'
-          value={state.instagram}
-          label='Instagram'
-          placeholder='Url...'
-          margin='dense'
+          label='Description'
+          name='description'
+          value={state.description}
           onChange={handleChange}
         />
 
@@ -185,7 +113,7 @@ const ExperienceForm = ({
           variant='outlined'
           type='submit'
         >
-          {update ? 'Update Profile' : 'Create Profile'}
+          {update ? 'Update Experience' : 'Add Experience'}
         </Button>
       </ValidatorForm>
     </div>
@@ -199,4 +127,4 @@ const mapStateToProps = state => ({
 export default connect(
   mapStateToProps,
   { createProfile, updateProfile }
-)(ExperienceForm);
+)(Experience);
