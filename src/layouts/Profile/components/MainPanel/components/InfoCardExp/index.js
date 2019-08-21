@@ -11,8 +11,20 @@ import ExperienceTab from './components/ExperienceTab';
 import styles from './styles';
 import CardContent from '@material-ui/core/CardContent';
 
+// Shared Components
+import { ModalForm } from 'layouts';
+
 const InfoCardExp = ({ title, icon, skills }) => {
   const classes = styles();
+
+  const iconButton = ({ handleClick }) => {
+    const handleOpen = () => {
+      handleClick();
+    };
+    return (
+      <AddBoxOutlined className={classes.addButton} onClick={handleOpen} />
+    );
+  };
 
   return (
     <Card className={classes.card}>
@@ -20,7 +32,10 @@ const InfoCardExp = ({ title, icon, skills }) => {
         <div className={classes.title}>
           {icon}
           <p>{title}</p>
-          <AddBoxOutlined className={classes.addButton} />
+
+          <div className={classes.addExperience}>
+            <ModalForm CustomButton={iconButton} />
+          </div>
         </div>
 
         <ExperienceTab />

@@ -9,9 +9,6 @@ import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import Clear from '@material-ui/icons/ClearSharp';
 
-// Shared component
-import { AddBox } from 'layouts';
-
 // Component Styles
 import styles from './styles';
 
@@ -19,7 +16,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide ref={ref} {...props} />;
 });
 
-const ModalForm = ({ children, button = false }) => {
+const ModalForm = ({ children, CustomButton }) => {
   const classes = styles();
   const [open, setOpen] = React.useState(false);
 
@@ -33,14 +30,7 @@ const ModalForm = ({ children, button = false }) => {
 
   return (
     <div>
-      {button ? (
-        <Button fullWidth={true} variant='outlined' onClick={handleOpen}>
-          Edit
-        </Button>
-      ) : (
-        <AddBox title='add profile' handleOpen={handleOpen} />
-      )}
-
+      {CustomButton && <CustomButton handleClick={handleOpen} />}
       <Dialog
         open={open}
         scroll='body'

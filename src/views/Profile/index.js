@@ -10,7 +10,8 @@ import {
   ModalForm,
   CircularLoading,
   Profile as ProfileLayout,
-  NewProfile
+  NewProfile,
+  AddBox
 } from 'layouts';
 
 // Component styles
@@ -25,6 +26,10 @@ const Profile = ({ currentUser, fetchProfile }) => {
   }, []);
   /* eslint-enable */
 
+  const button = ({ handleClick }) => {
+    return <AddBox title='Add profile' handleClick={handleClick} />;
+  };
+
   return (
     <Navbar>
       <div className={classes.root}>
@@ -33,7 +38,7 @@ const Profile = ({ currentUser, fetchProfile }) => {
         ) : currentUser.profile ? (
           <ProfileLayout currentUser={currentUser} />
         ) : (
-          <ModalForm>
+          <ModalForm CustomButton={button}>
             <NewProfile />
           </ModalForm>
         )}

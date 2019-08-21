@@ -33,8 +33,10 @@ export default makeStyles(theme => ({
     }
   },
 
+  addExperience: {
+    marginLeft: 'auto'
+  },
   addButton: {
-    marginLeft: 'auto',
     transition: 'color 350ms ease',
 
     '&:hover': {

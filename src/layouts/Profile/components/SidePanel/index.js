@@ -14,10 +14,21 @@ import styles from './styles';
 const SidePanel = ({ profile }) => {
   const classes = styles();
 
+  const button = ({ handleClick }) => {
+    const handleOpen = () => {
+      handleClick();
+    };
+    return (
+      <Button fullWidth={true} variant='outlined' onClick={handleOpen}>
+        Edit
+      </Button>
+    );
+  };
+
   return (
     <div className={classes.root}>
       <div className={classes.editBtn}>
-        <ModalForm button={true}>
+        <ModalForm CustomButton={button}>
           <NewProfile data={profile} update={true} />
         </ModalForm>
       </div>

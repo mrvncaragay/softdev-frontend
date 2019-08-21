@@ -34,15 +34,15 @@ const styles = makeStyles(theme => ({
   }
 }));
 
-const AddBox = ({ title, handleOpen }) => {
+const AddBox = ({ title, handleClick }) => {
   const classes = styles();
 
-  const handleClick = () => {
-    handleOpen(true);
+  const handleOpen = () => {
+    handleClick(true);
   };
 
   return (
-    <div className={classes.root} onClick={handleClick}>
+    <div className={classes.root} onClick={handleOpen}>
       <Fab
         color='default'
         size='small'

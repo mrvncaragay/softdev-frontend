@@ -1,6 +1,7 @@
 ### `Improve`
 
 - Edit Profile, maybe slide out after a succesfull update
+- System not redirecting to login after jwt expires, only when refresh
 
 ## Available Scripts
 
