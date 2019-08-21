@@ -4,7 +4,11 @@ export default makeStyles(theme => ({
   card: {
     minWidth: 275,
     padding: theme.spacing(4, 4, 1, 4),
-    border: `none`
+    borderRight: `1px solid ${theme.palette.border2} !important`,
+    borderLeft: `1px solid ${theme.palette.border2} !important`,
+    '&:last-child': {
+      borderBottom: `1px solid ${theme.palette.border2}  !important`
+    }
   },
 
   title: {

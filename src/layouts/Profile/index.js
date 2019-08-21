@@ -17,7 +17,7 @@ const Profile = ({ currentUser }) => {
       </div>
 
       <div className={classes.mainPanel}>
-        <MainPanel />
+        <MainPanel profile={profile} />
       </div>
     </div>
   );

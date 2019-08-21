@@ -6,7 +6,7 @@ import Typography from '@material-ui/core/Typography';
 // Component styles
 import styles from './styles';
 
-const InfoCard = ({ title, icon }) => {
+const InfoCard = ({ title, icon, bio }) => {
   const classes = styles();
 
   return (
@@ -20,12 +20,7 @@ const InfoCard = ({ title, icon }) => {
 
         <div className={classes.body}>
           <Typography variant='body2' gutterBottom>
-            Mauris neque quam, fermentum ut nisl vitae, convallis maximus nisl.
-            Sed mattis nunc id lorem euismod placerat. Vivamus porttitor magna
-            enim, ac accumsan tortor cursus at. Phasellus sed ultricies mi non
-            congue ullam corper. Praesent tincidunt sed tellus ut rutrum. Sed
-            vitae justo condimentum, porta lectus vitae, ultricies congue
-            gravida diam non fringilla.
+            {bio}
           </Typography>
         </div>
       </CardContent>

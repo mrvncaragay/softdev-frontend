@@ -15,7 +15,7 @@ import { InfoCard, Card } from './components';
 // Component Styles
 import styles from './styles';
 
-const MainPanel = () => {
+const MainPanel = ({ profile }) => {
   const classes = styles();
 
   const CustomIcon = ({ ...props }) => {
@@ -25,8 +25,16 @@ const MainPanel = () => {
   return (
     <div className={classes.root}>
       <Card title='Background'>
-        <InfoCard title='Summary' icon={<CustomIcon type={<Assignment />} />} />
-        <InfoCard title='Skills' icon={<CustomIcon type={<Skills />} />} />
+        <InfoCard
+          bio={profile.bio}
+          title='Summary'
+          icon={<CustomIcon type={<Assignment />} />}
+        />
+        <InfoCard
+          skills={profile.skills}
+          title='Skills'
+          icon={<CustomIcon type={<Skills />} />}
+        />
         <InfoCard title='Experience' icon={<CustomIcon type={<Work />} />} />
         <InfoCard title='Education' icon={<CustomIcon type={<School />} />} />
         <InfoCard title='Interest' icon={<CustomIcon type={<Interest />} />} />

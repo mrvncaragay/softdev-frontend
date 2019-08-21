@@ -21,6 +21,7 @@ export default {
   },
   letter: '#646464',
   border: 'rgba(160, 160, 160, 0.3)',
+  border2: 'rgba(160, 160, 160, 0.4)',
   btn: 'rgba(115, 115, 115, 0.3)',
   divider: 'rgba(160, 160, 160, 0.3)'
 };
