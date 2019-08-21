@@ -14,7 +14,7 @@ export default makeStyles(theme => ({
 
     '& .MuiBadge-badge': {
       fontSize: '1.5em',
-      color: theme.palette.text.primary,
+      color: theme.palette.text.disabled,
       border: '1px solid',
       padding: '8px',
       height: '40px',

@@ -10,7 +10,7 @@ import Following from '@material-ui/icons/DeviceHub';
 import Recomendation from '@material-ui/icons/ThumbUp';
 
 // Shared Component
-import { InfoCard, InfoCardSkills, Card } from './components';
+import { InfoCard, InfoCardSkills, InfoCardExp, Card } from './components';
 
 // Component Styles
 import styles from './styles';
@@ -31,14 +31,15 @@ const MainPanel = ({ profile }) => {
           icon={<CustomIcon type={<Assignment />} />}
         />
 
+        <InfoCardExp title='Experience' icon={<CustomIcon type={<Work />} />} />
+
         <InfoCardSkills
           skills={profile.skills}
           title='Skills'
           icon={<CustomIcon type={<Skills />} />}
         />
 
-        {/* <InfoCard title='Experience' icon={<CustomIcon type={<Work />} />} />
-        <InfoCard title='Education' icon={<CustomIcon type={<School />} />} />
+        {/*<InfoCard title='Education' icon={<CustomIcon type={<School />} />} />
         <InfoCard title='Interest' icon={<CustomIcon type={<Interest />} />} /> */}
       </Card>
       {/* 
