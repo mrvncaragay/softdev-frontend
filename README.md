@@ -1,7 +1,9 @@
 ### `Improve`
 
 - Edit Profile, maybe slide out after a succesfull update
-- System not redirecting to login after jwt expires, only when refresh
+- System not redirecting to login after jwt expires, only when
+  refresh
+- Forms are not cleared after openning, maybe clear?
 
 ## Available Scripts
 

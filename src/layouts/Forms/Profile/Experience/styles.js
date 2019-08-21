@@ -7,6 +7,10 @@ export default makeStyles(theme => ({
     '& h4:first-child': {
       fontSize: '1em',
       marginBottom: theme.spacing(3)
+    },
+
+    '& .MuiCheckbox-colorPrimary.Mui-checked': {
+      color: theme.palette.background.default
     }
   },
 
@@ -22,15 +26,6 @@ export default makeStyles(theme => ({
       padding: theme.spacing(1),
       color: 'white'
     }
-  },
-
-  optional: {
-    margin: theme.spacing(3, 0, 0, 0),
-    fontSize: '14px !important'
-  },
-
-  url: {
-    marginBottom: '0px'
   },
 
   error: {

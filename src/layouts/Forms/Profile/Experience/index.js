@@ -9,7 +9,8 @@ import { connect } from 'react-redux';
 // Material UI component
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import TextField from '@material-ui/core/TextField';
+import Checkbox from '@material-ui/core/Checkbox';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
 
 // Component styles
 import styles from './styles';
@@ -22,20 +23,14 @@ const Experience = ({
   update = false
 }) => {
   const classes = styles();
-  let socialFields;
 
-  // If data is in props retrieve the social fields
-  if (data) {
-    socialFields = { ...data.social };
-  }
-
-  const initialState = { ...data, ...socialFields } || {
+  const initialState = { ...data } && {
     title: '',
     company: '',
     location: '',
     from: '',
     to: '',
-    current: '',
+    current: 'false',
     description: ''
   };
   const [state, handleChange] = handleInputChange(initialState);
@@ -44,6 +39,7 @@ const Experience = ({
     update ? updateProfile(state) : createProfile(state);
   };
 
+  console.log(state);
   return (
     <div className={classes.root}>
       <Typography variant='h3'>Add New Experience</Typography>
@@ -64,6 +60,8 @@ const Experience = ({
           value={state.company}
           placeholder='Google, Facebook...'
           onChange={handleChange}
+          validators={['required']}
+          errorMessages={['This field is required.']}
         />
 
         <TextValidator
@@ -79,6 +77,9 @@ const Experience = ({
           type='date'
           value={state.from}
           onChange={handleChange}
+          InputLabelProps={{ shrink: true }}
+          validators={['required']}
+          errorMessages={['This field is required.']}
         />
 
         <TextValidator
@@ -87,13 +88,21 @@ const Experience = ({
           type='date'
           value={state.to}
           onChange={handleChange}
+          InputLabelProps={{ shrink: true }}
+          disabled={state.current === 'false' ? false : true}
         />
 
-        <TextValidator
-          label='Current'
-          name='current'
-          value={state.current}
-          onChange={handleChange}
+        <FormControlLabel
+          control={
+            <Checkbox
+              onChange={handleChange}
+              checked={state.current === 'false' ? false : true}
+              name='current'
+              value={state.current === 'false' ? 'true' : 'false'}
+              color='primary'
+            />
+          }
+          label='I am currently working in this role.'
         />
 
         <TextValidator
