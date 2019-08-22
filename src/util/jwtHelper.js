@@ -37,7 +37,7 @@ const jwtHelper = {
     } catch (err) {
       axiosHelper.removeJwt();
       this.clearLS();
-      history.push('/');
+      history.push('/login');
     }
   },
 

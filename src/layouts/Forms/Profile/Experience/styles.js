@@ -14,6 +14,22 @@ export default makeStyles(theme => ({
     }
   },
 
+  header: {
+    display: 'flex',
+    alignItems: 'center',
+
+    '& button': {
+      marginLeft: 'auto',
+      '&:hover': {
+        backgroundColor: theme.palette.background.default
+      },
+
+      '&:hover span': {
+        color: 'white'
+      }
+    }
+  },
+
   btnSubmit: {
     backgroundColor: theme.palette.text.main,
     marginTop: theme.spacing(2),

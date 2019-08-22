@@ -89,18 +89,55 @@ export const updateProfile = input => async dispatch => {
  *  @return   none
  */
 export const createExperience = input => async dispatch => {
-  // dispatch({
-  //   type: SET_LOADNG_USER
-  // });
-
   try {
     const { data } = await axios.put('/api/profiles/me/experience', {
       ...input
     });
 
     dispatch({ type: SAVE_EXPERIENCE, payload: data });
-    // Redirect to User Home Page
-    //history.push('/profile/me');
+  } catch (error) {
+    dispatch({
+      type: ERROR,
+      payload: error.response.data
+    });
+  }
+};
+
+/*
+ *  @desc     Update experience
+ *  @param    user input
+ *  @return   none
+ */
+export const updateExperience = (input, id) => async dispatch => {
+  const { current, ...rest } = input;
+
+  try {
+    const { data } = await axios.put('/api/profiles/me/experience/' + id, {
+      ...rest,
+      current: current.toString()
+    });
+
+    dispatch({ type: SAVE_EXPERIENCE, payload: data });
+  } catch (error) {
+    dispatch({
+      type: ERROR,
+      payload: error.response.data
+    });
+  }
+};
+
+/*
+ *  @desc     Remove experience
+ *  @param    user input
+ *  @return   none
+ */
+export const removeExperience = id => async dispatch => {
+  try {
+    const { data } = await axios.put(
+      '/api/profiles/me/experience/remove/' + id
+    );
+
+    dispatch({ type: SAVE_EXPERIENCE, payload: data });
   } catch (error) {
     dispatch({
       type: ERROR,

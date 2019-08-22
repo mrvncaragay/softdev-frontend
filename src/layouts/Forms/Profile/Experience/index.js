@@ -1,6 +1,6 @@
 import React from 'react';
 import handleInputChange from 'hooks/handleInputChange';
-import { createExperience } from 'actions/profileActions';
+import { createExperience, updateExperience, removeExperience } from 'actions';
 
 // External
 import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
@@ -15,30 +15,50 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 // Component styles
 import styles from './styles';
 
-const Experience = ({ createExperience, error, data, update = false }) => {
+const Experience = ({
+  createExperience,
+  updateExperience,
+  removeExperience,
+  error,
+  data = {},
+  update = false
+}) => {
   const classes = styles();
 
-  const initialState = { ...data } && {
-    title: '',
-    company: '',
-    location: '',
-    from: '',
-    to: '',
-    current: 'false',
-    description: ''
+  const initialState = {
+    title: data.title || '',
+    company: data.company || '',
+    location: data.location || '',
+    from: data.from || '',
+    to: data.to || '',
+    current: data.current || 'false',
+    description: data.description || ''
   };
   const [state, handleChange] = handleInputChange(initialState);
 
   const handleSubmitForm = () => {
-    createExperience(state);
-    //update ? updateProfile(state) : createProfile(state);
+    update ? updateExperience(state, data._id) : createExperience(state);
+  };
+
+  const handleDelete = () => {
+    if (data._id) removeExperience(data._id);
   };
 
   return (
     <div className={classes.root}>
-      <Typography variant='h3'>Add New Experience</Typography>
-
       <ValidatorForm onSubmit={handleSubmitForm}>
+        <div className={classes.header}>
+          <Typography variant='h3'>
+            {update ? 'update Experience' : 'Add New Experience'}
+          </Typography>
+
+          {update && (
+            <Button variant='outlined' onClick={handleDelete}>
+              Delete
+            </Button>
+          )}
+        </div>
+
         <TextValidator
           label='Title (required)'
           name='title'
@@ -129,5 +149,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { createExperience }
+  { createExperience, updateExperience, removeExperience }
 )(Experience);

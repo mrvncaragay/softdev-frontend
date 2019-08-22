@@ -4,6 +4,7 @@
 - System not redirecting to login after jwt expires, only when
   refresh
 - Forms are not cleared after openning, maybe clear?
+- Experience Date is not showing in the update form since date is unformatted
 
 ## Available Scripts
 

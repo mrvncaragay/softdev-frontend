@@ -18,31 +18,25 @@ const Form = ({
   createProfile,
   updateProfile,
   error,
-  data,
+  data = {},
   update = false
 }) => {
   const classes = styles();
-  let socialFields;
 
-  // If data is in props retrieve the social fields
-  if (data) {
-    socialFields = { ...data.social };
-  }
-
-  const initialState = { ...data, ...socialFields } || {
-    handle: '',
-    bio: '',
-    location: '',
-    status: '',
-    skills: '',
-    company: '',
-    website: '',
-    githubusername: '',
-    youtube: '',
-    facebook: '',
-    twitter: '',
-    linkedin: '',
-    instagram: ''
+  const initialState = {
+    handle: data.handle || '',
+    bio: data.bio || '',
+    location: data.location || '',
+    status: data.status || '',
+    skills: data.skills || '',
+    company: data.company || '',
+    website: data.website || '',
+    githubusername: data.githubusername || '',
+    youtube: data.youtube || '',
+    facebook: data.facebook || '',
+    twitter: data.twitter || '',
+    linkedin: data.linkedin || '',
+    instagram: data.instagram || ''
   };
   const [state, handleChange] = handleInputChange(initialState);
 

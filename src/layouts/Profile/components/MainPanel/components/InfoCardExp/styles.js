@@ -36,6 +36,7 @@ export default makeStyles(theme => ({
   addExperience: {
     marginLeft: 'auto'
   },
+
   addButton: {
     transition: 'color 350ms ease',
 

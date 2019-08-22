@@ -2,21 +2,33 @@ import { makeStyles } from '@material-ui/core/styles';
 
 export default makeStyles(theme => ({
   root: {
-    height: 'auto',
+    height: '50px',
     marginLeft: theme.spacing(6) - 1,
-    marginBottom: theme.spacing(2),
+    marginBottom: theme.spacing(3),
     display: 'flex',
     alignItems: 'center'
   },
 
   eduSections: {
-    '& h6': {
-      padding: theme.spacing(0.3, 1, 0.2, 0)
-    },
+    '& h4': {
+      letterSpacing: '0.15em'
+    }
+  },
 
-    '& h5, ': {
-      padding: theme.spacing(0.1, 1, 0.1, 0),
-      color: theme.palette.text.primary
+  edit: {
+    height: '100%',
+    marginLeft: theme.spacing(1),
+
+    '& svg': {
+      fontSize: '18px',
+      position: 'relative',
+      top: '-4px',
+      transition: 'color 300ms ease',
+
+      '&:hover': {
+        color: theme.palette.background.default,
+        cursor: 'pointer'
+      }
     }
   }
 }));
