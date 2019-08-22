@@ -1,6 +1,6 @@
 import React from 'react';
 import handleInputChange from 'hooks/handleInputChange';
-import { createExperience, updateExperience, removeExperience } from 'actions';
+import { addEducation, updateEducation, removeEducation } from 'actions';
 
 // External
 import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
@@ -16,10 +16,10 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 // Component styles
 import styles from './styles';
 
-const Experience = ({
-  createExperience,
-  updateExperience,
-  removeExperience,
+const Education = ({
+  addEducation,
+  updateEducation,
+  removeEducation,
   error,
   data = {},
   update = false
@@ -27,9 +27,9 @@ const Experience = ({
   const classes = styles();
 
   const initialState = {
-    title: data.title || '',
-    company: data.company || '',
-    location: data.location || '',
+    school: data.school || '',
+    degree: data.degree || '',
+    fieldOfStudy: data.fieldOfStudy || '',
     from: data.from ? moment(data.from).format('YYYY-MM-DD') : '',
     to: data.to || '',
     current: data.current || 'false',
@@ -38,11 +38,11 @@ const Experience = ({
   const [state, handleChange] = handleInputChange(initialState);
 
   const handleSubmitForm = () => {
-    update ? updateExperience(state, data._id) : createExperience(state);
+    update ? updateEducation(state, data._id) : addEducation(state);
   };
 
   const handleDelete = () => {
-    if (data._id) removeExperience(data._id);
+    if (data._id) removeEducation(data._id);
   };
 
   return (
@@ -50,7 +50,7 @@ const Experience = ({
       <ValidatorForm onSubmit={handleSubmitForm}>
         <div className={classes.header}>
           <Typography variant='h3'>
-            {update ? 'update Experience' : 'Add New Experience'}
+            {update ? 'update Education' : 'Add New Education'}
           </Typography>
 
           {update && (
@@ -61,28 +61,28 @@ const Experience = ({
         </div>
 
         <TextValidator
-          label='Title (required)'
-          name='title'
-          value={state.title}
+          label='School name (required)'
+          name='school'
+          value={state.school}
           onChange={handleChange}
           validators={['required']}
           errorMessages={['This field is required.']}
         />
 
         <TextValidator
-          label='Company (required)'
-          name='company'
-          value={state.company}
-          placeholder='Google, Facebook...'
+          label='Degree (required)'
+          name='degree'
+          value={state.degree}
+          placeholder='Engineering, Science...'
           onChange={handleChange}
           validators={['required']}
           errorMessages={['This field is required.']}
         />
 
         <TextValidator
-          label='location'
-          name='location'
-          value={state.location}
+          label='Field Of Study'
+          name='fieldOfStudy'
+          value={state.fieldOfStudy}
           onChange={handleChange}
         />
 
@@ -137,7 +137,7 @@ const Experience = ({
           variant='outlined'
           type='submit'
         >
-          {update ? 'Update Experience' : 'Add Experience'}
+          {update ? 'Update Education' : 'Add Education'}
         </Button>
       </ValidatorForm>
     </div>
@@ -150,5 +150,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { createExperience, updateExperience, removeExperience }
-)(Experience);
+  { addEducation, updateEducation, removeEducation }
+)(Education);

@@ -4,7 +4,8 @@ import {
   LOGOUT,
   SAVE_PROFILE,
   SET_LOADNG_USER,
-  SAVE_EXPERIENCE
+  SAVE_EXPERIENCE,
+  SAVE_EDUCATION
 } from 'actions/types';
 
 const initialState = {
@@ -46,6 +47,16 @@ const userReducer = (state = initialState, action) => {
         profile: {
           ...state.profile,
           experience: [...action.payload.experience]
+        }
+      };
+    }
+
+    case SAVE_EDUCATION: {
+      return {
+        ...state,
+        profile: {
+          ...state.profile,
+          education: [...action.payload.education]
         }
       };
     }

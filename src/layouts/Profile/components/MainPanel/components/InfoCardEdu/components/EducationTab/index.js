@@ -4,7 +4,7 @@ import React from 'react';
 import moment from 'moment';
 
 // Shared Components
-import { ModalForm, NewExperience } from 'layouts';
+import { ModalForm, NewEducation } from 'layouts';
 
 // Material UI component
 import Typography from '@material-ui/core/Typography';
@@ -13,7 +13,7 @@ import Edit from '@material-ui/icons/Create';
 // Component styles
 import styles from './styles';
 
-const ExperienceTab = ({ experience }) => {
+const EducationTab = ({ education }) => {
   const classes = styles();
 
   const iconButton = ({ handleClick }) => {
@@ -25,25 +25,25 @@ const ExperienceTab = ({ experience }) => {
 
   return (
     <div className={classes.root}>
-      <div className={classes.expSections}>
+      <div className={classes.eduSections}>
         <Typography variant='h6'>
-          {experience.current
-            ? `${moment(experience.from).format('MMM YYYY')} - Present`
-            : `${moment(experience.from).format('MMM YYYY')} -  ${moment(
-                experience.to
+          {education.current
+            ? `${moment(education.from).format('MMM YYYY')} - Present`
+            : `${moment(education.from).format('MMM YYYY')} -  ${moment(
+                education.to
               ).format('MMM YYYY')}`}
         </Typography>
-        <Typography variant='h4'>{experience.title}</Typography>
-        <Typography variant='h5'>{experience.company}</Typography>
+        <Typography variant='h4'>{education.school}</Typography>
+        <Typography variant='h5'>{education.degree}</Typography>
       </div>
 
       <div className={classes.edit}>
         <ModalForm CustomButton={iconButton}>
-          <NewExperience data={experience} update={true} />
+          <NewEducation data={education} update={true} />
         </ModalForm>
       </div>
     </div>
   );
 };
 
-export default ExperienceTab;
+export default EducationTab;

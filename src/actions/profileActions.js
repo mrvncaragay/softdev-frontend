@@ -1,4 +1,10 @@
-import { SAVE_PROFILE, ERROR, SET_LOADNG_USER, SAVE_EXPERIENCE } from './types';
+import {
+  SAVE_PROFILE,
+  ERROR,
+  SET_LOADNG_USER,
+  SAVE_EXPERIENCE,
+  SAVE_EDUCATION
+} from './types';
 import axios from 'axios';
 import history from 'util/history';
 
@@ -57,7 +63,7 @@ export const updateProfile = (input, profile) => async dispatch => {
 };
 
 /*
- *  @desc     Create new profile
+ *  @desc     Create new Experience
  *  @param    user input
  *  @return   none
  */
@@ -111,6 +117,64 @@ export const removeExperience = id => async dispatch => {
     );
 
     dispatch({ type: SAVE_EXPERIENCE, payload: data });
+  } catch (error) {
+    dispatch({
+      type: ERROR,
+      payload: error.response.data
+    });
+  }
+};
+
+/*
+ *  @desc     Add new education
+ *  @param    user input
+ *  @return   none
+ */
+export const addEducation = input => async dispatch => {
+  try {
+    const { data } = await axios.put('/api/profiles/me/education', {
+      ...input
+    });
+
+    dispatch({ type: SAVE_EDUCATION, payload: data });
+  } catch (error) {
+    dispatch({
+      type: ERROR,
+      payload: error.response.data
+    });
+  }
+};
+
+/*
+ *  @desc     Update education
+ *  @param    user input
+ *  @return   none
+ */
+export const updateEducation = (input, id) => async dispatch => {
+  const { current, ...rest } = input;
+  try {
+    const { data } = await axios.put('/api/profiles/me/education/' + id, {
+      ...rest,
+      current: current.toString()
+    });
+    dispatch({ type: SAVE_EDUCATION, payload: data });
+  } catch (error) {
+    dispatch({
+      type: ERROR,
+      payload: error.response.data
+    });
+  }
+};
+
+/*
+ *  @desc     Remove education
+ *  @param    user input
+ *  @return   none
+ */
+export const removeEducation = id => async dispatch => {
+  try {
+    const { data } = await axios.put('/api/profiles/me/education/remove/' + id);
+    dispatch({ type: SAVE_EDUCATION, payload: data });
   } catch (error) {
     dispatch({
       type: ERROR,

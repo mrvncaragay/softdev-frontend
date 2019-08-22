@@ -9,7 +9,7 @@ export default makeStyles(theme => ({
     alignItems: 'center'
   },
 
-  expSections: {
+  eduSections: {
     '& h4': {
       letterSpacing: '0.15em',
       margin: theme.spacing(0.3, 0, 0.3, 0)

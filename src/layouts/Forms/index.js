@@ -1,1 +1,1 @@
-export { NewProfile, NewExperience } from './Profile';
+export { NewProfile, NewExperience, NewEducation } from './Profile';

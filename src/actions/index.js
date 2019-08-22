@@ -10,5 +10,8 @@ export {
   updateProfile,
   removeExperience,
   createExperience,
-  updateExperience
+  updateExperience,
+  addEducation,
+  removeEducation,
+  updateEducation
 } from './profileActions';
