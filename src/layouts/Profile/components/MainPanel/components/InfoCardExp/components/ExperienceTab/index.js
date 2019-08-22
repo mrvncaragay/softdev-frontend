@@ -1,11 +1,13 @@
 import React from 'react';
 
+// External
+import moment from 'moment';
+
 // Shared Components
 import { ModalForm, NewExperience } from 'layouts';
 
 // Material UI component
 import Typography from '@material-ui/core/Typography';
-import AddBoxOutlined from '@material-ui/icons/AddBoxOutlined';
 import Edit from '@material-ui/icons/Create';
 
 // Component styles
@@ -26,7 +28,7 @@ const ExperienceTab = ({ experience }) => {
       <div className={classes.eduSections}>
         <Typography variant='h6'>
           {experience.current
-            ? `${experience.from} - Present`
+            ? `${moment(experience.from).format('MMM YYYY')} - Present`
             : `${experience.from} -  ${experience.to}`}
         </Typography>
         <Typography variant='h4'>{experience.title}</Typography>

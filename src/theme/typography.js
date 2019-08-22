@@ -1,5 +1,4 @@
 import palette from './palette';
-import theme from 'theme';
 
 export default {
   fontFamily: ['Raleway', 'Helvetica', 'sans-serif'].join(','),

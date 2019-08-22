@@ -5,6 +5,7 @@ import { createExperience, updateExperience, removeExperience } from 'actions';
 // External
 import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
 import { connect } from 'react-redux';
+import moment from 'moment';
 
 // Material UI component
 import Button from '@material-ui/core/Button';
@@ -89,7 +90,7 @@ const Experience = ({
           label='From'
           name='from'
           type='date'
-          value={state.from}
+          value={data ? moment(state.from).format('YYYY-MM-DD') : state.from}
           onChange={handleChange}
           InputLabelProps={{ shrink: true }}
           validators={['required']}
