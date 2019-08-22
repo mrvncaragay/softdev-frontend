@@ -41,7 +41,7 @@ const Form = ({
   const [state, handleChange] = handleInputChange(initialState);
 
   const handleSubmitForm = () => {
-    update ? updateProfile(state) : createProfile(state);
+    update ? updateProfile(state, data) : createProfile(state);
   };
 
   return (

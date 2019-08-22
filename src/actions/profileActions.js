@@ -34,47 +34,20 @@ export const createProfile = input => async dispatch => {
  *  @param    user input
  *  @return   none
  */
-export const updateProfile = input => async dispatch => {
-  const {
-    handle,
-    bio,
-    location,
-    status,
-    company,
-    website,
-    githubusername,
-    instagram,
-    facebook,
-    twitter,
-    linkedin
-  } = input;
-
+export const updateProfile = (input, profile) => async dispatch => {
   dispatch({
     type: SET_LOADNG_USER
   });
 
   try {
-    const { data } = await axios.put('/api/profiles/' + input._id, {
-      user: input.user._id,
-      handle,
-      bio,
-      location,
-      status,
-      company,
-      website,
-      githubusername,
+    const { data } = await axios.put('/api/profiles/' + profile._id, {
+      user: profile.user._id,
+      ...input,
       skills: Array.isArray(input.skills)
         ? input.skills.toString()
-        : input.skills,
-      instagram,
-      facebook,
-      twitter,
-      linkedin
+        : input.skills
     });
-
     dispatch({ type: SAVE_PROFILE, payload: data });
-    //Redirect to User Home Page
-    //history.push('/profile/me');
   } catch (error) {
     dispatch({
       type: ERROR,
@@ -158,6 +131,7 @@ export const fetchProfile = () => async dispatch => {
 
   try {
     const { data } = await axios.get('/api/profiles/me');
+
     dispatch({ type: SAVE_PROFILE, payload: data });
   } catch (error) {
     dispatch({
