@@ -28,8 +28,8 @@ export default {
   },
 
   h5: {
-    color: palette.text.secondary,
-    fontSize: '12px',
+    color: palette.text.main,
+    fontSize: '11.2px',
     letterSpacing: '0.25em',
     textTransform: 'uppercase'
   },

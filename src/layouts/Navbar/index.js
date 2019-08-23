@@ -51,7 +51,7 @@ const Navbar = ({ children, currentUser, logout }) => {
             <div className={classes.info}>
               {isAuthenticated && (
                 <Fragment>
-                  <NavLink activeClassName={classes.activeLink} to='/post/me'>
+                  <NavLink activeClassName={classes.activeLink} to='/posts'>
                     <IconButton>
                       <Tooltip title='Posts' placement='bottom'>
                         <ChromeReader />

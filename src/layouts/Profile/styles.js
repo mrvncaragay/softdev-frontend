@@ -9,7 +9,7 @@ export default makeStyles(theme => ({
 
     [theme.breakpoints.down('md')]: {
       width: '100%',
-      padding: theme.spacing(4),
+      padding: theme.spacing(0),
       display: 'inline-block'
     }
   },

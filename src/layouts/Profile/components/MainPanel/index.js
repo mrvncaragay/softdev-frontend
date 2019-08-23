@@ -55,9 +55,9 @@ const MainPanel = ({ profile }) => {
           icon={<CustomIcon type={<Skills />} />}
         />
 
-        {/*<InfoCard title='Interest' icon={<CustomIcon type={<Interest />} />} /> */}
+        <InfoCard title='Interest' icon={<CustomIcon type={<Interest />} />} />
       </Card>
-      {/* 
+
       <Card title='Recommendations'>
         <InfoCard
           title='Recomendation'
@@ -67,7 +67,7 @@ const MainPanel = ({ profile }) => {
 
       <Card title='Following'>
         <InfoCard title='Interest' icon={<CustomIcon type={<Following />} />} />
-      </Card> */}
+      </Card>
     </div>
   );
 };
