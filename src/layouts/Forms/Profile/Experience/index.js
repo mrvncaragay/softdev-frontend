@@ -31,7 +31,7 @@ const Experience = ({
     company: data.company || '',
     location: data.location || '',
     from: data.from ? moment(data.from).format('YYYY-MM-DD') : '',
-    to: data.to || '',
+    to: data.to ? moment(data.to).format('YYYY-MM-DD') : '',
     current: data.current || 'false',
     description: data.description || ''
   };

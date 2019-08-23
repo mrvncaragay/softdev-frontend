@@ -22,7 +22,8 @@ const Education = ({
   removeEducation,
   error,
   data = {},
-  update = false
+  update = false,
+  closeForm
 }) => {
   const classes = styles();
 
@@ -31,7 +32,7 @@ const Education = ({
     degree: data.degree || '',
     fieldOfStudy: data.fieldOfStudy || '',
     from: data.from ? moment(data.from).format('YYYY-MM-DD') : '',
-    to: data.to || '',
+    to: data.to ? moment(data.to).format('YYYY-MM-DD') : '',
     current: data.current || 'false',
     description: data.description || ''
   };

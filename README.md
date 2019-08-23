@@ -5,6 +5,7 @@
   refresh
 - Forms are not cleared after openning, maybe clear?
 - Experience Date is not showing in the update form since date is unformatted
+- Update or Remove send Id and remove it from redux instead of passing the wholte object
 
 ## Available Scripts
 

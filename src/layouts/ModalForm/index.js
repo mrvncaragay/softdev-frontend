@@ -28,6 +28,10 @@ const ModalForm = ({ children, CustomButton }) => {
     setOpen(false);
   };
 
+  const ChildrenForm = props => {
+    return React.cloneElement(children, { ...props });
+  };
+
   return (
     <div>
       {CustomButton && <CustomButton handleClick={handleOpen} />}
@@ -46,7 +50,7 @@ const ModalForm = ({ children, CustomButton }) => {
           </IconButton>
         </DialogTitle>
 
-        {children}
+        <ChildrenForm closeForm={handleClose} />
 
         <DialogActions className={classes.actions}>
           <Button fullWidth={true} variant='outlined' onClick={handleClose}>

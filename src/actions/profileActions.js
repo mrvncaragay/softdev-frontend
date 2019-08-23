@@ -14,10 +14,6 @@ import history from 'util/history';
  *  @return   none
  */
 export const createProfile = input => async dispatch => {
-  dispatch({
-    type: SET_LOADNG_USER
-  });
-
   try {
     const { data } = await axios.post('/api/profiles', {
       ...input
@@ -41,10 +37,6 @@ export const createProfile = input => async dispatch => {
  *  @return   none
  */
 export const updateProfile = (input, profile) => async dispatch => {
-  dispatch({
-    type: SET_LOADNG_USER
-  });
-
   try {
     const { data } = await axios.put('/api/profiles/' + profile._id, {
       user: profile.user._id,
@@ -157,6 +149,7 @@ export const updateEducation = (input, id) => async dispatch => {
       ...rest,
       current: current.toString()
     });
+
     dispatch({ type: SAVE_EDUCATION, payload: data });
   } catch (error) {
     dispatch({
@@ -174,6 +167,7 @@ export const updateEducation = (input, id) => async dispatch => {
 export const removeEducation = id => async dispatch => {
   try {
     const { data } = await axios.put('/api/profiles/me/education/remove/' + id);
+
     dispatch({ type: SAVE_EDUCATION, payload: data });
   } catch (error) {
     dispatch({
