@@ -35,11 +35,16 @@ export default makeStyles(theme => ({
     textAlign: 'end',
     '& h4': {
       fontSize: '11.2px',
-      marginBottom: theme.spacing(1),
+      marginBottom: theme.spacing(2),
       marginRight: '5px',
       [theme.breakpoints.down('md')]: {
         padding: theme.spacing(3)
       }
+    },
+
+    '& img': {
+      width: '60px',
+      height: '60px'
     },
 
     '& a': {
@@ -64,16 +69,13 @@ export default makeStyles(theme => ({
 
   img: {
     padding: theme.spacing(6, 6, 3, 6),
-
     [theme.breakpoints.down('md')]: {
       padding: theme.spacing(4, 3, 4, 3)
     }
   },
 
   media: {
-    height: 0,
-    width: '100%',
-    paddingTop: '38.33%'
+    paddingTop: '33.33%'
   },
 
   text: {
