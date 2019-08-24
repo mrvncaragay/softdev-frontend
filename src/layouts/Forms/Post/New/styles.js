@@ -39,7 +39,7 @@ export default makeStyles(theme => ({
   btnSubmit: {
     backgroundColor: theme.palette.text.main,
     marginTop: theme.spacing(2),
-    marginRight: theme.spacing(1),
+    marginRight: theme.spacing(2),
     '&:hover': {
       backgroundColor: '#4e4e4e',
       border: `1px solid ${theme.palette.border}`
@@ -54,19 +54,22 @@ export default makeStyles(theme => ({
   btnCancel: {
     backgroundColor: theme.palette.common.white,
     marginTop: theme.spacing(2),
+
     '&:hover': {
-      backgroundColor: 'gray',
-      border: `1px solid ${theme.palette.border}`
+      color: theme.palette.text.main
     },
 
     '& span, &:hover span': {
-      padding: theme.spacing(1),
-      color: 'black'
+      padding: theme.spacing(1)
     }
   },
 
   error: {
     color: 'red',
     margin: theme.spacing(1, 0, 1, 0)
+  },
+
+  input: {
+    display: 'none'
   }
 }));

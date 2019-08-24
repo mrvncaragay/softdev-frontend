@@ -1,20 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import handleInputChange from 'hooks/handleInputChange';
 import { addEducation, updateEducation, removeEducation } from 'actions';
 
 // External
 import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
 import { connect } from 'react-redux';
-import moment from 'moment';
 
 // Material UI component
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import Checkbox from '@material-ui/core/Checkbox';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
 
 // Component styles
 import styles from './styles';
+
+// notes: spinner and have a state in redux that when
+// it returns a data it will call dispatch to stop spinnner
+// and exit form.
 
 const Post = ({
   addEducation,
@@ -30,7 +31,13 @@ const Post = ({
   const initialState = {
     text: data.text || ''
   };
+
+  const imageState = {
+    uploading: false,
+    name: ''
+  };
   const [state, handleChange] = handleInputChange(initialState);
+  const [image, setImage] = useState(imageState);
 
   const handleSubmitForm = () => {
     // update ? updateEducation(state, data._id) : addEducation(state);
@@ -38,6 +45,15 @@ const Post = ({
 
   const handleDelete = () => {
     if (data._id) removeEducation(data._id);
+  };
+
+  const handleUpload = e => {
+    const file = e.target.files[0];
+
+    setImage({
+      uploading: true,
+      name: file.name
+    });
   };
 
   const handleClose = () => {
@@ -70,11 +86,30 @@ const Post = ({
           errorMessages={['This field is required.']}
         />
 
+        <input
+          accept='image/*'
+          className={classes.input}
+          id='contained-button-file'
+          type='file'
+          onChange={handleUpload}
+        />
+        <label htmlFor='contained-button-file'>
+          <Button
+            variant='outlined'
+            component='span'
+            className={classes.btnCancel}
+          >
+            Upload Image
+          </Button>
+        </label>
+
+        <Typography variant='h6'>{image.name}</Typography>
+
         <Typography variant='h6' className={classes.error}>
           {error.error}
         </Typography>
 
-        <div class={classes.actions}>
+        <div className={classes.actions}>
           <Button
             className={classes.btnSubmit}
             variant='outlined'

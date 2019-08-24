@@ -24,6 +24,10 @@ export default makeStyles(theme => ({
     '& svg': {
       marginRight: theme.spacing(1),
       fontSize: '18px'
+    },
+
+    '& button': {
+      padding: theme.spacing(1, 2, 1, 2)
     }
   }
 }));
