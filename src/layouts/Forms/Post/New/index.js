@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import handleInputChange from 'hooks/handleInputChange';
-import { addEducation, updateEducation, removeEducation } from 'actions';
+import { addPost, updateEducation, removeEducation } from 'actions';
 
 // External
 import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
@@ -13,12 +13,8 @@ import Typography from '@material-ui/core/Typography';
 // Component styles
 import styles from './styles';
 
-// notes: spinner and have a state in redux that when
-// it returns a data it will call dispatch to stop spinnner
-// and exit form.
-
 const Post = ({
-  addEducation,
+  addPost,
   updateEducation,
   removeEducation,
   error,
@@ -29,18 +25,18 @@ const Post = ({
   const classes = styles();
 
   const initialState = {
-    text: data.text || ''
+    title: data.title || '',
+    subtitle: data.subtitle || '',
+    text: data.text || '',
+    image: ''
   };
 
-  const imageState = {
-    uploading: false,
-    name: ''
-  };
   const [state, handleChange] = handleInputChange(initialState);
-  const [image, setImage] = useState(imageState);
+  const [imgName, setName] = useState('');
 
   const handleSubmitForm = () => {
-    // update ? updateEducation(state, data._id) : addEducation(state);
+    addPost(state);
+    // update ? updateEducation(state, data._id) : addPost(state);
   };
 
   const handleDelete = () => {
@@ -50,10 +46,8 @@ const Post = ({
   const handleUpload = e => {
     const file = e.target.files[0];
 
-    setImage({
-      uploading: true,
-      name: file.name
-    });
+    if (file) setName(file.name);
+    handleChange(null, file);
   };
 
   const handleClose = () => {
@@ -76,6 +70,24 @@ const Post = ({
         </div>
 
         <TextValidator
+          label='Title (required)'
+          name='title'
+          value={state.title}
+          onChange={handleChange}
+          validators={['required']}
+          errorMessages={['This field is required.']}
+        />
+
+        <TextValidator
+          label='Subtitle (required)'
+          name='subtitle'
+          value={state.subtitle}
+          onChange={handleChange}
+          validators={['required']}
+          errorMessages={['This field is required.']}
+        />
+
+        <TextValidator
           label='What do you want to talk about? (required)'
           name='text'
           multiline
@@ -91,6 +103,7 @@ const Post = ({
           className={classes.input}
           id='contained-button-file'
           type='file'
+          name='image'
           onChange={handleUpload}
         />
         <label htmlFor='contained-button-file'>
@@ -103,7 +116,7 @@ const Post = ({
           </Button>
         </label>
 
-        <Typography variant='h6'>{image.name}</Typography>
+        <Typography variant='h6'>{imgName}</Typography>
 
         <Typography variant='h6' className={classes.error}>
           {error.error}
@@ -137,5 +150,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { addEducation, updateEducation, removeEducation }
+  { addPost, updateEducation, removeEducation }
 )(Post);

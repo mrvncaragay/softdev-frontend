@@ -25,6 +25,7 @@ export default {
       color: palette.background.default
     }
   },
+
   sizeSmall: {
     letterSpacing: '0.15em',
     color: palette.background.default,

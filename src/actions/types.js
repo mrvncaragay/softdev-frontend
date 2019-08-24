@@ -13,5 +13,11 @@ export const SAVE_EXPERIENCE = 'SAVE_EXPERIENCE';
 export const SAVE_EDUCATION = 'SAVE_EDUCATION';
 export const SET_LOADNG_PROFILE = 'SET_LOADNG_PROFILE';
 
+// Post
+export const SAVE_POST = 'SAVE_POST';
+export const SAVE_Like = 'SAVE_Like';
+export const SAVE_COMMENT = 'SAVE_COMMENT';
+export const SET_LOADNG_POST = 'SET_LOADNG_POST';
+
 // Error
 export const ERROR = 'ERROR';

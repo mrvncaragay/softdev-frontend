@@ -15,3 +15,6 @@ export {
   removeEducation,
   updateEducation
 } from './profileActions';
+
+// Post
+export { addPost } from './postActions';
