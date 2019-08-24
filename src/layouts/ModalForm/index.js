@@ -2,10 +2,8 @@ import React from 'react';
 
 // Material UI component
 import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Slide from '@material-ui/core/Slide';
-import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import Clear from '@material-ui/icons/ClearSharp';
 
@@ -16,7 +14,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide ref={ref} {...props} />;
 });
 
-const ModalForm = ({ children, CustomButton }) => {
+const ModalForm = ({ children, CustomButton, customWith = 'sm' }) => {
   const classes = styles();
   const [open, setOpen] = React.useState(false);
 
@@ -38,6 +36,7 @@ const ModalForm = ({ children, CustomButton }) => {
       <Dialog
         open={open}
         scroll='body'
+        maxWidth={customWith}
         TransitionComponent={Transition}
         keepMounted
         onClose={handleClose}
@@ -51,12 +50,6 @@ const ModalForm = ({ children, CustomButton }) => {
         </DialogTitle>
 
         <ChildrenForm closeForm={handleClose} />
-
-        <DialogActions className={classes.actions}>
-          <Button fullWidth={true} variant='outlined' onClick={handleClose}>
-            Cancel
-          </Button>
-        </DialogActions>
       </Dialog>
     </div>
   );

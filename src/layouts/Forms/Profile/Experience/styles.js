@@ -44,6 +44,15 @@ export default makeStyles(theme => ({
     }
   },
 
+  btnCancel: {
+    margin: theme.spacing(2, 0, 2, 0),
+
+    '& span, &:hover span': {
+      padding: theme.spacing(1),
+      color: theme.palette.text.main
+    }
+  },
+
   error: {
     color: 'red',
     margin: theme.spacing(1, 0, 1, 0)

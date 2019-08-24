@@ -46,6 +46,10 @@ const Education = ({
     if (data._id) removeEducation(data._id);
   };
 
+  const handleClose = () => {
+    closeForm();
+  };
+
   return (
     <div className={classes.root}>
       <ValidatorForm onSubmit={handleSubmitForm}>
@@ -139,6 +143,15 @@ const Education = ({
           type='submit'
         >
           {update ? 'Update Education' : 'Add Education'}
+        </Button>
+
+        <Button
+          className={classes.btnCancel}
+          fullWidth={true}
+          variant='outlined'
+          onClick={handleClose}
+        >
+          Cancel
         </Button>
       </ValidatorForm>
     </div>

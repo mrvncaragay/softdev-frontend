@@ -21,7 +21,12 @@ export default makeStyles(theme => ({
   },
 
   btnSubmit: {
-    margin: theme.spacing(2, 0, 2, 0)
+    marginTop: theme.spacing(2),
+
+    '& span, &:hover span': {
+      padding: theme.spacing(1),
+      color: theme.palette.text.main
+    }
   },
 
   createAccountLink: {

@@ -12,6 +12,7 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
+import DialogActions from '@material-ui/core/DialogActions';
 
 // Component styles
 import styles from './styles';
@@ -22,7 +23,8 @@ const Experience = ({
   removeExperience,
   error,
   data = {},
-  update = false
+  update = false,
+  closeForm
 }) => {
   const classes = styles();
 
@@ -43,6 +45,10 @@ const Experience = ({
 
   const handleDelete = () => {
     if (data._id) removeExperience(data._id);
+  };
+
+  const handleClose = () => {
+    closeForm();
   };
 
   return (
@@ -138,6 +144,15 @@ const Experience = ({
           type='submit'
         >
           {update ? 'Update Experience' : 'Add Experience'}
+        </Button>
+
+        <Button
+          fullWidth={true}
+          className={classes.btnCancel}
+          variant='outlined'
+          onClick={handleClose}
+        >
+          Cancel
         </Button>
       </ValidatorForm>
     </div>

@@ -3,16 +3,43 @@ import { makeStyles } from '@material-ui/core/styles';
 
 export default makeStyles(theme => ({
   root: {
+    width: '960px',
     padding: theme.spacing(1, 5, 1, 5),
     '& h4:first-child': {
       fontSize: '1em',
       marginBottom: theme.spacing(3)
+    },
+
+    '& .MuiCheckbox-colorPrimary.Mui-checked': {
+      color: theme.palette.background.default
     }
+  },
+
+  header: {
+    display: 'flex',
+    alignItems: 'center',
+
+    '& button': {
+      marginLeft: 'auto',
+      '&:hover': {
+        backgroundColor: theme.palette.background.default
+      },
+
+      '&:hover span': {
+        color: 'white'
+      }
+    }
+  },
+
+  actions: {
+    textAlign: 'end',
+    marginBottom: theme.spacing(2)
   },
 
   btnSubmit: {
     backgroundColor: theme.palette.text.main,
     marginTop: theme.spacing(2),
+    marginRight: theme.spacing(1),
     '&:hover': {
       backgroundColor: '#4e4e4e',
       border: `1px solid ${theme.palette.border}`
@@ -25,21 +52,17 @@ export default makeStyles(theme => ({
   },
 
   btnCancel: {
-    margin: theme.spacing(2, 0, 2, 0),
+    backgroundColor: theme.palette.common.white,
+    marginTop: theme.spacing(2),
+    '&:hover': {
+      backgroundColor: 'gray',
+      border: `1px solid ${theme.palette.border}`
+    },
 
     '& span, &:hover span': {
       padding: theme.spacing(1),
-      color: theme.palette.text.main
+      color: 'black'
     }
-  },
-
-  optional: {
-    margin: theme.spacing(3, 0, 0, 0),
-    fontSize: '14px !important'
-  },
-
-  url: {
-    marginBottom: '0px'
   },
 
   error: {

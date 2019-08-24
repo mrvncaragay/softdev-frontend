@@ -12,13 +12,5 @@ export default makeStyles(theme => ({
     '& button': {
       padding: theme.spacing(0)
     }
-  },
-
-  actions: {
-    justifyContent: 'center',
-    padding: theme.spacing(0, 5, 5, 5),
-    '& span': {
-      padding: theme.spacing(1)
-    }
   }
 }));

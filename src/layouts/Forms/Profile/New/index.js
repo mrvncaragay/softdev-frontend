@@ -10,6 +10,7 @@ import { connect } from 'react-redux';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
+import DialogActions from '@material-ui/core/DialogActions';
 
 // Component styles
 import styles from './styles';
@@ -19,7 +20,8 @@ const Form = ({
   updateProfile,
   error,
   data = {},
-  update = false
+  update = false,
+  closeForm
 }) => {
   const classes = styles();
 
@@ -42,6 +44,10 @@ const Form = ({
 
   const handleSubmitForm = () => {
     update ? updateProfile(state, data) : createProfile(state);
+  };
+
+  const handleClose = () => {
+    closeForm();
   };
 
   return (
@@ -180,6 +186,15 @@ const Form = ({
           type='submit'
         >
           {update ? 'Update Profile' : 'Create Profile'}
+        </Button>
+
+        <Button
+          fullWidth={true}
+          className={classes.btnCancel}
+          variant='outlined'
+          onClick={handleClose}
+        >
+          Cancel
         </Button>
       </ValidatorForm>
     </div>
