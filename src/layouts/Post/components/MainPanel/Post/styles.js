@@ -12,20 +12,32 @@ export default makeStyles(theme => ({
 
   header: {
     display: 'flex',
-    borderBottom: `1px solid ${theme.palette.border}`
+    borderBottom: `1px solid ${theme.palette.border}`,
+
+    [theme.breakpoints.down('md')]: {
+      flexDirection: 'column',
+      alignItems: 'center'
+    }
   },
 
   title: {
     flex: 3,
     padding: theme.spacing(6),
     borderRight: `1px solid ${theme.palette.border}`,
+
     '& h2': {
       marginBottom: theme.spacing(3),
       fontSize: theme.spacing(3)
     },
 
     [theme.breakpoints.down('md')]: {
-      padding: theme.spacing(3)
+      padding: theme.spacing(3),
+      textAlign: 'center',
+      border: 'none',
+
+      '& h5': {
+        lineHeight: 2
+      }
     }
   },
 
@@ -36,9 +48,21 @@ export default makeStyles(theme => ({
     '& h4': {
       fontSize: '11.2px',
       marginBottom: theme.spacing(2),
-      marginRight: '5px',
-      [theme.breakpoints.down('md')]: {
-        padding: theme.spacing(3)
+      marginRight: '5px'
+    },
+
+    [theme.breakpoints.down('md')]: {
+      padding: theme.spacing(0, 2, 4, 2),
+
+      '& h4': {
+        marginBottom: theme.spacing(0),
+        display: 'inline-flex',
+        marginRight: theme.spacing(4)
+      },
+
+      '& a': {
+        paddingLeft: theme.spacing(4),
+        borderLeft: `1px solid ${theme.palette.border}`
       }
     },
 

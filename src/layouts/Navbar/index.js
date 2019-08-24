@@ -91,7 +91,7 @@ const Navbar = ({ children, currentUser, logout }) => {
                     size='medium'
                   >
                     <Link to='/signup'>get started</Link>
-                  </Button>{' '}
+                  </Button>
                 </Fragment>
               )}
             </div>

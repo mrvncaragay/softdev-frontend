@@ -84,7 +84,7 @@ export default makeStyles(theme => ({
     [theme.breakpoints.down('sm')]: {
       flexGrow: 1,
       textAlign: 'end',
-      paddingRight: '1.5em'
+      paddingRight: theme.spacing(2)
     }
   },
 

@@ -19,19 +19,22 @@ const Post = () => {
       <div className={classes.header}>
         <div className={classes.title}>
           <Typography variant='h2'>King's of kings</Typography>
-          <Typography variant='h5'>Lorem</Typography>
+          <Typography variant='h5'>
+            Lorem Mauris neque quam, fermentum ut nisl vitae Mauris neque quam,
+            fermentum ut nisl vitae
+          </Typography>
         </div>
 
         <div className={classes.author}>
           <Typography variant='h4'>November 1, 2001</Typography>
-          <a href='#'>
+          <Link to='#'>
             <span>John Doe</span>
             <Avatar
               alt='Remy Sharp'
               src='https://previews.123rf.com/images/panyamail/panyamail1809/panyamail180900343/109879063-user-avatar-icon-sign-profile-symbol.jpg'
               className={classes.avatar}
             />
-          </a>
+          </Link>
         </div>
       </div>
 

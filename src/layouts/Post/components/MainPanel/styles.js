@@ -5,6 +5,8 @@ export default makeStyles(theme => ({
     flex: 2,
     display: 'flex',
     flexDirection: 'column',
-    [theme.breakpoints.down('md')]: {}
+    [theme.breakpoints.down('md')]: {
+      order: 0
+    }
   }
 }));
