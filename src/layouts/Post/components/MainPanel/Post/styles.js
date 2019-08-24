@@ -116,7 +116,13 @@ export default makeStyles(theme => ({
     alignItems: 'center',
 
     [theme.breakpoints.down('md')]: {
-      padding: theme.spacing(4, 3, 4, 3)
+      padding: theme.spacing(0, 3, 4, 3),
+      display: 'inline-flex',
+      flexDirection: 'column',
+
+      '& a': {
+        order: 1
+      }
     },
 
     '& button': {
@@ -127,6 +133,10 @@ export default makeStyles(theme => ({
   stats: {
     flex: 1,
     textAlign: 'end',
+
+    [theme.breakpoints.down('md')]: {
+      order: 0
+    },
 
     '& a': {
       margin: theme.spacing(2),
