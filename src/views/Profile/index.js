@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { fetchProfile } from 'actions';
 
 // External
@@ -36,7 +37,14 @@ const Profile = ({ currentUser, fetchProfile }) => {
         {currentUser.isLoading ? (
           <CircularLoading />
         ) : currentUser.profile ? (
-          <ProfileLayout currentUser={currentUser} />
+          <CSSTransition
+            classNames='fade'
+            in={true}
+            appear={true}
+            timeout={500}
+          >
+            <ProfileLayout currentUser={currentUser} />
+          </CSSTransition>
         ) : (
           <ModalForm CustomButton={button}>
             <NewProfile />

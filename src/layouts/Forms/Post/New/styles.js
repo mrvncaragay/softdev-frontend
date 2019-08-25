@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 
 export default makeStyles(theme => ({
   root: {
-    width: '960px',
+    width: 'auto',
     padding: theme.spacing(1, 5, 1, 5),
     '& h4:first-child': {
       fontSize: '1em',
