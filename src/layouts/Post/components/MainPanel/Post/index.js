@@ -1,6 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+// External
+import moment from 'moment';
+
 // Material UI component
 import Typography from '@material-ui/core/Typography';
 import Avatar from '@material-ui/core/Avatar';
@@ -12,26 +15,27 @@ import Comment from '@material-ui/icons/CommentOutlined';
 // Component styles
 import styles from './styles';
 
-const Post = () => {
+const Post = ({ post }) => {
   const classes = styles();
+
+  console.log(post);
   return (
     <div className={classes.root}>
       <div className={classes.header}>
         <div className={classes.title}>
-          <Typography variant='h2'>King's of kings</Typography>
-          <Typography variant='h5'>
-            Lorem Mauris neque quam, fermentum ut nisl vitae Mauris neque quam,
-            fermentum ut nisl vitae
-          </Typography>
+          <Typography variant='h2'>{post.title}</Typography>
+          <Typography variant='h5'>{post.subtitle}</Typography>
         </div>
 
         <div className={classes.author}>
-          <Typography variant='h4'>November 1, 2001</Typography>
+          <Typography variant='h4'>
+            {moment(post.createdAt).format('MMMM DD, YYYY')}
+          </Typography>
           <Link to='#'>
-            <span>John Doe</span>
+            <span>{post.name}</span>
             <Avatar
-              alt='Remy Sharp'
-              src='https://previews.123rf.com/images/panyamail/panyamail1809/panyamail180900343/109879063-user-avatar-icon-sign-profile-symbol.jpg'
+              alt={post.name}
+              src={`${post.avatar}`}
               className={classes.avatar}
             />
           </Link>
@@ -41,19 +45,12 @@ const Post = () => {
       <div className={classes.img}>
         <CardMedia
           className={classes.media}
-          image='https://hyrav2.s3.amazonaws.com/uploads/kina/1471514344496-breakup+grief.jpg'
+          image={`${post.posturl}`}
           title='kings'
         />
       </div>
       <div className={classes.text}>
-        <Typography variant='body2'>
-          Mauris neque quam, fermentum ut nisl vitae, convallis maximus nisl.
-          Sed mattis nunc id lorem euismod placerat. Vivamus porttitor magna
-          enim, ac accumsan tortor cursus at. Phasellus sed ultricies mi non
-          congue ullam corper. Praesent tincidunt sed tellus ut rutrum. Sed
-          vitae justo condimentum, porta lectus vitae, ultricies congue gravida
-          diam non fringilla.
-        </Typography>
+        <Typography variant='body2'>{post.text}</Typography>
       </div>
       <div className={classes.footer}>
         <Link to='#'>

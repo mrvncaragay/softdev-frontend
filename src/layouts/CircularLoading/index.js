@@ -13,7 +13,7 @@ const CircularLoading = () => {
   const classes = styles();
 
   return (
-    <div>
+    <div style={{ textAlign: 'center' }}>
       <CircularProgress className={classes.progress} color='secondary' />
     </div>
   );

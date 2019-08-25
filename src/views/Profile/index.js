@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { fetchProfile } from 'actions/profileActions';
+import { fetchProfile } from 'actions';
 
 // External
 import { connect } from 'react-redux';

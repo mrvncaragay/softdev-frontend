@@ -1,5 +1,4 @@
 import React from 'react';
-import Button from '@material-ui/core/Button';
 
 // Shared component
 import Post from './Post';
@@ -7,13 +6,14 @@ import Post from './Post';
 // Component styles
 import styles from './styles';
 
-const MainPanel = () => {
+const MainPanel = ({ posts }) => {
   const classes = styles();
 
   return (
     <div className={classes.root}>
-      <Post />
-      <Post />
+      {posts.map(post => (
+        <Post key={post._id} post={post} />
+      ))}
     </div>
   );
 };

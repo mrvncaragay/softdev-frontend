@@ -6,13 +6,13 @@ import { MainPanel, SidePanel } from './components';
 // Component styles
 import styles from './styles';
 
-const Post = () => {
+const Post = ({ posts }) => {
   const classes = styles();
 
   return (
     <div className={classes.root}>
       <SidePanel />
-      <MainPanel />
+      <MainPanel posts={posts} />
     </div>
   );
 };

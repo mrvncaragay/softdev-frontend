@@ -6,6 +6,7 @@ export { signup, logout } from './userActions';
 
 // Profile
 export {
+  fetchProfile,
   createProfile,
   updateProfile,
   removeExperience,
@@ -17,4 +18,4 @@ export {
 } from './profileActions';
 
 // Post
-export { addPost } from './postActions';
+export { addPost, fetchPosts } from './postActions';

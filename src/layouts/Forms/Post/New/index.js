@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import handleInputChange from 'hooks/handleInputChange';
 import { addPost, updateEducation, removeEducation } from 'actions';
 
@@ -28,7 +28,7 @@ const Post = ({
     title: data.title || '',
     subtitle: data.subtitle || '',
     text: data.text || '',
-    image: ''
+    image: null
   };
 
   const [state, handleChange] = handleInputChange(initialState);
@@ -54,6 +54,18 @@ const Post = ({
     closeForm(false);
   };
 
+  useEffect(() => {
+    ValidatorForm.addValidationRule(
+      'betweenTenToSixHundred',
+      val => val.length >= 10 && val.length <= 600
+    );
+
+    ValidatorForm.addValidationRule(
+      'betweenFiveToOneHundred',
+      val => val.length >= 5 && val.length <= 100
+    );
+  }, []);
+
   return (
     <div className={classes.root}>
       <ValidatorForm onSubmit={handleSubmitForm}>
@@ -74,8 +86,11 @@ const Post = ({
           name='title'
           value={state.title}
           onChange={handleChange}
-          validators={['required']}
-          errorMessages={['This field is required.']}
+          validators={['required', 'betweenFiveToOneHundred']}
+          errorMessages={[
+            'This field is required.',
+            'Text must between 5 to 100 characters.'
+          ]}
         />
 
         <TextValidator
@@ -83,8 +98,11 @@ const Post = ({
           name='subtitle'
           value={state.subtitle}
           onChange={handleChange}
-          validators={['required']}
-          errorMessages={['This field is required.']}
+          validators={['required', 'betweenFiveToOneHundred']}
+          errorMessages={[
+            'This field is required.',
+            'Text must between 5 to 100 characters.'
+          ]}
         />
 
         <TextValidator
@@ -94,8 +112,11 @@ const Post = ({
           rows='10'
           value={state.text}
           onChange={handleChange}
-          validators={['required']}
-          errorMessages={['This field is required.']}
+          validators={['required', 'betweenTenToSixHundred']}
+          errorMessages={[
+            'This field is required.',
+            'Text must between 10 to 600 characters.'
+          ]}
         />
 
         <input
