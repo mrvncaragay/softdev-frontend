@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+import LazyLoad from 'react-lazy-load';
 // External
 import moment from 'moment';
 
@@ -18,7 +18,6 @@ import styles from './styles';
 const Post = ({ post }) => {
   const classes = styles();
 
-  console.log(post);
   return (
     <div className={classes.root}>
       <div className={classes.header}>
@@ -43,11 +42,13 @@ const Post = ({ post }) => {
       </div>
 
       <div className={classes.img}>
-        <CardMedia
-          className={classes.media}
-          image={`${post.posturl}`}
-          title='kings'
-        />
+        <LazyLoad>
+          <CardMedia
+            className={classes.media}
+            image={`${post.posturl}`}
+            title='kings'
+          />
+        </LazyLoad>
       </div>
       <div className={classes.text}>
         <Typography variant='body2'>{post.text}</Typography>

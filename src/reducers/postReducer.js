@@ -9,7 +9,7 @@ const postReducer = (state = initialState, action) => {
     case SAVE_POST: {
       return {
         ...state,
-        posts: [...action.payload],
+        BigPosts: [...action.payload],
         isLoading: false
       };
     }
@@ -17,7 +17,7 @@ const postReducer = (state = initialState, action) => {
     case ADD_POST: {
       return {
         ...state,
-        posts: [action.payload, ...state.posts],
+        BigPosts: [action.payload, ...state.BigPosts],
         isLoading: false
       };
     }

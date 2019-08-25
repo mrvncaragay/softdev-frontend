@@ -95,6 +95,15 @@ export default makeStyles(theme => ({
     padding: theme.spacing(6, 6, 3, 6),
     [theme.breakpoints.down('md')]: {
       padding: theme.spacing(4, 3, 4, 3)
+    },
+
+    '& .LazyLoad': {
+      opacity: 0,
+      transition: 'opacity 700ms  linear'
+    },
+
+    '& .LazyLoad.is-visible': {
+      opacity: 1
     }
   },
 

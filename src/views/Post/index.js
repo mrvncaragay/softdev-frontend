@@ -46,7 +46,7 @@ const Post = ({ fetchPosts, posts }) => {
       {posts.isLoading ? (
         <CircularLoading />
       ) : (
-        posts.posts && (
+        posts.BigPosts && (
           <Fragment>
             <div className={classes.writePost}>
               <ModalForm customWith='md' CustomButton={button}>
@@ -54,7 +54,7 @@ const Post = ({ fetchPosts, posts }) => {
               </ModalForm>
             </div>
             <div className={classes.root}>
-              <PostLayout posts={posts.posts} />
+              <PostLayout posts={posts.BigPosts} />
             </div>
           </Fragment>
         )

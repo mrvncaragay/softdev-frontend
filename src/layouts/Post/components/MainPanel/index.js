@@ -1,4 +1,5 @@
 import React from 'react';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 // Shared component
 import Post from './Post';
@@ -11,9 +12,14 @@ const MainPanel = ({ posts }) => {
 
   return (
     <div className={classes.root}>
-      {posts.map(post => (
-        <Post key={post._id} post={post} />
-      ))}
+      {/* Render two elements at the same time. One element in and Other out*/}
+      <TransitionGroup>
+        {posts.map(post => (
+          <CSSTransition key={post._id} classNames='fade' timeout={300}>
+            <Post key={post._id} post={post} />
+          </CSSTransition>
+        ))}
+      </TransitionGroup>
     </div>
   );
 };

@@ -36,6 +36,9 @@ const Post = ({
 
   const handleSubmitForm = () => {
     addPost(state);
+    setTimeout(() => {
+      closeForm(false);
+    }, 300);
     // update ? updateEducation(state, data._id) : addPost(state);
   };
 

@@ -2,15 +2,11 @@ import { SAVE_POST, ERROR, SET_LOADNG_POST, ADD_POST } from './types';
 import axios from 'axios';
 
 /*
- *  @desc     Create new Post
+ *  @desc     Add send the post to the server and it to the state
  *  @param    user input
  *  @return   none
  */
 export const addPost = input => async dispatch => {
-  dispatch({
-    type: SET_LOADNG_POST
-  });
-
   const { text, title, subtitle, image } = input;
 
   // Use form data form set encoding to 'multipart/form-data'
