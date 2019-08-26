@@ -1,4 +1,5 @@
 import React, { useEffect, Fragment } from 'react';
+import { CSSTransition } from 'react-transition-group';
 import { fetchPosts } from 'actions';
 
 // External
@@ -54,7 +55,15 @@ const Post = ({ fetchPosts, posts }) => {
               </ModalForm>
             </div>
             <div className={classes.root}>
-              <PostLayout posts={posts.BigPosts} />
+              {/* Fade animation on page load */}
+              <CSSTransition
+                classNames='fade'
+                in={true}
+                appear={true}
+                timeout={500}
+              >
+                <PostLayout posts={posts.BigPosts} />
+              </CSSTransition>
             </div>
           </Fragment>
         )

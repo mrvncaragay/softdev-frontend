@@ -28,13 +28,13 @@ const MiniPost = () => {
         </div>
 
         <div className={classes.author}>
-          <a href='#'>
+          <Link to='#'>
             <Avatar
               alt='Remy Sharp'
               src='https://previews.123rf.com/images/panyamail/panyamail1809/panyamail180900343/109879063-user-avatar-icon-sign-profile-symbol.jpg'
               className={classes.avatar}
             />
-          </a>
+          </Link>
         </div>
       </div>
     </div>

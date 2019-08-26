@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import LazyLoad from 'react-lazy-load';
+
 // External
 import moment from 'moment';
 
@@ -41,15 +41,16 @@ const Post = ({ post }) => {
         </div>
       </div>
 
-      <div className={classes.img}>
-        <LazyLoad>
+      {post.posturl && (
+        <div className={classes.img}>
           <CardMedia
             className={classes.media}
             image={`${post.posturl}`}
             title='kings'
           />
-        </LazyLoad>
-      </div>
+        </div>
+      )}
+
       <div className={classes.text}>
         <Typography variant='body2'>{post.text}</Typography>
       </div>
