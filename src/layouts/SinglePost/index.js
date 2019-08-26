@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 // External
@@ -7,16 +7,24 @@ import moment from 'moment';
 // Material UI component
 import Typography from '@material-ui/core/Typography';
 import Avatar from '@material-ui/core/Avatar';
+import Button from '@material-ui/core/Button';
 import CardMedia from '@material-ui/core/CardMedia';
-import ThumbUp from '@material-ui/icons/ThumbUpOutlined';
-import Comment from '@material-ui/icons/CommentOutlined';
+import ThumbUp from '@material-ui/icons/ThumbUp';
+import Comment from '@material-ui/icons/Comment';
+
+// Shared component
+import { CommentBox, NewComment } from 'layouts';
 
 // Component styles
 import styles from './styles';
 
 const SinglePost = ({ post }) => {
   const classes = styles();
+  const [open, setOpen] = useState(false);
 
+  const handleCommentBox = () => {
+    setOpen(!open);
+  };
   return (
     <div className={classes.root}>
       <div className={classes.header}>
@@ -53,19 +61,24 @@ const SinglePost = ({ post }) => {
       <div className={classes.text}>
         <Typography variant='body2'>{post.text}</Typography>
       </div>
+
       <div className={classes.footer}>
         <div className={classes.stats}>
-          <Link to='#'>
+          <Button>
             <ThumbUp />
-            <span>28</span>
-          </Link>
+            <span>16 Like</span>
+          </Button>
 
-          <Link to='#'>
+          <Button onClick={handleCommentBox}>
             <Comment />
-            <span>32</span>
-          </Link>
+            <span>32 Comment</span>
+          </Button>
         </div>
       </div>
+
+      {open && <NewComment />}
+
+      {/* <CommentBox /> */}
     </div>
   );
 };

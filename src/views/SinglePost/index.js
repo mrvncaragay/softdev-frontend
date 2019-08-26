@@ -1,10 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import { Link } from 'react-router-dom';
+import { getPost } from 'actions';
+import lsHelper from 'util/localStorageHelper';
 
 // External
 import { connect } from 'react-redux';
+
+// Material UI component
 import Button from '@material-ui/core/Button';
+
 // Shared component
 import {
   Navbar,
@@ -16,12 +21,19 @@ import {
 // Component styles
 import styles from './styles';
 
-const SinglePost = ({ post }) => {
+const SinglePost = ({ post, getPost }) => {
   const classes = styles();
   const [selected] = post;
+
   // const button = ({ handleClick }) => {
   //   return <AddBox title='Add profile' handleClick={handleClick} />;
   // };
+
+  /* eslint-disable */
+  useEffect(() => {
+    // getPost(lsHelper.retrieveItem('post'));
+  }, []);
+   /* eslint-enable */
 
   return (
     <Navbar>
@@ -48,5 +60,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  {}
+  { getPost }
 )(SinglePost);

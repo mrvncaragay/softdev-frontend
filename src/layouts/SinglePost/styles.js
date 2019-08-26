@@ -97,15 +97,6 @@ export default makeStyles(theme => ({
     padding: theme.spacing(6, 6, 3, 6),
     [theme.breakpoints.down('md')]: {
       padding: theme.spacing(4, 3, 4, 3)
-    },
-
-    '& .LazyLoad': {
-      opacity: 0,
-      transition: 'opacity 700ms  linear'
-    },
-
-    '& .LazyLoad.is-visible': {
-      opacity: 1
     }
   },
 
@@ -122,12 +113,10 @@ export default makeStyles(theme => ({
   },
 
   footer: {
-    padding: theme.spacing(3, 6, 6, 6),
-    display: 'flex',
-    alignItems: 'center',
+    padding: theme.spacing(3, 6, 3, 4),
 
     [theme.breakpoints.down('md')]: {
-      padding: theme.spacing(0, 3, 4, 3),
+      padding: theme.spacing(0, 3, 2, 3),
       display: 'inline-flex',
       flexDirection: 'column',
 
@@ -142,17 +131,18 @@ export default makeStyles(theme => ({
   },
 
   stats: {
-    flex: 1,
-    textAlign: 'end',
+    display: 'flex',
+    alignItems: 'center',
 
     [theme.breakpoints.down('md')]: {
       order: 0
     },
 
-    '& a': {
-      margin: theme.spacing(2),
-      display: 'inline-flex',
-      alignItems: 'center',
+    '&:first-child svg': {
+      transform: 'rotateY(180deg)'
+    },
+
+    '& button': {
       color: '#d2d2d2',
 
       '&:hover, &:hover span': {
@@ -160,8 +150,9 @@ export default makeStyles(theme => ({
       },
 
       '& span': {
-        marginLeft: theme.spacing(1),
-        color: theme.palette.text.main2
+        paddingTop: '3px',
+        color: theme.palette.text.main2,
+        marginLeft: theme.spacing(1)
       }
     }
   }
