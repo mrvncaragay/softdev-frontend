@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { getPost } from 'actions';
+import lsHelper from 'util/localStorageHelper';
 
 // External
 import moment from 'moment';
@@ -17,11 +16,11 @@ import Comment from '@material-ui/icons/CommentOutlined';
 // Component styles
 import styles from './styles';
 
-const Post = ({ post, getPost }) => {
+const Post = ({ post }) => {
   const classes = styles();
 
   const handleClick = () => {
-    getPost(post._id);
+    lsHelper.saveKey('post', post);
   };
 
   return (
@@ -83,9 +82,4 @@ const Post = ({ post, getPost }) => {
   );
 };
 
-const mapStateToProps = state => ({});
-
-export default connect(
-  mapStateToProps,
-  { getPost }
-)(Post);
+export default Post;

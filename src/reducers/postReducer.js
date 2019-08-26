@@ -1,4 +1,4 @@
-import { SAVE_POST, SET_LOADNG_POST, ADD_POST, GET_POST } from 'actions/types';
+import { SAVE_POST, SET_LOADNG_POST, ADD_POST } from 'actions/types';
 
 const initialState = {
   isLoading: false
@@ -18,14 +18,6 @@ const postReducer = (state = initialState, action) => {
       return {
         ...state,
         BigPosts: [action.payload, ...state.BigPosts],
-        isLoading: false
-      };
-    }
-
-    case GET_POST: {
-      return {
-        ...state,
-        post: state.BigPosts.filter(post => post._id === action.payload),
         isLoading: false
       };
     }

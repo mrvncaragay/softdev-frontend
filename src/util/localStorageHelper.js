@@ -5,7 +5,7 @@ const lsHelper = {
    *  @return   none
    */
   saveKey(field, data) {
-    localStorage.setItem(field, data);
+    localStorage.setItem(field, JSON.stringify(data));
   },
 
   /*
@@ -14,7 +14,7 @@ const lsHelper = {
    *  @return   none
    */
   retrieveItem(key) {
-    return localStorage.getItem(key);
+    return JSON.parse(localStorage.getItem(key));
   },
 
   /*

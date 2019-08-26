@@ -1,6 +1,5 @@
-import { SAVE_POST, ERROR, SET_LOADNG_POST, ADD_POST, GET_POST } from './types';
+import { SAVE_POST, ERROR, ADD_POST } from './types';
 import axios from 'axios';
-import lsHelper from 'util/localStorageHelper';
 
 /*
  *  @desc     Add send the post to the server and it to the state
@@ -30,20 +29,6 @@ export const addPost = input => async dispatch => {
       payload: error.response.data
     });
   }
-};
-
-/*
- *  @desc     Get a single post from state
- *  @param    ID
- *  @return   none
- */
-export const getPost = id => async dispatch => {
-  lsHelper.saveKey('post', id);
-
-  dispatch({
-    type: GET_POST,
-    payload: id
-  });
 };
 
 /*

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { CSSTransition } from 'react-transition-group';
 import { Link } from 'react-router-dom';
 
 // External
@@ -76,7 +77,11 @@ const SinglePost = ({ post }) => {
         </div>
       </div>
 
-      {open && <NewComment />}
+      {open && (
+        <CSSTransition classNames='fade' in={true} appear={true} timeout={400}>
+          <NewComment />
+        </CSSTransition>
+      )}
 
       {/* <CommentBox /> */}
     </div>
