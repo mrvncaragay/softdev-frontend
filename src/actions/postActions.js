@@ -1,4 +1,4 @@
-import { SAVE_POST, ERROR, SET_LOADNG_POST, ADD_POST } from './types';
+import { SAVE_POST, ERROR, SET_LOADNG_POST, ADD_POST, GET_POST } from './types';
 import axios from 'axios';
 
 /*
@@ -32,11 +32,24 @@ export const addPost = input => async dispatch => {
 };
 
 /*
+ *  @desc     Get a single post from state
+ *  @param    ID
+ *  @return   none
+ */
+export const getPost = id => async dispatch => {
+  dispatch({
+    type: GET_POST,
+    payload: id
+  });
+};
+
+/*
  *  @desc     Fetch the newest 10 post
  *  @param    none
  *  @return   none
  */
 export const fetchPosts = () => async dispatch => {
+  console.log('called');
   dispatch({
     type: SET_LOADNG_POST
   });

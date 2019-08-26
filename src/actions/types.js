@@ -16,7 +16,8 @@ export const SET_LOADNG_PROFILE = 'SET_LOADNG_PROFILE';
 // Post
 export const SAVE_POST = 'SAVE_POST';
 export const ADD_POST = 'ADD_POST';
-export const SAVE_Like = 'SAVE_Like';
+export const GET_POST = 'GET_POST';
+export const SAVE_LIKE = 'SAVE_LIKE';
 export const SAVE_COMMENT = 'SAVE_COMMENT';
 export const SET_LOADNG_POST = 'SET_LOADNG_POST';
 

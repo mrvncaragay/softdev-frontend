@@ -8,6 +8,7 @@ import Login from './views/Login';
 import Signup from './views/Signup';
 import Profile from './views/Profile';
 import Post from './views/Post';
+import SinglePost from './views/SinglePost';
 
 // Private uitl/Routes
 import PrivateRoutes from 'util/privateRoutes';
@@ -24,8 +25,9 @@ const SoftDevApp = () => {
       <Route exact path='/' component={Homepage} />
       <Route exact path='/login' component={Login} />
       <Route exact path='/signup' component={Signup} />
-      <PrivateRoutes exact path='/profile/me' component={Profile} />
       <PrivateRoutes exact path='/posts' component={Post} />
+      <PrivateRoutes exact path='/post/:id' component={SinglePost} />
+      <PrivateRoutes exact path='/profile/me' component={Profile} />
     </Switch>
   );
 };

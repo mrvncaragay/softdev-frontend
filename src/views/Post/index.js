@@ -37,8 +37,8 @@ const Post = ({ fetchPosts, posts }) => {
   };
 
   /* eslint-disable */
-  useEffect(() => { 
-    fetchPosts(); 
+  useEffect(() => {
+    if(!posts.bigPosts) fetchPosts(); 
   }, []);
   /* eslint-enable */
 

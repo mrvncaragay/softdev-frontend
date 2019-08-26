@@ -1,7 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { getPost } from 'actions';
 
 // External
 import moment from 'moment';
@@ -10,27 +8,20 @@ import moment from 'moment';
 import Typography from '@material-ui/core/Typography';
 import Avatar from '@material-ui/core/Avatar';
 import CardMedia from '@material-ui/core/CardMedia';
-import Button from '@material-ui/core/Button';
 import ThumbUp from '@material-ui/icons/ThumbUpOutlined';
 import Comment from '@material-ui/icons/CommentOutlined';
 
 // Component styles
 import styles from './styles';
 
-const Post = ({ post, getPost }) => {
+const SinglePost = ({ post }) => {
   const classes = styles();
-
-  const handleClick = () => {
-    getPost(post._id);
-  };
 
   return (
     <div className={classes.root}>
       <div className={classes.header}>
         <div className={classes.title}>
-          <Link to={`/post/${post._id}`} onClick={handleClick}>
-            <Typography variant='h2'>{post.title}</Typography>
-          </Link>
+          <Typography variant='h2'>{post.title}</Typography>{' '}
           <Typography variant='h5'>{post.subtitle}</Typography>
         </div>
 
@@ -63,10 +54,6 @@ const Post = ({ post, getPost }) => {
         <Typography variant='body2'>{post.text}</Typography>
       </div>
       <div className={classes.footer}>
-        <Link to={`/post/${post._id}`}>
-          <Button variant='outlined'>Continue Reading</Button>
-        </Link>
-
         <div className={classes.stats}>
           <Link to='#'>
             <ThumbUp />
@@ -83,9 +70,4 @@ const Post = ({ post, getPost }) => {
   );
 };
 
-const mapStateToProps = state => ({});
-
-export default connect(
-  mapStateToProps,
-  { getPost }
-)(Post);
+export default SinglePost;

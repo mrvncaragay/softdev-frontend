@@ -1,5 +1,6 @@
 export { default as Profile } from './Profile';
 export { default as Post } from './Post';
+export { default as SinglePost } from './SinglePost';
 export { default as Navbar } from './Navbar';
 export { default as AddBox } from './AddBox';
 export { default as ModalForm } from './ModalForm';
