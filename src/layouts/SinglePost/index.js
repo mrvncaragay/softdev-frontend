@@ -27,7 +27,6 @@ const SinglePost = ({ post }) => {
     setOpen(!open);
   };
 
-  console.log(post);
   return (
     <div className={classes.root}>
       <div className={classes.header}>

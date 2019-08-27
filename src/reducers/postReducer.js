@@ -2,7 +2,7 @@ import {
   SAVE_POST,
   SET_LOADNG_POST,
   ADD_POST,
-  ADD_TO_STATE,
+  ADD_POSTS,
   ADD_POST_COMMENT,
   CLEAR_POST
 } from 'actions/types';
@@ -24,14 +24,15 @@ const postReducer = (state = initialState, action) => {
     case ADD_POST: {
       return {
         ...state,
-        MediumPosts: [action.payload, ...state.MediumPosts],
+        post: action.payload,
         isLoading: false
       };
     }
-    case ADD_TO_STATE: {
+
+    case ADD_POSTS: {
       return {
         ...state,
-        post: state.MediumPosts.filter(post => post._id === action.payload),
+        MediumPosts: [action.payload, ...state.MediumPosts],
         isLoading: false
       };
     }

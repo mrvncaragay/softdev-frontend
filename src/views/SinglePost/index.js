@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import { Link } from 'react-router-dom';
+import history from 'util/history';
+import { fetchPost } from 'actions';
 
 // External
 import { connect } from 'react-redux';
@@ -20,7 +22,7 @@ import {
 // Component styles
 import styles from './styles';
 
-const SinglePost = ({ posts }) => {
+const SinglePost = ({ fetchPost, posts }) => {
   const classes = styles();
 
   // const button = ({ handleClick }) => {
@@ -29,6 +31,8 @@ const SinglePost = ({ posts }) => {
 
   /* eslint-disable */
   useEffect(() => {
+    fetchPost(history.location.state.id);
+
   }, []);
   /* eslint-enable */
 
@@ -39,20 +43,16 @@ const SinglePost = ({ posts }) => {
           <Button variant='outlined'>Go Back</Button>
         </Link>
 
-        {posts.isLoading ? (
-          <CircularLoading />
-        ) : (
-          posts.post && (
-            <CSSTransition
-              classNames='fade'
-              in={true}
-              appear={true}
-              timeout={500}
-            >
-              {/* Big posts is undefined when refresh */}
-              {/* <SinglePostLayout post={posts.post[0]} /> */}
-            </CSSTransition>
-          )
+        {posts.post && (
+          <CSSTransition
+            classNames='fade'
+            in={true}
+            appear={true}
+            timeout={500}
+          >
+            {/* Big posts is undefined when refresh */}
+            <SinglePostLayout post={posts.post} />
+          </CSSTransition>
         )}
 
         {/* <ModalForm>
@@ -69,5 +69,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  {}
+  { fetchPost }
 )(SinglePost);

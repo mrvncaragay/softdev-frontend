@@ -18,4 +18,4 @@ export {
 } from './profileActions';
 
 // Post
-export { addPost, addPostComment, addToState, fetchPosts } from './postActions';
+export { addPost, addPostComment, fetchPosts, fetchPost } from './postActions';

@@ -2,8 +2,8 @@ import {
   SAVE_POST,
   ERROR,
   ADD_POST,
+  ADD_POSTS,
   ADD_POST_COMMENT,
-  ADD_TO_STATE,
   SET_LOADNG_POST
 } from './types';
 import axios from 'axios';
@@ -27,7 +27,7 @@ export const addPost = input => async dispatch => {
     const { data } = await axios.post('/api/posts', form);
 
     dispatch({
-      type: ADD_POST,
+      type: ADD_POSTS,
       payload: data
     });
   } catch (error) {
@@ -62,19 +62,24 @@ export const addPostComment = (id, text) => async dispatch => {
 };
 
 /*
- *  @desc     Add a single post to state, user currently viewing
- *  @param    post
+ *  @desc     Fetch a single post
+ *  @param    none
  *  @return   none
  */
-export const addToState = id => async dispatch => {
-  dispatch({
-    type: SET_LOADNG_POST
-  });
+export const fetchPost = id => async dispatch => {
+  try {
+    const { data } = await axios.get('/api/posts/' + id);
 
-  dispatch({
-    type: ADD_TO_STATE,
-    payload: id
-  });
+    dispatch({
+      type: ADD_POST,
+      payload: data
+    });
+  } catch (error) {
+    dispatch({
+      type: ERROR,
+      payload: error.response.data
+    });
+  }
 };
 
 /*

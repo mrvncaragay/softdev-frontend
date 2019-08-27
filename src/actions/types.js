@@ -16,7 +16,7 @@ export const SET_LOADNG_PROFILE = 'SET_LOADNG_PROFILE';
 // Post
 export const SAVE_POST = 'SAVE_POST';
 export const ADD_POST = 'ADD_POST';
-export const ADD_TO_STATE = 'ADD_TO_STATE';
+export const ADD_POSTS = 'ADD_POSTS';
 export const ADD_POST_COMMENT = 'ADD_POST_COMMENT';
 export const SET_LOADNG_POST = 'SET_LOADNG_POST';
 export const CLEAR_POST = 'CLEAR_POST';
