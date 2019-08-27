@@ -62,7 +62,12 @@ const Post = ({ post }) => {
         <Typography variant='body2'>{post.text}</Typography>
       </div>
       <div className={classes.footer}>
-        <Link to={`/post/${post._id}`}>
+        <Link
+          to={{
+            pathname: `/post/${post._id}`,
+            state: { id: post._id }
+          }}
+        >
           <Button variant='outlined'>Continue Reading</Button>
         </Link>
 

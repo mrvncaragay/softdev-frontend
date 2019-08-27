@@ -4,7 +4,7 @@ export default makeStyles(theme => ({
   root: {
     display: 'flex',
     width: 'auto',
-    padding: theme.spacing(2, 5, 2, 5),
+    padding: theme.spacing(2, 0, 2),
 
     [theme.breakpoints.down('md')]: {
       padding: theme.spacing(0, 3, 4, 3)
@@ -43,6 +43,7 @@ export default makeStyles(theme => ({
 
       '& span': {
         marginLeft: theme.spacing(1),
+        textTransform: 'lowercase',
         fontSize: '11px',
         color: theme.palette.text.disabled
       },

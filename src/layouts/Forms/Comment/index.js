@@ -20,7 +20,6 @@ const Comment = ({
   addPostComment,
   error,
   data = {},
-  update = false,
   cancelCommentForm
 }) => {
   const classes = styles();
@@ -29,10 +28,11 @@ const Comment = ({
     text: data.text || ''
   };
 
-  const [state, handleChange] = handleInputChange(initialState);
+  const [state, handleChange, reset] = handleInputChange(initialState);
 
   const handleSubmitForm = () => {
     addPostComment(post._id, state);
+    reset();
   };
 
   const handleCancel = () => {

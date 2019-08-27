@@ -3,8 +3,7 @@ import axiosHelper from './axiosHelper';
 // External
 import jwt from 'jsonwebtoken';
 import history from './history';
-import { store } from '../store';
-import { LOGIN } from 'actions/types';
+import { persistor } from 'store';
 
 const jwtHelper = {
   /*
@@ -37,6 +36,7 @@ const jwtHelper = {
     } catch (err) {
       axiosHelper.removeJwt();
       this.clearLS();
+      persistor.purge();
       history.push('/login');
     }
   },

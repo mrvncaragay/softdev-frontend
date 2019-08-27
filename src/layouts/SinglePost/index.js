@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { CSSTransition } from 'react-transition-group';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { Link } from 'react-router-dom';
 
 // External
@@ -90,9 +90,22 @@ const SinglePost = ({ post }) => {
         </CSSTransition>
       )}
 
-      {post.comments.map(comment => (
-        <CommentBox key={comment._id} comment={comment} />
-      ))}
+      <div className={classes.comments}>
+        <TransitionGroup>
+          {post.comments.map(comment => (
+            <CSSTransition
+              key={comment._id}
+              classNames='fade'
+              in={true}
+              appear={true}
+              exit={true}
+              timeout={400}
+            >
+              <CommentBox key={comment._id} comment={comment} />
+            </CSSTransition>
+          ))}
+        </TransitionGroup>
+      </div>
     </div>
   );
 };

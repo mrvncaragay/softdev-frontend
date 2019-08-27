@@ -29,7 +29,7 @@ const CommentBox = ({ comment }) => {
       <div className={classes.userComment}>
         <Typography variant='h5'>
           <Link to='#'>{comment.name}</Link>
-          <span>1 hour ago</span>
+          <span>{moment(comment.date).fromNow()}</span>
         </Typography>
 
         <Typography className={classes.userTitle} variant='h6'>

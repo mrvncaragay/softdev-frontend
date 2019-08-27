@@ -11,6 +11,8 @@ import history from 'util/history';
 import jwtHelper from 'util/jwtHelper';
 import axiosHelper from 'util/axiosHelper';
 
+import { persistor } from 'store';
+
 /*
  *  @desc     Signup request
  *  @param    User input
@@ -73,6 +75,9 @@ export const logout = () => dispatch => {
 
   // clear local storage
   jwtHelper.clearLS();
+
+  // clear redux persist storage
+  persistor.purge();
 
   // Redirect to homepage
   history.push('/');

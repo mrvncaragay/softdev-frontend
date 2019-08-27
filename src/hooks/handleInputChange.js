@@ -12,7 +12,9 @@ export default initValue => {
     setState(newState);
   };
 
-  const reset = () => {};
+  const reset = () => {
+    setState(initValue);
+  };
 
   return [state, handleChange, reset];
 };

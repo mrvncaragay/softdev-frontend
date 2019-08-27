@@ -155,5 +155,9 @@ export default makeStyles(theme => ({
         marginLeft: theme.spacing(1)
       }
     }
+  },
+
+  comments: {
+    padding: theme.spacing(2, 5, 4, 5)
   }
 }));
