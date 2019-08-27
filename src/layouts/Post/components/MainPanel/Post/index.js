@@ -1,9 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import lsHelper from 'util/localStorageHelper';
+import { addToState } from 'actions';
 
 // External
 import moment from 'moment';
+import { connect } from 'react-redux';
 
 // Material UI component
 import Typography from '@material-ui/core/Typography';
@@ -16,18 +17,14 @@ import Comment from '@material-ui/icons/CommentOutlined';
 // Component styles
 import styles from './styles';
 
-const Post = ({ post }) => {
+const Post = ({ post, addToState }) => {
   const classes = styles();
-
-  const handleClick = () => {
-    lsHelper.saveKey('post', post);
-  };
 
   return (
     <div className={classes.root}>
       <div className={classes.header}>
         <div className={classes.title}>
-          <Link to={`/post/${post._id}`} onClick={handleClick}>
+          <Link to={`/post/${post._id}`}>
             <Typography variant='h2'>{post.title}</Typography>
           </Link>
           <Typography variant='h5'>{post.subtitle}</Typography>
@@ -82,4 +79,9 @@ const Post = ({ post }) => {
   );
 };
 
-export default Post;
+const mapStateToProps = state => ({});
+
+export default connect(
+  mapStateToProps,
+  { addToState }
+)(Post);

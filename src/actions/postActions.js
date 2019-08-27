@@ -1,8 +1,15 @@
-import { SAVE_POST, ERROR, ADD_POST } from './types';
+import {
+  SAVE_POST,
+  ERROR,
+  ADD_POST,
+  ADD_POST_COMMENT,
+  ADD_TO_STATE,
+  SET_LOADNG_POST
+} from './types';
 import axios from 'axios';
 
 /*
- *  @desc     Add send the post to the server and it to the state
+ *  @desc     Add a post
  *  @param    user input
  *  @return   none
  */
@@ -29,6 +36,45 @@ export const addPost = input => async dispatch => {
       payload: error.response.data
     });
   }
+};
+
+/*
+ *  @desc     Add a comment to a post
+ *  @param    user input
+ *  @return   none
+ */
+export const addPostComment = (id, text) => async dispatch => {
+  try {
+    const { data } = await axios.put('/api/posts/comment/' + id, {
+      ...text
+    });
+
+    dispatch({
+      type: ADD_POST_COMMENT,
+      payload: data
+    });
+  } catch (error) {
+    dispatch({
+      type: ERROR,
+      payload: error.response.data
+    });
+  }
+};
+
+/*
+ *  @desc     Add a single post to state, user currently viewing
+ *  @param    post
+ *  @return   none
+ */
+export const addToState = id => async dispatch => {
+  dispatch({
+    type: SET_LOADNG_POST
+  });
+
+  dispatch({
+    type: ADD_TO_STATE,
+    payload: id
+  });
 };
 
 /*

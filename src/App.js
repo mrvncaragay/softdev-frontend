@@ -3,8 +3,9 @@ import { Router } from 'react-router-dom';
 
 // Externals
 import { Provider } from 'react-redux';
-import store from './store';
+import { store, persistor } from './store';
 import history from 'util/history';
+import { PersistGate } from 'redux-persist/integration/react';
 
 // Main App
 import SoftDevApp from './SoftDevApp';
@@ -18,7 +19,9 @@ function App() {
     <ThemeProvider theme={theme}>
       <Router history={history}>
         <Provider store={store}>
-          <SoftDevApp />
+          <PersistGate loading={null} persistor={persistor}>
+            <SoftDevApp />
+          </PersistGate>
         </Provider>
       </Router>
     </ThemeProvider>

@@ -32,13 +32,11 @@ export default makeStyles(theme => ({
   },
 
   actions: {
-    textAlign: 'end',
-    marginBottom: theme.spacing(2)
+    textAlign: 'end'
   },
 
   btnSubmit: {
     backgroundColor: theme.palette.text.main,
-    marginTop: theme.spacing(2),
     '&:hover': {
       backgroundColor: '#4e4e4e',
       border: `1px solid ${theme.palette.border}`
@@ -47,6 +45,14 @@ export default makeStyles(theme => ({
     '& span, &:hover span': {
       padding: theme.spacing(1),
       color: 'white'
+    }
+  },
+
+  btnCancel: {
+    marginRight: theme.spacing(1),
+
+    '& span': {
+      padding: theme.spacing(1)
     }
   },
 

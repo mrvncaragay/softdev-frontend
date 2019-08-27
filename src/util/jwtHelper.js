@@ -3,7 +3,7 @@ import axiosHelper from './axiosHelper';
 // External
 import jwt from 'jsonwebtoken';
 import history from './history';
-import store from '../store';
+import { store } from '../store';
 import { LOGIN } from 'actions/types';
 
 const jwtHelper = {
@@ -46,14 +46,9 @@ const jwtHelper = {
    *  @param    jwt Token
    *  @return   none
    */
-  persist(token) {
-    const payload = this.decode(token);
+  validate(token) {
+    this.decode(token);
     axiosHelper.addJwt(token);
-
-    store.dispatch({
-      type: LOGIN,
-      payload
-    });
   }
 };
 

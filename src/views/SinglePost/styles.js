@@ -17,7 +17,7 @@ export default makeStyles(theme => ({
       zIndex: 1
     },
 
-    '.fade-enter.fade-enter-active': {
+    '.fade-enter-active': {
       opacity: 1,
       transition: 'opacity 500ms linear'
     },
@@ -26,8 +26,8 @@ export default makeStyles(theme => ({
       opacity: 1
     },
 
-    '.fade-exit.fade-exit-active': {
-      opacity: 0,
+    '.fade-exit-active': {
+      opacity: 0.1,
       transition: 'opacity 500ms linear'
     },
 

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import handleInputChange from 'hooks/handleInputChange';
-import { addPost, updateEducation, removeEducation } from 'actions';
+import { addPostComment, updateEducation, removeEducation } from 'actions';
 
 // External
 import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
@@ -15,7 +15,14 @@ import Avatar from '@material-ui/core/Avatar';
 // Component styles
 import styles from './styles';
 
-const Comment = ({ addComment, error, data = {}, update = false }) => {
+const Comment = ({
+  post,
+  addPostComment,
+  error,
+  data = {},
+  update = false,
+  cancelCommentForm
+}) => {
   const classes = styles();
 
   const initialState = {
@@ -25,7 +32,11 @@ const Comment = ({ addComment, error, data = {}, update = false }) => {
   const [state, handleChange] = handleInputChange(initialState);
 
   const handleSubmitForm = () => {
-    //addComment(state);
+    addPostComment(post._id, state);
+  };
+
+  const handleCancel = () => {
+    cancelCommentForm(false);
   };
 
   useEffect(() => {
@@ -40,8 +51,8 @@ const Comment = ({ addComment, error, data = {}, update = false }) => {
       <div className={classes.userAvatar}>
         <Link to='#'>
           <Avatar
-            alt='Remy Sharp'
-            src='https://previews.123rf.com/images/panyamail/panyamail1809/panyamail180900343/109879063-user-avatar-icon-sign-profile-symbol.jpg'
+            alt={post.name}
+            src={post.avatar}
             className={classes.avatar}
           />
         </Link>
@@ -66,6 +77,10 @@ const Comment = ({ addComment, error, data = {}, update = false }) => {
         </Typography>
 
         <div className={classes.actions}>
+          <Button className={classes.btnCancel} onClick={handleCancel}>
+            Cancel
+          </Button>
+
           <Button
             className={classes.btnSubmit}
             variant='outlined'
@@ -85,5 +100,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { addPost, updateEducation, removeEducation }
+  { addPostComment, updateEducation, removeEducation }
 )(Comment);

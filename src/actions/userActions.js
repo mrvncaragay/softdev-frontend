@@ -1,4 +1,4 @@
-import { SIGNUP, LOGOUT, ERROR, SET_LOADNG_USER } from './types';
+import { SIGNUP, LOGOUT, ERROR, SET_LOADNG_USER, CLEAR_POST } from './types';
 import axios from 'axios';
 import history from 'util/history';
 import jwtHelper from 'util/jwtHelper';
@@ -48,13 +48,19 @@ export const signup = input => async dispatch => {
 export const logout = () => dispatch => {
   // remove jwt token in axios header
   axiosHelper.removeJwt();
-  // clear local storage
-  jwtHelper.clearLS();
 
   // remove user state in redux
   dispatch({
     type: LOGOUT
   });
+
+  // reset posts state in redux
+  dispatch({
+    type: CLEAR_POST
+  });
+
+  // clear local storage
+  jwtHelper.clearLS();
 
   // Redirect to homepage
   history.push('/');

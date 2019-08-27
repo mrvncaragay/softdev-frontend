@@ -21,16 +21,18 @@ import styles from './styles';
 
 const SinglePost = ({ post }) => {
   const classes = styles();
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(true);
 
-  const handleCommentBox = () => {
+  const handleCommentForm = () => {
     setOpen(!open);
   };
+
+  console.log(post);
   return (
     <div className={classes.root}>
       <div className={classes.header}>
         <div className={classes.title}>
-          <Typography variant='h2'>{post.title}</Typography>{' '}
+          <Typography variant='h2'>{post.title}</Typography>
           <Typography variant='h5'>{post.subtitle}</Typography>
         </div>
 
@@ -42,7 +44,7 @@ const SinglePost = ({ post }) => {
             <span>{post.name}</span>
             <Avatar
               alt={post.name}
-              src={`${post.avatar}`}
+              src={post.avatar}
               className={classes.avatar}
             />
           </Link>
@@ -70,7 +72,7 @@ const SinglePost = ({ post }) => {
             <span>16 Like</span>
           </Button>
 
-          <Button onClick={handleCommentBox}>
+          <Button onClick={handleCommentForm}>
             <Comment />
             <span>32 Comment</span>
           </Button>
@@ -78,12 +80,20 @@ const SinglePost = ({ post }) => {
       </div>
 
       {open && (
-        <CSSTransition classNames='fade' in={true} appear={true} timeout={400}>
-          <NewComment />
+        <CSSTransition
+          classNames='fade'
+          in={true}
+          appear={true}
+          exit={true}
+          timeout={400}
+        >
+          <NewComment post={post} cancelCommentForm={setOpen} />
         </CSSTransition>
       )}
 
-      {/* <CommentBox /> */}
+      {post.comments.map(comment => (
+        <CommentBox key={comment._id} comment={comment} />
+      ))}
     </div>
   );
 };

@@ -16,7 +16,7 @@ import PrivateRoutes from 'util/privateRoutes';
 // Persist user data if jwt token is valid, if not return to login
 let token = localStorage.getItem('x-auth-token');
 if (token) {
-  jwtHelper.persist(token);
+  jwtHelper.validate(token);
 }
 
 const SoftDevApp = () => {
