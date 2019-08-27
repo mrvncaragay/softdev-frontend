@@ -42,7 +42,6 @@ export default makeStyles(theme => ({
     flexDirection: 'column',
 
     '& a': {
-      marginTop: theme.spacing(6),
       width: 'fit-content',
 
       '& button': {
@@ -58,5 +57,9 @@ export default makeStyles(theme => ({
         marginLeft: theme.spacing(2)
       }
     }
+  },
+
+  backButton: {
+    marginTop: theme.spacing(2)
   }
 }));

@@ -138,10 +138,6 @@ export default makeStyles(theme => ({
       order: 0
     },
 
-    '&:first-child svg': {
-      transform: 'rotateY(180deg)'
-    },
-
     '& button': {
       color: '#d2d2d2',
 
@@ -152,8 +148,7 @@ export default makeStyles(theme => ({
       '& span': {
         textTransform: 'lowercase',
         paddingTop: '3px',
-        color: theme.palette.text.main2,
-        marginLeft: theme.spacing(1)
+        color: theme.palette.text.main2
       }
     }
   },

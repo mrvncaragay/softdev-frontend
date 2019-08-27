@@ -39,7 +39,7 @@ const SinglePost = ({ fetchPost, posts }) => {
   return (
     <Navbar>
       <div className={classes.root}>
-        <Link to='/posts'>
+        <Link to='/posts' className={classes.backButton}>
           <Button variant='outlined'>Go Back</Button>
         </Link>
 

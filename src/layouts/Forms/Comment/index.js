@@ -58,7 +58,7 @@ const Comment = ({
         </Link>
       </div>
 
-      <ValidatorForm onSubmit={handleSubmitForm}>
+      <ValidatorForm onSubmit={handleSubmitForm} instantValidate={false}>
         <TextValidator
           label='Add a comment... (required)'
           name='text'
