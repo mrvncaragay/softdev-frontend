@@ -8,6 +8,10 @@ export default makeStyles(theme => ({
 
     [theme.breakpoints.down('md')]: {
       padding: theme.spacing(0, 3, 4, 3)
+    },
+
+    '& button': {
+      marginLeft: 'auto'
     }
   },
 

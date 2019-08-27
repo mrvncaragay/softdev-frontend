@@ -4,6 +4,7 @@ import {
   ADD_POST,
   ADD_POSTS,
   ADD_POST_COMMENT,
+  DELETE_POST_COMMENT,
   CLEAR_POST
 } from 'actions/types';
 
@@ -43,6 +44,20 @@ const postReducer = (state = initialState, action) => {
         post: {
           ...state.post,
           comments: [action.payload, ...state.post.comments]
+        },
+
+        isLoading: false
+      };
+    }
+
+    case DELETE_POST_COMMENT: {
+      return {
+        ...state,
+        post: {
+          ...state.post,
+          comments: state.post.comments.filter(
+            comment => comment._id !== action.payload
+          )
         },
 
         isLoading: false

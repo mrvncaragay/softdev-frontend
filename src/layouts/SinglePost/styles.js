@@ -150,6 +150,7 @@ export default makeStyles(theme => ({
       },
 
       '& span': {
+        textTransform: 'lowercase',
         paddingTop: '3px',
         color: theme.palette.text.main2,
         marginLeft: theme.spacing(1)
@@ -158,6 +159,9 @@ export default makeStyles(theme => ({
   },
 
   comments: {
-    padding: theme.spacing(2, 5, 4, 5)
+    padding: theme.spacing(2, 5, 4, 5),
+    [theme.breakpoints.down('md')]: {
+      padding: theme.spacing(2, 0, 4, 0)
+    }
   }
 }));

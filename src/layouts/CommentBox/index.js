@@ -1,18 +1,25 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+import { deletePostComment } from 'actions';
 // External
 import moment from 'moment';
+import { connect } from 'react-redux';
 
 // Material UI component
 import Typography from '@material-ui/core/Typography';
 import Avatar from '@material-ui/core/Avatar';
+import Delete from '@material-ui/icons/DeleteOutlined';
+import Button from '@material-ui/core/Button';
 
 // Component styles
 import styles from './styles';
 
-const CommentBox = ({ comment }) => {
+const CommentBox = ({ pid, comment, currentUser, deletePostComment }) => {
   const classes = styles();
+
+  const handleDeleteComment = () => {
+    deletePostComment(pid, comment._id);
+  };
 
   return (
     <div className={classes.root}>
@@ -38,8 +45,21 @@ const CommentBox = ({ comment }) => {
 
         <Typography variant='h6'>{comment.text}</Typography>
       </div>
+
+      {currentUser.info.id === comment.user && (
+        <Button onClick={handleDeleteComment}>
+          <Delete />
+        </Button>
+      )}
     </div>
   );
 };
 
-export default CommentBox;
+const mapStateToProps = state => ({
+  currentUser: state.currentUser
+});
+
+export default connect(
+  mapStateToProps,
+  { deletePostComment }
+)(CommentBox);

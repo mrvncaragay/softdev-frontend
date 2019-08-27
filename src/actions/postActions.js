@@ -4,7 +4,7 @@ import {
   ADD_POST,
   ADD_POSTS,
   ADD_POST_COMMENT,
-  SET_LOADNG_POST
+  DELETE_POST_COMMENT
 } from './types';
 import axios from 'axios';
 
@@ -52,6 +52,27 @@ export const addPostComment = (id, text) => async dispatch => {
     dispatch({
       type: ADD_POST_COMMENT,
       payload: data
+    });
+  } catch (error) {
+    dispatch({
+      type: ERROR,
+      payload: error.response.data
+    });
+  }
+};
+
+/*
+ *  @desc     Delete a comment to a post
+ *  @param    user input
+ *  @return   none
+ */
+export const deletePostComment = (pid, cid) => async dispatch => {
+  try {
+    const { data } = await axios.put(`/api/posts/uncomment/${pid}/${cid}`);
+
+    dispatch({
+      type: DELETE_POST_COMMENT,
+      payload: data.commentId
     });
   } catch (error) {
     dispatch({

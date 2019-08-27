@@ -1,13 +1,13 @@
 import React from 'react';
 
 // Material UI component
-import Assignment from '@material-ui/icons/Assignment';
-import School from '@material-ui/icons/School';
-import Work from '@material-ui/icons/Work';
-import Skills from '@material-ui/icons/VerifiedUser';
-import Interest from '@material-ui/icons/Star';
-import Following from '@material-ui/icons/DeviceHub';
-import Recomendation from '@material-ui/icons/ThumbUp';
+import Assignment from '@material-ui/icons/AssignmentOutlined';
+import School from '@material-ui/icons/SchoolOutlined';
+import Work from '@material-ui/icons/WorkOutline';
+import Skills from '@material-ui/icons/VerifiedUserOutlined';
+import Interest from '@material-ui/icons/StarBorderOutlined';
+import Following from '@material-ui/icons/DeviceHubOutlined';
+import Recomendation from '@material-ui/icons/ThumbUpOutlined';
 
 // Shared Component
 import {

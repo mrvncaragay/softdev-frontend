@@ -10,8 +10,8 @@ import Typography from '@material-ui/core/Typography';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CardMedia from '@material-ui/core/CardMedia';
-import ThumbUp from '@material-ui/icons/ThumbUp';
-import Comment from '@material-ui/icons/Comment';
+import ThumbUp from '@material-ui/icons/ThumbUpOutlined';
+import Comment from '@material-ui/icons/CommentOutlined';
 
 // Shared component
 import { CommentBox, NewComment } from 'layouts';
@@ -68,12 +68,12 @@ const SinglePost = ({ post }) => {
         <div className={classes.stats}>
           <Button>
             <ThumbUp />
-            <span>16 Like</span>
+            <span>{post.likes.length} likes</span>
           </Button>
 
           <Button onClick={handleCommentForm}>
             <Comment />
-            <span>32 Comment</span>
+            <span>{post.comments.length} Comment</span>
           </Button>
         </div>
       </div>
@@ -101,7 +101,7 @@ const SinglePost = ({ post }) => {
               exit={true}
               timeout={400}
             >
-              <CommentBox key={comment._id} comment={comment} />
+              <CommentBox pid={post._id} key={comment._id} comment={comment} />
             </CSSTransition>
           ))}
         </TransitionGroup>
