@@ -1,5 +1,6 @@
 import {
   SAVE_PROFILE,
+  DELETE_PROFILE,
   ERROR,
   SET_LOADNG_USER,
   SAVE_EXPERIENCE,
@@ -46,6 +47,31 @@ export const updateProfile = (input, profile) => async dispatch => {
         : input.skills
     });
     dispatch({ type: SAVE_PROFILE, payload: data });
+  } catch (error) {
+    dispatch({
+      type: ERROR,
+      payload: error.response.data
+    });
+  }
+};
+
+/*
+ *  @desc     Delete profile
+ *  @param    user input
+ *  @return   none
+ */
+export const deleteProfile = id => async dispatch => {
+  dispatch({
+    type: SET_LOADNG_USER
+  });
+
+  try {
+    const { data } = await axios.delete('/api/profiles/' + id);
+
+    dispatch({ type: DELETE_PROFILE, payload: data });
+
+    // Redirect to Profile Page
+    history.push('/profile/me');
   } catch (error) {
     dispatch({
       type: ERROR,

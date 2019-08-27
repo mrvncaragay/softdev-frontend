@@ -9,6 +9,7 @@ export {
   fetchProfile,
   createProfile,
   updateProfile,
+  deleteProfile,
   removeExperience,
   createExperience,
   updateExperience,

@@ -23,7 +23,8 @@ const Profile = ({ currentUser, fetchProfile }) => {
 
   /* eslint-disable */
   useEffect(() => {
-    fetchProfile();
+    if (currentUser.profile) 
+      fetchProfile();
   }, []);
   /* eslint-enable */
 

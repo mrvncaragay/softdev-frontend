@@ -1,6 +1,10 @@
 import React from 'react';
 import handleInputChange from 'hooks/handleInputChange';
-import { createProfile, updateProfile } from 'actions/profileActions';
+import {
+  createProfile,
+  updateProfile,
+  deleteProfile
+} from 'actions/profileActions';
 
 // External
 import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
@@ -17,6 +21,7 @@ import styles from './styles';
 const Form = ({
   createProfile,
   updateProfile,
+  deleteProfile,
   error,
   data = {},
   update = false,
@@ -45,13 +50,22 @@ const Form = ({
     update ? updateProfile(state, data) : createProfile(state);
   };
 
-  const handleClose = () => {
-    closeForm();
-  };
+  const handleClose = () => closeForm();
+  const handleDelete = () => deleteProfile(data._id);
 
   return (
     <div className={classes.root}>
-      <Typography variant='h3'>Create a New Profile</Typography>
+      <div className={classes.header}>
+        <Typography variant='h3'>
+          {update ? 'Update Profile' : 'Create a New Profile'}{' '}
+        </Typography>
+
+        {update && (
+          <Button variant='outlined' onClick={handleDelete}>
+            Delete
+          </Button>
+        )}
+      </div>
 
       <ValidatorForm onSubmit={handleSubmitForm}>
         <TextValidator
@@ -206,5 +220,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { createProfile, updateProfile }
+  { createProfile, updateProfile, deleteProfile }
 )(Form);

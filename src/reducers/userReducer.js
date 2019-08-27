@@ -3,6 +3,7 @@ import {
   LOGIN,
   LOGOUT,
   SAVE_PROFILE,
+  DELETE_PROFILE,
   SET_LOADNG_USER,
   SAVE_EXPERIENCE,
   SAVE_EDUCATION
@@ -41,6 +42,13 @@ const userReducer = (state = initialState, action) => {
       };
     }
 
+    case DELETE_PROFILE: {
+      return {
+        ...state,
+        profile: null,
+        isLoading: false
+      };
+    }
     case SAVE_EXPERIENCE: {
       return {
         ...state,
