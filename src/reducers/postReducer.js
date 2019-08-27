@@ -16,7 +16,7 @@ const postReducer = (state = initialState, action) => {
     case SAVE_POST: {
       return {
         ...state,
-        BigPosts: [...action.payload],
+        MediumPosts: [...action.payload],
         isLoading: false
       };
     }
@@ -24,14 +24,14 @@ const postReducer = (state = initialState, action) => {
     case ADD_POST: {
       return {
         ...state,
-        BigPosts: [action.payload, ...state.BigPosts],
+        MediumPosts: [action.payload, ...state.MediumPosts],
         isLoading: false
       };
     }
     case ADD_TO_STATE: {
       return {
         ...state,
-        post: state.BigPosts.filter(post => post._id === action.payload),
+        post: state.MediumPosts.filter(post => post._id === action.payload),
         isLoading: false
       };
     }

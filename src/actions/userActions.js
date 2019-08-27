@@ -1,4 +1,11 @@
-import { SIGNUP, LOGOUT, ERROR, SET_LOADNG_USER, CLEAR_POST } from './types';
+import {
+  SIGNUP,
+  LOGOUT,
+  ERROR,
+  SET_LOADNG_USER,
+  CLEAR_POST,
+  CLEAR_ERROR
+} from './types';
 import axios from 'axios';
 import history from 'util/history';
 import jwtHelper from 'util/jwtHelper';
@@ -57,6 +64,11 @@ export const logout = () => dispatch => {
   // reset posts state in redux
   dispatch({
     type: CLEAR_POST
+  });
+
+  // reset error state in redux
+  dispatch({
+    type: CLEAR_ERROR
   });
 
   // clear local storage

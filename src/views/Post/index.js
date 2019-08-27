@@ -47,7 +47,7 @@ const Post = ({ fetchPosts, posts }) => {
       {posts.isLoading ? (
         <CircularLoading />
       ) : (
-        posts.BigPosts && (
+        posts.MediumPosts && (
           <Fragment>
             <div className={classes.writePost}>
               <ModalForm customWith='md' CustomButton={button}>
@@ -62,7 +62,7 @@ const Post = ({ fetchPosts, posts }) => {
                 appear={true}
                 timeout={500}
               >
-                <PostLayout posts={posts.BigPosts} />
+                <PostLayout posts={posts.MediumPosts} />
               </CSSTransition>
             </div>
           </Fragment>
