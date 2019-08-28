@@ -45,6 +45,7 @@ export default {
     fontSize: '0.8em',
     letterSpacing: '0.20em',
     fontWeight: 500,
-    lineHeight: 1.5
+    lineHeight: 1.5,
+    whiteSpace: 'pre-line'
   }
 };

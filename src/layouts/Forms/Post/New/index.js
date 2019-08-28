@@ -60,7 +60,7 @@ const Post = ({
   useEffect(() => {
     ValidatorForm.addValidationRule(
       'betweenTenToSixHundred',
-      val => val.length >= 10 && val.length <= 600
+      val => val.length >= 10 && val.length <= 1200
     );
 
     ValidatorForm.addValidationRule(
@@ -118,7 +118,7 @@ const Post = ({
           validators={['required', 'betweenTenToSixHundred']}
           errorMessages={[
             'This field is required.',
-            'Text must between 10 to 600 characters.'
+            'Text must between 10 to 1200 characters.'
           ]}
         />
 
