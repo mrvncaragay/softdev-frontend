@@ -59,7 +59,9 @@ export default makeStyles(theme => ({
     }
   },
 
-  backButton: {
-    marginTop: theme.spacing(2)
+  postActions: {
+    marginTop: theme.spacing(2),
+    display: 'flex',
+    justifyContent: 'space-between'
   }
 }));

@@ -2,6 +2,7 @@ import {
   SAVE_POST,
   ERROR,
   ADD_POST,
+  DELETE_POST,
   ADD_POSTS,
   LIKE_POST,
   UNLIKE_POST,
@@ -10,6 +11,7 @@ import {
   SET_LOADNG_POST
 } from './types';
 import axios from 'axios';
+import history from 'util/history';
 
 /*
  *  @desc     Add a post
@@ -158,6 +160,11 @@ export const fetchPost = id => async dispatch => {
  *  @return   none
  */
 export const fetchPosts = () => async dispatch => {
+
+  dispatch({
+    type: SET_LOADNG_POST
+  });
+
   try {
     const { data } = await axios.get('/api/posts');
 
@@ -165,6 +172,32 @@ export const fetchPosts = () => async dispatch => {
       type: SAVE_POST,
       payload: data
     });
+  } catch (error) {
+    dispatch({
+      type: ERROR,
+      payload: error.response.data
+    });
+  }
+};
+/*
+ *  @desc     Delete post
+ *  @param    id
+ *  @return   none
+ */
+export const deletePost = id => async dispatch => {
+  dispatch({
+    type: SET_LOADNG_POST
+  });
+
+  try {
+    const { data } = await axios.delete('/api/posts/' + id);
+
+    dispatch({
+      type: DELETE_POST,
+      payload: data
+    });
+
+    history.push('/posts');
   } catch (error) {
     dispatch({
       type: ERROR,

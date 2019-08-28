@@ -68,9 +68,9 @@ export const deleteProfile = id => async dispatch => {
   });
 
   try {
-    const { data } = await axios.delete('/api/profiles/' + id);
+    await axios.delete('/api/profiles/' + id);
 
-    dispatch({ type: DELETE_PROFILE, payload: data });
+    dispatch({ type: DELETE_PROFILE });
 
     // Redirect to Profile Page
     history.push('/profile/me');

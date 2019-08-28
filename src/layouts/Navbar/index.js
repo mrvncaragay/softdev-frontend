@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { logout } from 'actions/userActions';
+import history from 'util/history';
 
 // Material UI component
 import AppBar from '@material-ui/core/AppBar';
@@ -22,7 +23,10 @@ const Navbar = ({ children, currentUser, logout }) => {
   const classes = styles();
   const { isAuthenticated } = currentUser;
 
-  const handleLogOut = () => logout();
+  const handleLogOut = () => {
+    logout();
+    history.push('/login');
+  };
   return (
     <Fragment>
       <div className={classes.root}>

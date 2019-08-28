@@ -7,7 +7,8 @@ import {
   UNLIKE_POST,
   ADD_POST_COMMENT,
   DELETE_POST_COMMENT,
-  CLEAR_POST
+  CLEAR_POST,
+  DELETE_POST
 } from 'actions/types';
 
 const initialState = {
@@ -28,6 +29,16 @@ const postReducer = (state = initialState, action) => {
       return {
         ...state,
         post: action.payload,
+        isLoading: false
+      };
+    }
+
+    case DELETE_POST: {
+      return {
+        ...state,
+        MediumPosts: state.MediumPosts.filter(
+          post => post._id !== action.payload.id
+        ),
         isLoading: false
       };
     }

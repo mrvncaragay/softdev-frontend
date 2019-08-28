@@ -15,7 +15,7 @@ export default makeStyles(theme => ({
   writePost: {
     display: 'flex',
     justifyContent: 'flex-end',
-    padding: theme.spacing(4, 18, 0, 18),
+    padding: theme.spacing(2, 18, 0, 18),
 
     [theme.breakpoints.down('md')]: {
       padding: theme.spacing(3)
