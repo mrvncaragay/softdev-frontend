@@ -14,7 +14,7 @@ import CardContent from '@material-ui/core/CardContent';
 // Shared Components
 import { ModalForm, NewEducation } from 'layouts';
 
-const InfoCardEdu = ({ title, icon, education }) => {
+const InfoCardEdu = ({ title, icon, education, actions }) => {
   const classes = styles();
 
   const iconButton = ({ handleClick }) => {
@@ -33,11 +33,13 @@ const InfoCardEdu = ({ title, icon, education }) => {
           {icon}
           <p>{title}</p>
 
-          <div className={classes.addEducation}>
-            <ModalForm CustomButton={iconButton}>
-              <NewEducation />
-            </ModalForm>
-          </div>
+          {actions && (
+            <div className={classes.addEducation}>
+              <ModalForm CustomButton={iconButton}>
+                <NewEducation />
+              </ModalForm>
+            </div>
+          )}
         </div>
 
         {education.map(edu => (

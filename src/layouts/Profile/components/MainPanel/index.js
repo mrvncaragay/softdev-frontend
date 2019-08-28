@@ -1,5 +1,8 @@
 import React from 'react';
 
+// External
+import { connect } from 'react-redux';
+
 // Material UI component
 import Assignment from '@material-ui/icons/AssignmentOutlined';
 import School from '@material-ui/icons/SchoolOutlined';
@@ -21,12 +24,14 @@ import {
 // Component Styles
 import styles from './styles';
 
-const MainPanel = ({ profile }) => {
+const MainPanel = ({ profile, currentUser }) => {
   const classes = styles();
 
   const CustomIcon = ({ ...props }) => {
     return props.type;
   };
+
+  const showCurrentUserActions = () => currentUser.id === profile.user._id;
 
   return (
     <div className={classes.root}>
@@ -38,12 +43,14 @@ const MainPanel = ({ profile }) => {
         />
 
         <InfoCardExp
+          actions={showCurrentUserActions()}
           experience={profile.experience}
           title='Experience'
           icon={<CustomIcon type={<Work />} />}
         />
 
         <InfoCardEdu
+          actions={showCurrentUserActions()}
           education={profile.education}
           title='Education'
           icon={<CustomIcon type={<School />} />}
@@ -72,4 +79,11 @@ const MainPanel = ({ profile }) => {
   );
 };
 
-export default MainPanel;
+const mapStateToProps = state => ({
+  currentUser: state.currentUser.info
+});
+
+export default connect(
+  mapStateToProps,
+  {}
+)(MainPanel);

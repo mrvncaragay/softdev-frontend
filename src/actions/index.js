@@ -7,6 +7,7 @@ export { signup, logout } from './userActions';
 // Profile
 export {
   fetchProfile,
+  fetchMyProfile,
   createProfile,
   updateProfile,
   deleteProfile,

@@ -1,55 +1,47 @@
 import React, { useEffect } from 'react';
 import { CSSTransition } from 'react-transition-group';
-import { fetchMyProfile } from 'actions';
+import { fetchProfile } from 'actions';
 
 // External
 import { connect } from 'react-redux';
+import history from 'util/history';
 
 // Shared component
-import {
-  Navbar,
-  ModalForm,
-  CircularLoading,
-  Profile as ProfileLayout,
-  NewProfile,
-  AddBox
-} from 'layouts';
+import { Navbar, CircularLoading, Profile as ProfileLayout } from 'layouts';
 
 // Component styles
 import styles from './styles';
 
-const Profile = ({ currentUser, fetchMyProfile }) => {
+const UserProfile = ({ fetchProfile, profile, currentUser }) => {
   const classes = styles();
+
+  // import { Redirect } from 'react-router-dom';
+  // if (history.location.state.uid === currentUser.id) {
+  //   return <Redirect to='/profile/me' />;
+  // }
 
   /* eslint-disable */
   useEffect(() => {
-    if (currentUser.profile) 
-    fetchMyProfile();
+       fetchProfile(history.location.state.uid);
   }, []);
   /* eslint-enable */
-
-  const button = ({ handleClick }) => {
-    return <AddBox title='Add profile' handleClick={handleClick} />;
-  };
 
   return (
     <Navbar>
       <div className={classes.root}>
-        {currentUser.isLoading ? (
+        {profile.isLoading ? (
           <CircularLoading />
-        ) : currentUser.profile ? (
+        ) : profile.user ? (
           <CSSTransition
             classNames='fade'
             in={true}
             appear={true}
             timeout={500}
           >
-            <ProfileLayout profile={currentUser.profile} />
+            <ProfileLayout profile={profile} />
           </CSSTransition>
         ) : (
-          <ModalForm CustomButton={button}>
-            <NewProfile />
-          </ModalForm>
+          <div>No Profile for this user</div>
         )}
       </div>
     </Navbar>
@@ -57,10 +49,11 @@ const Profile = ({ currentUser, fetchMyProfile }) => {
 };
 
 const mapStateToProps = state => ({
-  currentUser: state.currentUser
+  profile: state.profile,
+  currentUser: state.currentUser.info
 });
 
 export default connect(
   mapStateToProps,
-  { fetchMyProfile }
-)(Profile);
+  { fetchProfile }
+)(UserProfile);

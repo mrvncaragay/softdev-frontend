@@ -6,14 +6,13 @@ import styles from './styles';
 // Components
 import { SidePanel, MainPanel } from './components';
 
-const Profile = ({ currentUser }) => {
-  const { profile, info } = currentUser;
+const Profile = ({ profile }) => {
   const classes = styles();
 
   return (
     <div className={classes.root}>
       <div className={classes.sidePanel}>
-        <SidePanel profile={profile} info={info} />
+        <SidePanel profile={profile} />
       </div>
 
       <div className={classes.mainPanel}>

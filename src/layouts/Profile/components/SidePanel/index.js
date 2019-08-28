@@ -1,5 +1,8 @@
 import React from 'react';
 
+// External
+import { connect } from 'react-redux';
+
 // Material UI component
 import Typography from '@material-ui/core/Typography';
 import Avatar from '@material-ui/core/Avatar';
@@ -11,7 +14,7 @@ import { ModalForm, NewProfile } from 'layouts';
 // Component Styles
 import styles from './styles';
 
-const SidePanel = ({ profile }) => {
+const SidePanel = ({ profile, currentUser }) => {
   const classes = styles();
 
   const button = ({ handleClick }) => {
@@ -25,13 +28,17 @@ const SidePanel = ({ profile }) => {
     );
   };
 
+  const isProfileUserCurrentUser = () => currentUser.id === profile.user._id;
+
   return (
     <div className={classes.root}>
-      <div className={classes.editBtn}>
-        <ModalForm CustomButton={button}>
-          <NewProfile data={profile} update={true} />
-        </ModalForm>
-      </div>
+      {isProfileUserCurrentUser() && (
+        <div className={classes.editBtn}>
+          <ModalForm CustomButton={button}>
+            <NewProfile data={profile} update={true} />
+          </ModalForm>
+        </div>
+      )}
 
       <Avatar
         alt='User Avatar'
@@ -66,4 +73,11 @@ const SidePanel = ({ profile }) => {
   );
 };
 
-export default SidePanel;
+const mapStateToProps = state => ({
+  currentUser: state.currentUser.info
+});
+
+export default connect(
+  mapStateToProps,
+  {}
+)(SidePanel);

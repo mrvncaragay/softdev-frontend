@@ -13,7 +13,7 @@ import Edit from '@material-ui/icons/Create';
 // Component styles
 import styles from './styles';
 
-const ExperienceTab = ({ experience }) => {
+const ExperienceTab = ({ experience, actions }) => {
   const classes = styles();
 
   const iconButton = ({ handleClick }) => {
@@ -37,11 +37,13 @@ const ExperienceTab = ({ experience }) => {
         <Typography variant='h5'>{experience.company}</Typography>
       </div>
 
-      <div className={classes.edit}>
-        <ModalForm CustomButton={iconButton}>
-          <NewExperience data={experience} update={true} />
-        </ModalForm>
-      </div>
+      {actions && (
+        <div className={classes.edit}>
+          <ModalForm CustomButton={iconButton}>
+            <NewExperience data={experience} update={true} />
+          </ModalForm>
+        </div>
+      )}
     </div>
   );
 };

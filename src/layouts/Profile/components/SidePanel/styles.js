@@ -10,6 +10,7 @@ export default makeStyles(theme => ({
   },
 
   bigAvatar: {
+    marginTop: theme.spacing(1),
     width: '120px',
     height: '120px'
   },
