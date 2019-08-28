@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { Link } from 'react-router-dom';
+import { likePost, unlikePost } from 'actions';
 
 // External
+import { connect } from 'react-redux';
 import moment from 'moment';
 
 // Material UI component
@@ -19,12 +21,15 @@ import { CommentBox, NewComment } from 'layouts';
 // Component styles
 import styles from './styles';
 
-const SinglePost = ({ post }) => {
+const SinglePost = ({ post, likePost, unlikePost, currentUser }) => {
   const classes = styles();
   const [open, setOpen] = useState(true);
+  const [like, setLike] = useState(post.likes.includes(currentUser.id));
 
-  const handleCommentForm = () => {
-    setOpen(!open);
+  const handleCommentForm = () => setOpen(!open);
+  const handleLike = () => {
+    setLike(!like);
+    like ? unlikePost(post._id) : likePost(post._id);
   };
 
   return (
@@ -66,8 +71,8 @@ const SinglePost = ({ post }) => {
 
       <div className={classes.footer}>
         <div className={classes.stats}>
-          <Button>
-            <ThumbUp />
+          <Button onClick={handleLike}>
+            <ThumbUp className={classes[like ? 'liked' : '']} />
             <span>{post.likes.length} likes</span>
           </Button>
 
@@ -110,4 +115,11 @@ const SinglePost = ({ post }) => {
   );
 };
 
-export default SinglePost;
+const mapStateToProps = state => ({
+  currentUser: state.currentUser.info
+});
+
+export default connect(
+  mapStateToProps,
+  { likePost, unlikePost }
+)(SinglePost);

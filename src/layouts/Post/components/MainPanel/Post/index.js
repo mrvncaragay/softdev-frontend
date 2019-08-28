@@ -74,12 +74,12 @@ const Post = ({ post }) => {
         <div className={classes.stats}>
           <Link to='#'>
             <ThumbUp />
-            <span>28</span>
+            <span>{post.likes.length}</span>
           </Link>
 
           <Link to='#'>
             <Comment />
-            <span>32</span>
+            <span>{post.comments.length}</span>
           </Link>
         </div>
       </div>

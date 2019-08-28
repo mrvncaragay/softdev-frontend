@@ -138,6 +138,10 @@ export default makeStyles(theme => ({
       order: 0
     },
 
+    '& svg': {
+      marginRight: theme.spacing(1)
+    },
+
     '& button': {
       color: '#d2d2d2',
 
@@ -158,5 +162,9 @@ export default makeStyles(theme => ({
     [theme.breakpoints.down('md')]: {
       padding: theme.spacing(2, 0, 4, 0)
     }
+  },
+
+  liked: {
+    color: theme.palette.background.default
   }
 }));

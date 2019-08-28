@@ -3,6 +3,8 @@ import {
   SET_LOADNG_POST,
   ADD_POST,
   ADD_POSTS,
+  LIKE_POST,
+  UNLIKE_POST,
   ADD_POST_COMMENT,
   DELETE_POST_COMMENT,
   CLEAR_POST
@@ -34,6 +36,30 @@ const postReducer = (state = initialState, action) => {
       return {
         ...state,
         MediumPosts: [action.payload, ...state.MediumPosts],
+        isLoading: false
+      };
+    }
+
+    case LIKE_POST: {
+      return {
+        ...state,
+        post: {
+          ...state.post,
+          likes: [...state.post.likes, action.payload]
+        },
+
+        isLoading: false
+      };
+    }
+
+    case UNLIKE_POST: {
+      return {
+        ...state,
+        post: {
+          ...state.post,
+          likes: state.post.likes.filter(user => user !== action.payload)
+        },
+
         isLoading: false
       };
     }

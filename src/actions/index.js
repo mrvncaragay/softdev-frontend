@@ -21,6 +21,8 @@ export {
 // Post
 export {
   addPost,
+  likePost,
+  unlikePost,
   addPostComment,
   fetchPosts,
   fetchPost,

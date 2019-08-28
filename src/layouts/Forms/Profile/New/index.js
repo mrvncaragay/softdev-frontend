@@ -69,7 +69,7 @@ const Form = ({
 
       <ValidatorForm onSubmit={handleSubmitForm}>
         <TextValidator
-          label='Profile Name (required)'
+          label='Username (required)'
           name='handle'
           value={state.handle}
           onChange={handleChange}

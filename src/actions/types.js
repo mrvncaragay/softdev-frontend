@@ -18,6 +18,8 @@ export const SET_LOADNG_PROFILE = 'SET_LOADNG_PROFILE';
 export const SAVE_POST = 'SAVE_POST';
 export const ADD_POST = 'ADD_POST';
 export const ADD_POSTS = 'ADD_POSTS';
+export const LIKE_POST = 'LIKE_POST';
+export const UNLIKE_POST = 'UNLIKE_POST';
 export const ADD_POST_COMMENT = 'ADD_POST_COMMENT';
 export const DELETE_POST_COMMENT = 'DELETE_POST_COMMENT';
 

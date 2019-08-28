@@ -3,6 +3,8 @@ import {
   ERROR,
   ADD_POST,
   ADD_POSTS,
+  LIKE_POST,
+  UNLIKE_POST,
   ADD_POST_COMMENT,
   DELETE_POST_COMMENT
 } from './types';
@@ -51,6 +53,48 @@ export const addPostComment = (id, text) => async dispatch => {
 
     dispatch({
       type: ADD_POST_COMMENT,
+      payload: data
+    });
+  } catch (error) {
+    dispatch({
+      type: ERROR,
+      payload: error.response.data
+    });
+  }
+};
+
+/*
+ *  @desc     Like a post
+ *  @param    none
+ *  @return   none
+ */
+export const likePost = id => async dispatch => {
+  try {
+    const { data } = await axios.put('/api/posts/like/' + id);
+
+    dispatch({
+      type: LIKE_POST,
+      payload: data
+    });
+  } catch (error) {
+    dispatch({
+      type: ERROR,
+      payload: error.response.data
+    });
+  }
+};
+
+/*
+ *  @desc     Like a post
+ *  @param    none
+ *  @return   none
+ */
+export const unlikePost = id => async (dispatch, getState) => {
+  try {
+    const { data } = await axios.put('/api/posts/unlike/' + id);
+
+    dispatch({
+      type: UNLIKE_POST,
       payload: data
     });
   } catch (error) {
