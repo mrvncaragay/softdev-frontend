@@ -43,17 +43,19 @@ const SinglePost = ({ fetchPost, posts }) => {
           <Button variant='outlined'>Go Back</Button>
         </Link>
 
-        {posts.post && (
-          <CSSTransition
-            classNames='fade'
-            in={true}
-            appear={true}
-            timeout={500}
-          >
-            {/* Big posts is undefined when refresh */}
-            <SinglePostLayout post={posts.post} />
-          </CSSTransition>
-        )}
+        {posts.post &&
+          (posts.isLoading ? (
+            <CircularLoading />
+          ) : (
+            <CSSTransition
+              classNames='fade'
+              in={true}
+              appear={true}
+              timeout={500}
+            >
+              <SinglePostLayout post={posts.post} />
+            </CSSTransition>
+          ))}
 
         {/* <ModalForm>
           <NewPost />

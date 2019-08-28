@@ -22,7 +22,6 @@ export const LIKE_POST = 'LIKE_POST';
 export const UNLIKE_POST = 'UNLIKE_POST';
 export const ADD_POST_COMMENT = 'ADD_POST_COMMENT';
 export const DELETE_POST_COMMENT = 'DELETE_POST_COMMENT';
-
 export const SET_LOADNG_POST = 'SET_LOADNG_POST';
 export const CLEAR_POST = 'CLEAR_POST';
 

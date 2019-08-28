@@ -53,13 +53,15 @@ const Post = ({ post }) => {
           <CardMedia
             className={classes.media}
             image={`${post.posturl}`}
-            title='kings'
+            title={`${post.subtitle}`}
           />
         </div>
       )}
 
       <div className={classes.text}>
-        <Typography variant='body2'>{post.text}</Typography>
+        <Typography variant='body2'>
+          {post.text.substring(0, 300) + '...'}
+        </Typography>
       </div>
       <div className={classes.footer}>
         <Link

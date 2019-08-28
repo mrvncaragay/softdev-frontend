@@ -6,7 +6,8 @@ import {
   LIKE_POST,
   UNLIKE_POST,
   ADD_POST_COMMENT,
-  DELETE_POST_COMMENT
+  DELETE_POST_COMMENT,
+  SET_LOADNG_POST
 } from './types';
 import axios from 'axios';
 
@@ -132,6 +133,10 @@ export const deletePostComment = (pid, cid) => async dispatch => {
  *  @return   none
  */
 export const fetchPost = id => async dispatch => {
+  dispatch({
+    type: SET_LOADNG_POST
+  });
+
   try {
     const { data } = await axios.get('/api/posts/' + id);
 
