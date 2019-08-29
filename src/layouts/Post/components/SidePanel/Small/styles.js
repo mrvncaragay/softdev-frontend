@@ -39,7 +39,13 @@ export default makeStyles(theme => ({
     }
   },
 
-  media: {
-    paddingTop: '33.33%'
+  image: {
+    display: 'block',
+
+    '& img': {
+      objectFit: 'cover',
+      width: '100%',
+      height: '200px'
+    }
   }
 }));

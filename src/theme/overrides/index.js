@@ -6,6 +6,7 @@ import MuiFormLabel from './MuiFormLabel';
 import MuiTooltip from './MuiTooltip';
 import MuiIconButton from './MuiIconButton';
 import MuiCardContent from './MuiCardContent';
+import MuiAvatar from './MuiAvatar';
 
 export default {
   MuiInput,
@@ -15,5 +16,6 @@ export default {
   MuiFormLabel,
   MuiTooltip,
   MuiIconButton,
-  MuiCardContent
+  MuiCardContent,
+  MuiAvatar
 };

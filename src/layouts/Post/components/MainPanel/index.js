@@ -2,7 +2,7 @@ import React from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 // Shared component
-import Post from './Post';
+import Post from './Medium';
 
 // Component styles
 import styles from './styles';

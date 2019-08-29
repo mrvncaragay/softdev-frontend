@@ -21,7 +21,8 @@ const postReducer = (state = initialState, action) => {
     case SAVE_POST: {
       return {
         ...state,
-        MediumPosts: [...action.payload],
+        MediumPosts: [...action.payload.slice(0, 5)],
+        SmallPosts: [...action.payload.slice(5, 10)],
         isLoading: false
       };
     }

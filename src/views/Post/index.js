@@ -1,4 +1,4 @@
-import React, { useEffect, Fragment } from 'react';
+import React, { useEffect } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import { fetchPosts } from 'actions';
 
@@ -48,7 +48,7 @@ const Post = ({ fetchPosts, posts }) => {
         <CircularLoading />
       ) : (
         posts.MediumPosts && (
-          <Fragment>
+          <>
             <div className={classes.writePost}>
               <ModalForm customWith='md' CustomButton={button}>
                 <NewPost />
@@ -62,10 +62,13 @@ const Post = ({ fetchPosts, posts }) => {
                 appear={true}
                 timeout={500}
               >
-                <PostLayout posts={posts.MediumPosts} />
+                <PostLayout
+                  medium={posts.MediumPosts}
+                  small={posts.SmallPosts}
+                />
               </CSSTransition>
             </div>
-          </Fragment>
+          </>
         )
       )}
     </Navbar>

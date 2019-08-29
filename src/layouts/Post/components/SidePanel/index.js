@@ -1,18 +1,19 @@
 import React from 'react';
 
 // Shared component
-import MiniPost from './MiniPost';
+import MiniPost from './Small';
 
 // Component styles
 import styles from './styles';
 
-const SidePanel = () => {
+const SidePanel = ({ posts }) => {
   const classes = styles();
 
   return (
     <div className={classes.root}>
-      <MiniPost />
-      <MiniPost />
+      {posts.map(post => (
+        <MiniPost key={post._id} post={post} />
+      ))}
     </div>
   );
 };

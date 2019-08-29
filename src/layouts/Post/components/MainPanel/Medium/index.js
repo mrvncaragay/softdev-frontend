@@ -57,8 +57,8 @@ const Post = ({ post }) => {
         <div className={classes.img}>
           <CardMedia
             className={classes.media}
-            image={`${post.posturl}`}
-            title={`${post.subtitle}`}
+            image={post.posturl}
+            title={post.subtitle}
           />
         </div>
       )}
