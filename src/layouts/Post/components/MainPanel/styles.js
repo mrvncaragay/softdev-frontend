@@ -8,5 +8,15 @@ export default makeStyles(theme => ({
     [theme.breakpoints.down('md')]: {
       order: 0
     }
+  },
+
+  pagination: {
+    '& button': {
+      padding: theme.spacing(2, 3, 2, 3),
+
+      '&:last-child': {
+        marginLeft: theme.spacing(2)
+      }
+    }
   }
 }));

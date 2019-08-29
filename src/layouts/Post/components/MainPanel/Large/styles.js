@@ -7,7 +7,11 @@ export default makeStyles(theme => ({
     flexDirection: 'column',
     border: `1px solid ${theme.palette.border}`,
     backgroundColor: 'white',
-    marginBottom: theme.spacing(6)
+    marginBottom: theme.spacing(6),
+
+    '&:last-child': {
+      marginBottom: theme.spacing(3)
+    }
   },
 
   header: {

@@ -1,6 +1,9 @@
 import React from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
+// Material UI component
+import Button from '@material-ui/core/Button';
+
 // Shared component
 import Post from './Large';
 
@@ -20,6 +23,11 @@ const MainPanel = ({ largePosts }) => {
           </CSSTransition>
         ))}
       </TransitionGroup>
+
+      <div className={classes.pagination}>
+        <Button variant='outlined'>Previous Page</Button>
+        <Button variant='outlined'>Next Page</Button>
+      </div>
     </div>
   );
 };

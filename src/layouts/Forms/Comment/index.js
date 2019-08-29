@@ -16,6 +16,7 @@ import Avatar from '@material-ui/core/Avatar';
 import styles from './styles';
 
 const Comment = ({
+  currentUser,
   post,
   addPostComment,
   error,
@@ -51,8 +52,8 @@ const Comment = ({
       <div className={classes.userAvatar}>
         <Link to='#'>
           <Avatar
-            alt={post.name}
-            src={post.avatar}
+            alt={currentUser.name}
+            src={currentUser.avatar}
             className={classes.avatar}
           />
         </Link>
@@ -95,6 +96,7 @@ const Comment = ({
 };
 
 const mapStateToProps = state => ({
+  currentUser: state.currentUser.info,
   error: state.error
 });
 
