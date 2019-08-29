@@ -16,7 +16,7 @@ import { ModalForm, NewPost, CircularLoading } from 'layouts';
 // Component styles
 import styles from './styles';
 
-const Post = ({ fetchPosts, posts }) => {
+const Post = ({ fetchPosts, posts, currentUser }) => {
   const classes = styles();
 
   const button = ({ handleClick }) => {
@@ -49,11 +49,14 @@ const Post = ({ fetchPosts, posts }) => {
       ) : (
         posts.LargePosts && (
           <>
-            <div className={classes.writePost}>
-              <ModalForm customWith='md' CustomButton={button}>
-                <NewPost />
-              </ModalForm>
-            </div>
+            {currentUser.isAuthenticated && (
+              <div className={classes.writePost}>
+                <ModalForm customWith='md' CustomButton={button}>
+                  <NewPost />
+                </ModalForm>
+              </div>
+            )}
+
             <div className={classes.root}>
               {/* Fade animation on page load */}
               <CSSTransition
@@ -77,7 +80,8 @@ const Post = ({ fetchPosts, posts }) => {
 };
 
 const mapStateToProps = state => ({
-  posts: state.posts
+  posts: state.posts,
+  currentUser: state.currentUser
 });
 
 export default connect(

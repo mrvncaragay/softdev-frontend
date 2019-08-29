@@ -20,6 +20,11 @@ export default makeStyles(theme => ({
     },
     '& .Mui-disabled': {
       border: 'none'
+    },
+
+    [theme.breakpoints.down('md')]: {
+      marginBottom: theme.spacing(4),
+      textAlign: 'center'
     }
   }
 }));

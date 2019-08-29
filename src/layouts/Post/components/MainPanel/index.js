@@ -38,7 +38,7 @@ const MainPanel = ({ largePosts, paginatePost }) => {
 
     paginatePost(paginate.pageNumber, 5);
   };
-  console.log(paginate);
+
   return (
     <div className={classes.root}>
       {/* Render two elements at the same time. One element in and Other out*/}

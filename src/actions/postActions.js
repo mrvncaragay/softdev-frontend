@@ -230,8 +230,6 @@ export const paginatePost = (pageNumber, pageSize) => async dispatch => {
       type: PAGINATE_POST,
       payload: data
     });
-
-    //history.push('/posts');
   } catch (error) {
     clearErrorMessage(error.response.data, dispatch);
   }

@@ -57,8 +57,9 @@ export default makeStyles(theme => ({
 
     [theme.breakpoints.down('md')]: {
       padding: theme.spacing(0, 2, 4, 2),
-
+      display: 'flex',
       '& h4': {
+        alignSelf: 'center',
         marginBottom: theme.spacing(0),
         display: 'inline-flex',
         marginRight: theme.spacing(4)
