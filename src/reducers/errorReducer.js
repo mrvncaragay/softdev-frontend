@@ -4,7 +4,9 @@ const initialState = {};
 const errorReducer = (state = initialState, action) => {
   switch (action.type) {
     case ERROR: {
-      return action.payload;
+      return {
+        message: action.payload
+      };
     }
 
     case CLEAR_ERROR: {

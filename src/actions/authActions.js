@@ -1,4 +1,4 @@
-import { LOGIN, ERROR, SET_LOADNG_USER } from './types';
+import { LOGIN, SET_LOADNG_USER, clearErrorMessage } from './types';
 import axios from 'axios';
 import history from 'util/history';
 import axiosHelper from 'util/axiosHelper';
@@ -36,9 +36,6 @@ export const login = input => async dispatch => {
     // Redirect to homepage
     history.push('/profile/me');
   } catch (error) {
-    dispatch({
-      type: ERROR,
-      payload: error.response.data
-    });
+    clearErrorMessage(error.response.data, dispatch);
   }
 };

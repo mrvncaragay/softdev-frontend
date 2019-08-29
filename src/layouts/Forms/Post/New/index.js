@@ -144,7 +144,7 @@ const Post = ({
         <Typography variant='h6'>{imgName}</Typography>
 
         <Typography variant='h6' className={classes.error}>
-          {error.error}
+          {error.message && error.message.error}
         </Typography>
 
         <div className={classes.actions}>

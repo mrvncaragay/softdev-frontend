@@ -189,7 +189,7 @@ const Form = ({
         />
 
         <Typography variant='h6' className={classes.error}>
-          {error.error}
+          {error.message && error.message.error}
         </Typography>
 
         <Button

@@ -74,7 +74,7 @@ const Comment = ({
         />
 
         <Typography variant='h6' className={classes.error}>
-          {error.error}
+          {error.message && error.message.error}
         </Typography>
 
         <div className={classes.actions}>

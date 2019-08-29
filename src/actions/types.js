@@ -33,3 +33,16 @@ export const CLEAR_POST = 'CLEAR_POST';
 // Error
 export const ERROR = 'ERROR';
 export const CLEAR_ERROR = 'CLEAR_ERROR';
+
+export const clearErrorMessage = (error, dispatch) => {
+  dispatch({
+    type: ERROR,
+    payload: error
+  });
+
+  setTimeout(() => {
+    dispatch({
+      type: CLEAR_ERROR
+    });
+  }, 3000);
+};

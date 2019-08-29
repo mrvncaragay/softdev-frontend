@@ -2,7 +2,7 @@ import {
   SAVE_PROFILE,
   SAVE_USER_PROFILE,
   DELETE_PROFILE,
-  ERROR,
+  clearErrorMessage,
   SET_LOADNG_USER,
   SAVE_EXPERIENCE,
   SAVE_EDUCATION,
@@ -27,10 +27,7 @@ export const createProfile = input => async dispatch => {
     // Redirect to User Home Page
     history.push('/profile/me');
   } catch (error) {
-    dispatch({
-      type: ERROR,
-      payload: error.response.data
-    });
+    clearErrorMessage(error.response.data, dispatch);
   }
 };
 
@@ -50,10 +47,7 @@ export const updateProfile = (input, profile) => async dispatch => {
     });
     dispatch({ type: SAVE_PROFILE, payload: data });
   } catch (error) {
-    dispatch({
-      type: ERROR,
-      payload: error.response.data
-    });
+    clearErrorMessage(error.response.data, dispatch);
   }
 };
 
@@ -75,10 +69,7 @@ export const deleteProfile = id => async dispatch => {
     // Redirect to Profile Page
     history.push('/profile/me');
   } catch (error) {
-    dispatch({
-      type: ERROR,
-      payload: error.response.data
-    });
+    clearErrorMessage(error.response.data, dispatch);
   }
 };
 
@@ -95,10 +86,7 @@ export const createExperience = input => async dispatch => {
 
     dispatch({ type: SAVE_EXPERIENCE, payload: data });
   } catch (error) {
-    dispatch({
-      type: ERROR,
-      payload: error.response.data
-    });
+    clearErrorMessage(error.response.data, dispatch);
   }
 };
 
@@ -118,10 +106,7 @@ export const updateExperience = (input, id) => async dispatch => {
 
     dispatch({ type: SAVE_EXPERIENCE, payload: data });
   } catch (error) {
-    dispatch({
-      type: ERROR,
-      payload: error.response.data
-    });
+    clearErrorMessage(error.response.data, dispatch);
   }
 };
 
@@ -138,10 +123,7 @@ export const removeExperience = id => async dispatch => {
 
     dispatch({ type: SAVE_EXPERIENCE, payload: data });
   } catch (error) {
-    dispatch({
-      type: ERROR,
-      payload: error.response.data
-    });
+    clearErrorMessage(error.response.data, dispatch);
   }
 };
 
@@ -158,10 +140,7 @@ export const addEducation = input => async dispatch => {
 
     dispatch({ type: SAVE_EDUCATION, payload: data });
   } catch (error) {
-    dispatch({
-      type: ERROR,
-      payload: error.response.data
-    });
+    clearErrorMessage(error.response.data, dispatch);
   }
 };
 
@@ -180,10 +159,7 @@ export const updateEducation = (input, id) => async dispatch => {
 
     dispatch({ type: SAVE_EDUCATION, payload: data });
   } catch (error) {
-    dispatch({
-      type: ERROR,
-      payload: error.response.data
-    });
+    clearErrorMessage(error.response.data, dispatch);
   }
 };
 
@@ -198,10 +174,7 @@ export const removeEducation = id => async dispatch => {
 
     dispatch({ type: SAVE_EDUCATION, payload: data });
   } catch (error) {
-    dispatch({
-      type: ERROR,
-      payload: error.response.data
-    });
+    clearErrorMessage(error.response.data, dispatch);
   }
 };
 
@@ -220,10 +193,7 @@ export const fetchProfile = id => async dispatch => {
 
     dispatch({ type: SAVE_USER_PROFILE, payload: data });
   } catch (error) {
-    dispatch({
-      type: ERROR,
-      payload: error.response.data
-    });
+    clearErrorMessage(error.response.data, dispatch);
   }
 };
 
@@ -242,9 +212,6 @@ export const fetchMyProfile = () => async dispatch => {
 
     dispatch({ type: SAVE_PROFILE, payload: data });
   } catch (error) {
-    dispatch({
-      type: ERROR,
-      payload: error.response.data
-    });
+    clearErrorMessage(error.response.data, dispatch);
   }
 };

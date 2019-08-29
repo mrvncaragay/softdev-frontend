@@ -1,11 +1,11 @@
 import {
   SIGNUP,
   LOGOUT,
-  ERROR,
+  clearErrorMessage,
+  CLEAR_ERROR,
   SET_LOADNG_USER,
   CLEAR_POST,
-  CLEAR_PROFILE,
-  CLEAR_ERROR
+  CLEAR_PROFILE
 } from './types';
 import axios from 'axios';
 import history from 'util/history';
@@ -43,10 +43,7 @@ export const signup = input => async dispatch => {
     // Redirect to User Home Page
     history.push('/');
   } catch (error) {
-    dispatch({
-      type: ERROR,
-      payload: error.response.data
-    });
+    clearErrorMessage(error.response.data, dispatch);
   }
 };
 

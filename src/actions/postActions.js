@@ -1,6 +1,5 @@
 import {
   SAVE_POST,
-  ERROR,
   ADD_POST,
   UPDATE_POST,
   DELETE_POST,
@@ -9,7 +8,8 @@ import {
   UNLIKE_POST,
   ADD_POST_COMMENT,
   DELETE_POST_COMMENT,
-  SET_LOADNG_POST
+  SET_LOADNG_POST,
+  clearErrorMessage
 } from './types';
 import axios from 'axios';
 import history from 'util/history';
@@ -37,10 +37,7 @@ export const addPost = input => async dispatch => {
       payload: data
     });
   } catch (error) {
-    dispatch({
-      type: ERROR,
-      payload: error.response.data
-    });
+    clearErrorMessage(error.response.data, dispatch);
   }
 };
 
@@ -60,10 +57,7 @@ export const addPostComment = (id, text) => async dispatch => {
       payload: data
     });
   } catch (error) {
-    dispatch({
-      type: ERROR,
-      payload: error.response.data
-    });
+    clearErrorMessage(error.response.data, dispatch);
   }
 };
 
@@ -81,10 +75,7 @@ export const likePost = id => async dispatch => {
       payload: data
     });
   } catch (error) {
-    dispatch({
-      type: ERROR,
-      payload: error.response.data
-    });
+    clearErrorMessage(error.response.data, dispatch);
   }
 };
 
@@ -102,10 +93,7 @@ export const unlikePost = id => async (dispatch, getState) => {
       payload: data
     });
   } catch (error) {
-    dispatch({
-      type: ERROR,
-      payload: error.response.data
-    });
+    clearErrorMessage(error.response.data, dispatch);
   }
 };
 
@@ -123,10 +111,7 @@ export const deletePostComment = (pid, cid) => async dispatch => {
       payload: data.commentId
     });
   } catch (error) {
-    dispatch({
-      type: ERROR,
-      payload: error.response.data
-    });
+    clearErrorMessage(error.response.data, dispatch);
   }
 };
 
@@ -148,10 +133,7 @@ export const fetchPost = id => async dispatch => {
       payload: data
     });
   } catch (error) {
-    dispatch({
-      type: ERROR,
-      payload: error.response.data
-    });
+    clearErrorMessage(error.response.data, dispatch);
   }
 };
 
@@ -173,10 +155,7 @@ export const fetchPosts = () => async dispatch => {
       payload: data
     });
   } catch (error) {
-    dispatch({
-      type: ERROR,
-      payload: error.response.data
-    });
+    clearErrorMessage(error.response.data, dispatch);
   }
 };
 
@@ -204,10 +183,7 @@ export const editPost = (input, id) => async dispatch => {
       payload: data
     });
   } catch (error) {
-    dispatch({
-      type: ERROR,
-      payload: error.response.data
-    });
+    clearErrorMessage(error.response.data, dispatch);
   }
 };
 
@@ -231,9 +207,6 @@ export const deletePost = id => async dispatch => {
 
     history.push('/posts');
   } catch (error) {
-    dispatch({
-      type: ERROR,
-      payload: error.response.data
-    });
+    clearErrorMessage(error.response.data, dispatch);
   }
 };

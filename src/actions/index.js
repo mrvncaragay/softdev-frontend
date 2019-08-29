@@ -1,3 +1,5 @@
+import { CLEAR_ERROR } from './types';
+
 // Auth
 export { login } from './authActions';
 

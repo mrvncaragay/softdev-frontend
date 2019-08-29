@@ -53,7 +53,7 @@ const Form = ({ login, error }) => {
           />
 
           <Typography variant='h6' className={classes.error}>
-            {error.error}
+            {error.message && error.message.error}
           </Typography>
 
           <Typography variant='h6'>

@@ -10,6 +10,8 @@ export default initValue => {
       ? (newState['image'] = image)
       : (newState[e.target.name] = e.target.value);
 
+    if (e.target.name === 'current') newState[e.target.name] = e.target.checked;
+
     setState(newState);
   };
 

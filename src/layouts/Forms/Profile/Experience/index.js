@@ -33,7 +33,7 @@ const Experience = ({
     location: data.location || '',
     from: data.from ? moment(data.from).format('YYYY-MM-DD') : '',
     to: data.to ? moment(data.to).format('YYYY-MM-DD') : '',
-    current: data.current || 'false',
+    current: data.current || false,
     description: data.description || ''
   };
   const [state, handleChange] = handleInputChange(initialState);
@@ -109,16 +109,16 @@ const Experience = ({
           value={state.to}
           onChange={handleChange}
           InputLabelProps={{ shrink: true }}
-          disabled={state.current === 'false' ? false : true}
+          disabled={state.current}
         />
 
         <FormControlLabel
           control={
             <Checkbox
               onChange={handleChange}
-              checked={state.current === 'false' ? false : true}
+              checked={state.current}
               name='current'
-              value={state.current === 'false' ? 'true' : 'false'}
+              value={state.current}
               color='primary'
             />
           }
@@ -133,7 +133,7 @@ const Experience = ({
         />
 
         <Typography variant='h6' className={classes.error}>
-          {error.error}
+          {error.message && error.message.error}
         </Typography>
 
         <Button
