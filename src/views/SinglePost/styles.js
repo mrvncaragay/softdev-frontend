@@ -62,6 +62,11 @@ export default makeStyles(theme => ({
   postActions: {
     marginTop: theme.spacing(2),
     display: 'flex',
-    justifyContent: 'space-between'
+
+    '& a': { marginRight: 'auto' },
+
+    '& button:nth-child(3)': {
+      marginLeft: theme.spacing(1)
+    }
   }
 }));

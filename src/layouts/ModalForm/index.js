@@ -31,7 +31,7 @@ const ModalForm = ({ children, CustomButton, customWith = 'sm' }) => {
   };
 
   return (
-    <div>
+    <>
       {CustomButton && <CustomButton handleClick={handleOpen} />}
       <Dialog
         open={open}
@@ -51,7 +51,7 @@ const ModalForm = ({ children, CustomButton, customWith = 'sm' }) => {
 
         <ChildrenForm closeForm={handleClose} />
       </Dialog>
-    </div>
+    </>
   );
 };
 

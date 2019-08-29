@@ -2,6 +2,7 @@ import {
   SAVE_POST,
   SET_LOADNG_POST,
   ADD_POST,
+  UPDATE_POST,
   ADD_POSTS,
   LIKE_POST,
   UNLIKE_POST,
@@ -29,6 +30,17 @@ const postReducer = (state = initialState, action) => {
       return {
         ...state,
         post: action.payload,
+        isLoading: false
+      };
+    }
+
+    case UPDATE_POST: {
+      return {
+        ...state,
+        post: {
+          ...state.post,
+          ...action.payload
+        },
         isLoading: false
       };
     }

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import handleInputChange from 'hooks/handleInputChange';
-import { addPost, updateEducation, removeEducation } from 'actions';
+import { addPost, deletePost, editPost } from 'actions';
 
 // External
 import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
@@ -15,8 +15,8 @@ import styles from './styles';
 
 const Post = ({
   addPost,
-  updateEducation,
-  removeEducation,
+  deletePost,
+  editPost,
   error,
   data = {},
   update = false,
@@ -28,6 +28,7 @@ const Post = ({
     title: data.title || '',
     subtitle: data.subtitle || '',
     text: data.text || '',
+    posturl: data.posturl || '',
     image: null
   };
 
@@ -35,15 +36,15 @@ const Post = ({
   const [imgName, setName] = useState('');
 
   const handleSubmitForm = () => {
-    addPost(state);
     setTimeout(() => {
       closeForm(false);
     }, 300);
-    // update ? updateEducation(state, data._id) : addPost(state);
+
+    update ? editPost(state, data._id) : addPost(state);
   };
 
   const handleDelete = () => {
-    if (data._id) removeEducation(data._id);
+    if (data._id) deletePost(data._id);
   };
 
   const handleUpload = e => {
@@ -174,5 +175,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { addPost, updateEducation, removeEducation }
+  { addPost, deletePost, editPost }
 )(Post);

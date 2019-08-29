@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import { Link } from 'react-router-dom';
 import history from 'util/history';
-import { fetchPost, deletePost } from 'actions';
+import { fetchPost } from 'actions';
 
 // External
 import { connect } from 'react-redux';
@@ -23,23 +23,22 @@ import {
 // Component styles
 import styles from './styles';
 
-const SinglePost = ({ fetchPost, deletePost, posts, currentUser }) => {
+const SinglePost = ({ fetchPost, posts, currentUser }) => {
   const classes = styles();
 
-  // const button = ({ handleClick }) => {
-  //   return <AddBox title='Add profile' handleClick={handleClick} />;
-  // };
+  const button = ({ handleClick }) => {
+    return (
+      <Button variant='outlined' onClick={handleClick}>
+        Edit
+      </Button>
+    );
+  };
 
   /* eslint-disable */
   useEffect(() => {
     fetchPost(history.location.state.id);
-
   }, []);
   /* eslint-enable */
-
-  const handleDelete = () => {
-    deletePost(posts.post._id);
-  };
 
   const showCurrentUserActions = () => currentUser.id === posts.post.user;
 
@@ -52,10 +51,11 @@ const SinglePost = ({ fetchPost, deletePost, posts, currentUser }) => {
               <ArrowBack />
             </Button>
           </Link>
-          {showCurrentUserActions() && (
-            <Button variant='outlined' onClick={handleDelete}>
-              Delete
-            </Button>
+
+          {posts.post && showCurrentUserActions() && (
+            <ModalForm customWith='md' CustomButton={button}>
+              <NewPost update={true} data={posts.post} />
+            </ModalForm>
           )}
         </div>
 
@@ -72,10 +72,6 @@ const SinglePost = ({ fetchPost, deletePost, posts, currentUser }) => {
               <SinglePostLayout post={posts.post} />
             </CSSTransition>
           ))}
-
-        {/* <ModalForm>
-          <NewPost />
-        </ModalForm> */}
       </div>
     </Navbar>
   );
@@ -88,5 +84,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { fetchPost, deletePost }
+  { fetchPost }
 )(SinglePost);

@@ -2,6 +2,9 @@ import React, { useEffect } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import { fetchProfile } from 'actions';
 
+// Material UI component
+import Typography from '@material-ui/core/Typography';
+
 // External
 import { connect } from 'react-redux';
 import history from 'util/history';
@@ -12,7 +15,7 @@ import { Navbar, CircularLoading, Profile as ProfileLayout } from 'layouts';
 // Component styles
 import styles from './styles';
 
-const UserProfile = ({ fetchProfile, profile, currentUser }) => {
+const UserProfile = ({ fetchProfile, profile }) => {
   const classes = styles();
 
   // import { Redirect } from 'react-router-dom';
@@ -41,7 +44,9 @@ const UserProfile = ({ fetchProfile, profile, currentUser }) => {
             <ProfileLayout profile={profile} />
           </CSSTransition>
         ) : (
-          <div>No Profile for this user</div>
+          <div className={classes.noProfile}>
+            <Typography variant='h4'>Profile is not set up.</Typography>
+          </div>
         )}
       </div>
     </Navbar>

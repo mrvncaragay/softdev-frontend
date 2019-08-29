@@ -7,7 +7,6 @@ const profileReducer = (state = initialState, action) => {
   switch (action.type) {
     case SAVE_USER_PROFILE: {
       return {
-        ...state,
         ...action.payload,
         isLoading: false
       };

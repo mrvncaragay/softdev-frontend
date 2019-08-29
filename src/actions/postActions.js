@@ -2,6 +2,7 @@ import {
   SAVE_POST,
   ERROR,
   ADD_POST,
+  UPDATE_POST,
   DELETE_POST,
   ADD_POSTS,
   LIKE_POST,
@@ -160,7 +161,6 @@ export const fetchPost = id => async dispatch => {
  *  @return   none
  */
 export const fetchPosts = () => async dispatch => {
-
   dispatch({
     type: SET_LOADNG_POST
   });
@@ -179,6 +179,38 @@ export const fetchPosts = () => async dispatch => {
     });
   }
 };
+
+/*
+ *  @desc     Edit post
+ *  @param    id
+ *  @return   none
+ */
+export const editPost = (input, id) => async dispatch => {
+  const { text, title, subtitle, image, posturl } = input;
+
+  // Use form data form set encoding to 'multipart/form-data'
+  const form = new FormData();
+  form.append('text', text);
+  form.append('title', title);
+  form.append('subtitle', subtitle);
+  form.append('posturl', posturl);
+  form.append('image', image);
+
+  try {
+    const { data } = await axios.put('/api/posts/' + id, form);
+
+    dispatch({
+      type: UPDATE_POST,
+      payload: data
+    });
+  } catch (error) {
+    dispatch({
+      type: ERROR,
+      payload: error.response.data
+    });
+  }
+};
+
 /*
  *  @desc     Delete post
  *  @param    id
