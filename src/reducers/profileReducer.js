@@ -1,4 +1,8 @@
-import { SAVE_USER_PROFILE, SET_USER_LOADNG_PROFILE } from 'actions/types';
+import {
+  SAVE_USER_PROFILE,
+  SET_USER_LOADNG_PROFILE,
+  CLEAR_PROFILE
+} from 'actions/types';
 const initialState = {
   isLoading: false
 };
@@ -17,6 +21,10 @@ const profileReducer = (state = initialState, action) => {
         ...state,
         isLoading: !state.isLoading
       };
+    }
+
+    case CLEAR_PROFILE: {
+      return initialState;
     }
 
     default:

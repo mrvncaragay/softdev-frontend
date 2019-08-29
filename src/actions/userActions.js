@@ -4,6 +4,7 @@ import {
   ERROR,
   SET_LOADNG_USER,
   CLEAR_POST,
+  CLEAR_PROFILE,
   CLEAR_ERROR
 } from './types';
 import axios from 'axios';
@@ -66,6 +67,11 @@ export const logout = () => dispatch => {
   // reset posts state in redux
   dispatch({
     type: CLEAR_POST
+  });
+
+  // reset profile state in redux
+  dispatch({
+    type: CLEAR_PROFILE
   });
 
   // reset error state in redux

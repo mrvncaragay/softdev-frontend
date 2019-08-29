@@ -14,7 +14,8 @@ export default makeStyles(theme => ({
   },
 
   paper: {
-    width: '60%',
+    // width: '60%',
+    width: '40%',
     [theme.breakpoints.down('sm')]: {
       width: '100%'
     }
@@ -32,7 +33,7 @@ export default makeStyles(theme => ({
     color: theme.palette.text.main,
     borderRight: `1px solid ${theme.palette.border}`,
 
-    '& h2': {
+    '& h3': {
       marginBottom: theme.spacing(2)
     },
 

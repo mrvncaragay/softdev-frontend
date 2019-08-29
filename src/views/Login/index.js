@@ -20,7 +20,7 @@ const Login = () => {
         <Paper className={classes.paper} square={true}>
           <div className={classes.header}>
             <div className={classes.title}>
-              <Typography variant='h2'>Welcome back</Typography>
+              <Typography variant='h3'>Welcome back</Typography>
               <Typography variant='h5'>
                 sign in and connect with developers around the world.
               </Typography>

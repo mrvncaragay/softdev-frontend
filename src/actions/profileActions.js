@@ -233,6 +233,7 @@ export const fetchProfile = id => async dispatch => {
  *  @return   none
  */
 export const fetchMyProfile = () => async dispatch => {
+  console.log('called');
   dispatch({
     type: SET_LOADNG_USER
   });

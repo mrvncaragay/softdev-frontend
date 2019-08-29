@@ -20,7 +20,7 @@ const Signup = () => {
         <Paper className={classes.paper} square={true}>
           <div className={classes.header}>
             <div className={classes.title}>
-              <Typography variant='h2'>Create an Account</Typography>
+              <Typography variant='h3'>Create an Account</Typography>
               <Typography variant='h5'>
                 sign in and connect with developers around the world.
               </Typography>
