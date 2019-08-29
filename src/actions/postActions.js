@@ -9,6 +9,7 @@ import {
   ADD_POST_COMMENT,
   DELETE_POST_COMMENT,
   SET_LOADNG_POST,
+  PAGINATE_POST,
   clearErrorMessage
 } from './types';
 import axios from 'axios';
@@ -206,6 +207,31 @@ export const deletePost = id => async dispatch => {
     });
 
     history.push('/posts');
+  } catch (error) {
+    clearErrorMessage(error.response.data, dispatch);
+  }
+};
+
+/*
+ *  @desc     Request the next posts
+ *  @param    none
+ *  @return   none
+ */
+export const paginatePost = (pageNumber, pageSize) => async dispatch => {
+  try {
+    const { data } = await axios.get('/api/posts/paginate', {
+      params: {
+        pageNumber,
+        pageSize
+      }
+    });
+
+    dispatch({
+      type: PAGINATE_POST,
+      payload: data
+    });
+
+    //history.push('/posts');
   } catch (error) {
     clearErrorMessage(error.response.data, dispatch);
   }

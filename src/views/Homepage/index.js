@@ -1,10 +1,9 @@
 import React from 'react';
 
-// Shared layouts
-import { Navbar } from 'layouts';
+import Post from '../Post';
 
 const Homepage = () => {
-  return <Navbar />;
+  return <Post />;
 };
 
 export default Homepage;

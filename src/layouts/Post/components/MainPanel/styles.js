@@ -17,6 +17,9 @@ export default makeStyles(theme => ({
       '&:last-child': {
         marginLeft: theme.spacing(2)
       }
+    },
+    '& .Mui-disabled': {
+      border: 'none'
     }
   }
 }));

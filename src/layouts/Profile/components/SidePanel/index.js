@@ -1,4 +1,5 @@
 import React from 'react';
+import fb from '@fortawesome/fontawesome-free/';
 
 // External
 import { connect } from 'react-redux';

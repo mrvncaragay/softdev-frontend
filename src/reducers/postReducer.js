@@ -9,7 +9,8 @@ import {
   ADD_POST_COMMENT,
   DELETE_POST_COMMENT,
   CLEAR_POST,
-  DELETE_POST
+  DELETE_POST,
+  PAGINATE_POST
 } from 'actions/types';
 
 const initialState = {
@@ -119,6 +120,14 @@ const postReducer = (state = initialState, action) => {
       return {
         ...state,
         isLoading: !state.isLoading
+      };
+    }
+
+    case PAGINATE_POST: {
+      return {
+        ...state,
+        LargePosts: [...action.payload],
+        isLoading: false
       };
     }
 

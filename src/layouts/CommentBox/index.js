@@ -24,7 +24,12 @@ const CommentBox = ({ pid, comment, currentUser, deletePostComment }) => {
   return (
     <div className={classes.root}>
       <div className={classes.userAvatar}>
-        <Link to='#'>
+        <Link
+          to={{
+            pathname: `/user/${comment.user}`,
+            state: { uid: comment.user }
+          }}
+        >
           <Avatar
             alt={comment.name}
             src={comment.avatar}
@@ -35,7 +40,14 @@ const CommentBox = ({ pid, comment, currentUser, deletePostComment }) => {
 
       <div className={classes.userComment}>
         <Typography variant='h5'>
-          <Link to='#'>{comment.name}</Link>
+          <Link
+            to={{
+              pathname: `/user/${comment.user}`,
+              state: { uid: comment.user }
+            }}
+          >
+            {comment.name}
+          </Link>
           <span>{moment(comment.date).fromNow()}</span>
         </Typography>
 

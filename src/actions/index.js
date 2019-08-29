@@ -31,5 +31,6 @@ export {
   addPostComment,
   fetchPosts,
   fetchPost,
-  deletePostComment
+  deletePostComment,
+  paginatePost
 } from './postActions';

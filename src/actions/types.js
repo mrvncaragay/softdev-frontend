@@ -29,6 +29,7 @@ export const ADD_POST_COMMENT = 'ADD_POST_COMMENT';
 export const DELETE_POST_COMMENT = 'DELETE_POST_COMMENT';
 export const SET_LOADNG_POST = 'SET_LOADNG_POST';
 export const CLEAR_POST = 'CLEAR_POST';
+export const PAGINATE_POST = 'PAGINATE_POST';
 
 // Error
 export const ERROR = 'ERROR';
@@ -44,5 +45,5 @@ export const clearErrorMessage = (error, dispatch) => {
     dispatch({
       type: CLEAR_ERROR
     });
-  }, 3000);
+  }, 5000);
 };
