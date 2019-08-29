@@ -77,7 +77,7 @@ const Form = ({ login, error }) => {
         </Typography>
       </div>
 
-      <div className={classes.socialMediaLogin}>
+      {/* <div className={classes.socialMediaLogin}>
         <Button
           size='medium'
           color='default'
@@ -87,7 +87,7 @@ const Form = ({ login, error }) => {
         >
           Continue with facebook
         </Button>
-      </div>
+      </div> */}
     </div>
   );
 };

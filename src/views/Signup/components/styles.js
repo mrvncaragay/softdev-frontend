@@ -7,7 +7,7 @@ export default makeStyles(theme => ({
 
   classicLogin: {
     flex: 1,
-    marginRight: theme.spacing(7),
+    // marginRight: theme.spacing(7),
 
     '& h6 a': {
       color: 'blue'

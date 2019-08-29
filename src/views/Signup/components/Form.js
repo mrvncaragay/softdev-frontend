@@ -98,7 +98,7 @@ const Form = ({ signup }) => {
           <Link to='/login'> Sign in </Link>
         </Typography>
       </div>
-
+      {/* 
       <div className={classes.socialMediaLogin}>
         <Button
           size='medium'
@@ -109,7 +109,7 @@ const Form = ({ signup }) => {
         >
           Continue with facebook
         </Button>
-      </div>
+      </div> */}
     </div>
   );
 };
