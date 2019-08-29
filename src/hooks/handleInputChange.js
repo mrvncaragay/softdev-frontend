@@ -5,6 +5,7 @@ export default initValue => {
 
   const handleChange = (e, image = null) => {
     const newState = { ...state };
+
     image
       ? (newState['image'] = image)
       : (newState[e.target.name] = e.target.value);

@@ -44,7 +44,9 @@ const SinglePost = ({ post, likePost, unlikePost, currentUser }) => {
           <Typography variant='h4'>
             {moment(post.createdAt).format('MMMM DD, YYYY')}
           </Typography>
-          <Link to='#'>
+          <Link
+            to={{ pathname: `/user/${post.user}`, state: { uid: post.user } }}
+          >
             <span>{post.name}</span>
             <Avatar
               alt={post.name}

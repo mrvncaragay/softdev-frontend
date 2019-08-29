@@ -38,7 +38,9 @@ const MiniPost = ({ post }) => {
         </div>
 
         <div className={classes.author}>
-          <Link to='#'>
+          <Link
+            to={{ pathname: `/user/${post.user}`, state: { uid: post.user } }}
+          >
             <Avatar
               alt={post.name}
               src={post.avatar}
