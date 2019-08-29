@@ -47,7 +47,7 @@ const Post = ({ fetchPosts, posts }) => {
       {posts.isLoading ? (
         <CircularLoading />
       ) : (
-        posts.MediumPosts && (
+        posts.LargePosts && (
           <>
             <div className={classes.writePost}>
               <ModalForm customWith='md' CustomButton={button}>
@@ -63,6 +63,7 @@ const Post = ({ fetchPosts, posts }) => {
                 timeout={500}
               >
                 <PostLayout
+                  large={posts.LargePosts}
                   medium={posts.MediumPosts}
                   small={posts.SmallPosts}
                 />

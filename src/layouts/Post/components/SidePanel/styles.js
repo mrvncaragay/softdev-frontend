@@ -9,5 +9,14 @@ export default makeStyles(theme => ({
       padding: theme.spacing(0),
       order: 1
     }
+  },
+
+  smallPost: {
+    display: 'flex',
+    flexDirection: 'column',
+    borderTop: `1px solid ${theme.palette.border}`,
+    borderBottom: `1px solid ${theme.palette.border}`,
+    backgroundColor: 'inherit',
+    padding: theme.spacing(4, 0, 4, 0)
   }
 }));

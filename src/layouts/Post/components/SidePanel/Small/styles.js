@@ -2,40 +2,31 @@ import { makeStyles } from '@material-ui/styles';
 
 export default makeStyles(theme => ({
   root: {
-    flex: 1,
     display: 'flex',
-    flexDirection: 'column',
-    border: `1px solid ${theme.palette.border}`,
-    backgroundColor: 'white',
-    marginBottom: theme.spacing(3),
+    padding: theme.spacing(2, 0, 2, 0),
+    marginBottom: theme.spacing(1),
+    borderBottom: `1px solid #e8eaec`,
     [theme.breakpoints.down('md')]: {
       padding: theme.spacing(2)
+    },
+
+    '&:last-child': {
+      borderBottom: `none`
     }
   },
 
-  header: {
-    display: 'flex',
-    alignItems: 'center'
-  },
-
   title: {
-    flex: 3,
-    padding: theme.spacing(3, 0, 3, 3),
+    flex: 1,
+    padding: theme.spacing(0, 0, 0, 3),
     '& h4': {
+      fontSize: '11px',
+      letterSpacing: '0.2em',
+      lineHeight: '1.4',
       marginBottom: theme.spacing(1)
     },
 
     [theme.breakpoints.down('md')]: {
-      padding: theme.spacing(3)
-    }
-  },
-
-  author: {
-    marginRight: theme.spacing(3),
-
-    '& img': {
-      width: '60px',
-      height: '60px'
+      padding: theme.spacing(0, 0, 0, 3)
     }
   },
 
@@ -44,8 +35,8 @@ export default makeStyles(theme => ({
 
     '& img': {
       objectFit: 'cover',
-      width: '100%',
-      height: '200px'
+      width: '64px',
+      height: '64px'
     }
   }
 }));

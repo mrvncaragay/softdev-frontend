@@ -21,8 +21,9 @@ const postReducer = (state = initialState, action) => {
     case SAVE_POST: {
       return {
         ...state,
-        MediumPosts: [...action.payload.slice(0, 5)],
-        SmallPosts: [...action.payload.slice(5, 10)],
+        LargePosts: [...action.payload.slice(0, 5)],
+        MediumPosts: [...action.payload.slice(5, 10)],
+        SmallPosts: [...action.payload.slice(10, 15)],
         isLoading: false
       };
     }
@@ -49,7 +50,7 @@ const postReducer = (state = initialState, action) => {
     case DELETE_POST: {
       return {
         ...state,
-        MediumPosts: state.MediumPosts.filter(
+        LargePosts: state.LargePosts.filter(
           post => post._id !== action.payload.id
         ),
         isLoading: false
@@ -59,7 +60,7 @@ const postReducer = (state = initialState, action) => {
     case ADD_POSTS: {
       return {
         ...state,
-        MediumPosts: [action.payload, ...state.MediumPosts],
+        LargePosts: [action.payload, ...state.LargePosts],
         isLoading: false
       };
     }
