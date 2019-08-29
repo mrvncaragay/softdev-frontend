@@ -37,6 +37,10 @@ export const createProfile = input => async dispatch => {
  *  @return   none
  */
 export const updateProfile = (input, profile) => async dispatch => {
+  dispatch({
+    type: SET_LOADNG_USER
+  });
+
   try {
     const { data } = await axios.put('/api/profiles/' + profile._id, {
       user: profile.user._id,

@@ -1,18 +1,13 @@
 import shuffle from 'lodash/fp/shuffle';
 import take from 'lodash/fp/take';
 
-const pics = [
-  'https://placekitten.com/640/360',
-  'https://baconmockup.com/640/360',
-  'https://www.placecage.com/640/360',
-  'http://placeimg.com/640/360/any',
-  'https://placebear.com/640/360',
-  'https://picsum.photos/640/360',
-  'https://picsum.photos/200/300?grayscale',
-  'https://picsum.photos/id/237/200/300'
-];
+const pics = Array.from(
+  { length: 19 },
+  (url, i) =>
+    `https://softdev-react.s3-us-west-1.amazonaws.com/users/user${i + 1}.jpg`
+);
 
-const nums = [11, 5, 32, 100, 83, 22, 31, 48, 14, 8, 80, 111, 333];
+const nums = [11, 5, 32, 100, 83, 22, 31, 48, 14, 8, 80, 111, 222, 333, 12];
 
 export const randomPics = () => {
   const pictures = shuffle(pics);
