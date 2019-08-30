@@ -7,7 +7,7 @@ export default makeStyles(theme => ({
     width: '80%',
     padding: theme.spacing(8),
 
-    [theme.breakpoints.down('md')]: {
+    [theme.breakpoints.down('sm')]: {
       width: '100%',
       padding: theme.spacing(0),
       display: 'inline-block'
@@ -19,6 +19,11 @@ export default makeStyles(theme => ({
     height: 'fit-content',
     marginRight: theme.spacing(1),
     backgroundColor: theme.palette.common.white,
+
+    [theme.breakpoints.up('md')]: {
+      flex: '1 0 250px'
+    },
+
     [theme.breakpoints.down('md')]: {
       flex: '1 0 300px',
       marginRight: theme.spacing(0),
@@ -27,14 +32,8 @@ export default makeStyles(theme => ({
   },
 
   mainPanel: {
-    flex: '1 0 400px',
+    flex: 1,
     height: 'fit-content',
-    marginLeft: theme.spacing(1),
-    backgroundColor: 'inherit',
-    [theme.breakpoints.down('md')]: {
-      marginLeft: theme.spacing(0),
-      marginTop: theme.spacing(1),
-      height: 'inherit'
-    }
+    backgroundColor: 'inherit'
   }
 }));
