@@ -6,7 +6,12 @@ export default makeStyles(theme => ({
     marginLeft: theme.spacing(6) - 1,
     marginBottom: theme.spacing(3),
     display: 'flex',
-    alignItems: 'center'
+    alignItems: 'center',
+
+    [theme.breakpoints.down('md')]: {
+      marginLeft: theme.spacing(2),
+      marginTop: theme.spacing(2)
+    }
   },
 
   eduSections: {
@@ -40,6 +45,11 @@ export default makeStyles(theme => ({
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'contain',
     height: '60px',
-    width: '100px'
+    width: '100px',
+
+    [theme.breakpoints.down('md')]: {
+      height: '30px',
+      width: '50px'
+    }
   }
 }));

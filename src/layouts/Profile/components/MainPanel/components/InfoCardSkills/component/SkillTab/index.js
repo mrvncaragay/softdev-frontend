@@ -28,7 +28,7 @@ const SkillTab = ({ skill, pics, score }) => {
           />
         ))}
 
-        <Badge badgeContent={score} max={score - 4} />
+        <Badge badgeContent={score} max={score - 3} />
       </div>
     </div>
   );

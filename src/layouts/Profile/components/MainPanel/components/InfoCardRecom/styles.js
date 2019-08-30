@@ -26,7 +26,8 @@ export default makeStyles(theme => ({
     border: `1px solid ${theme.palette.border}`,
 
     [theme.breakpoints.down('md')]: {
-      marginBottom: theme.spacing(4)
+      marginBottom: theme.spacing(4),
+      flex: '0 auto'
     }
   },
 

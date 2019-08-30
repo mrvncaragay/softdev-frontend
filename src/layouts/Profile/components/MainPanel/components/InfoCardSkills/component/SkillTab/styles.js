@@ -30,6 +30,10 @@ export default makeStyles(theme => ({
       fontSize: '1em',
       height: '30px',
       width: '30px'
+    },
+
+    [theme.breakpoints.down('md')]: {
+      marginLeft: theme.spacing(3)
     }
   },
 

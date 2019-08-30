@@ -8,6 +8,10 @@ export default makeStyles(theme => ({
     borderLeft: `1px solid ${theme.palette.border2} !important`,
     '&:last-child': {
       borderBottom: `1px solid ${theme.palette.border2}  !important`
+    },
+
+    [theme.breakpoints.down('md')]: {
+      padding: theme.spacing(4, 2, 1, 2)
     }
   },
 
@@ -47,9 +51,18 @@ export default makeStyles(theme => ({
         padding: theme.spacing(1, 2, 1, 2),
 
         '& .MuiButton-label': {
-          fontSize: '10px'
+          fontSize: '10px',
+
+          [theme.breakpoints.down('md')]: {
+            fontSize: '8px'
+          }
         }
       }
+    },
+
+    [theme.breakpoints.down('md')]: {
+      marginLeft: theme.spacing(0),
+      marginTop: theme.spacing(2)
     }
   }
 }));
