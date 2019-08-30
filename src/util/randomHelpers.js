@@ -32,9 +32,9 @@ export const randomCorps = () => {
   return take(1, pictures)[0];
 };
 
-export const randomPics = () => {
+export const randomPics = (num = 4) => {
   const pictures = shuffle(pics);
-  return take(4, pictures);
+  return take(num, pictures);
 };
 
 export const randomNums = () => {

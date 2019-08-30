@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 export default makeStyles(theme => ({
   card: {
     minWidth: 275,
-    padding: theme.spacing(4, 4, 1, 4),
+    padding: theme.spacing(2, 4, 1, 4),
     borderRight: `1px solid ${theme.palette.border2} !important`,
     borderLeft: `1px solid ${theme.palette.border2} !important`,
     '&:last-child': {

@@ -19,6 +19,7 @@ import {
   InfoCardSkills,
   InfoCardExp,
   InfoCardInt,
+  InfoCardRecom,
   Card
 } from './components';
 
@@ -70,7 +71,7 @@ const MainPanel = ({ profile, currentUser }) => {
       </Card>
 
       <Card title='Recommendations'>
-        <InfoCard
+        <InfoCardRecom
           title='Recomendation'
           icon={<CustomIcon type={<Recomendation />} />}
         />
