@@ -14,7 +14,9 @@ import IconButton from '@material-ui/core/IconButton';
 import Person from '@material-ui/icons/PermIdentityOutlined';
 import ChromeReader from '@material-ui/icons/ChromeReaderModeOutlined';
 import Input from '@material-ui/icons/Input';
-import MenuIcon from '@material-ui/icons/Menu';
+
+// Shared Component
+import Drawer from '../Drawer';
 
 // Component styles
 import styles from './styles';
@@ -39,7 +41,6 @@ const Navbar = ({ children, currentUser, logout }) => {
             </div>
 
             <div className={classes.linkList}>
-              {/* {!isAuthenticated && ( */}
               <Fragment>
                 <Typography variant='h5' display='inline'>
                   <Link to='/developers'>developers</Link>
@@ -49,7 +50,6 @@ const Navbar = ({ children, currentUser, logout }) => {
                   <Link to='/'>posts</Link>
                 </Typography>
               </Fragment>
-              {/* )} */}
             </div>
 
             <div className={classes.info}>
@@ -101,9 +101,7 @@ const Navbar = ({ children, currentUser, logout }) => {
             </div>
 
             <div className={classes.mobile}>
-              <Button size='small'>
-                <Link to='/login'>log in</Link>
-              </Button>
+              <Drawer currentUser={currentUser} handleLogOut={handleLogOut} />
             </div>
           </Toolbar>
         </AppBar>

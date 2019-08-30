@@ -32,7 +32,7 @@ const SoftDevApp = () => {
       <Route exact path='/developers' component={Users} />
       <Route exact path='/login' component={Login} />
       <Route exact path='/signup' component={Signup} />
-      <PrivateRoutes exact path='/posts' component={Post} />
+      <Route exact path='/posts' component={Post} />
       <PrivateRoutes exact path='/post/:id' component={SinglePost} />
       <PrivateRoutes exact path='/user/:id' component={UserProfile} />
       <PrivateRoutes exact path='/profile/me' component={Profile} />

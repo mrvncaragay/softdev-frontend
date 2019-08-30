@@ -30,6 +30,13 @@ export default makeStyles(theme => ({
 
     '& a:hover': {
       color: theme.palette.background.default
+    },
+
+    [theme.breakpoints.down('sm')]: {
+      flexBasis: '150px',
+      '& h4': {
+        fontSize: '12px'
+      }
     }
   },
 
