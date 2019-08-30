@@ -48,7 +48,7 @@ const Drawer = ({ currentUser, handleLogOut }) => {
       // onClick={toggleDrawer(side, false)}
       // onKeyDown={toggleDrawer(side, false)}
     >
-      <div className={classes.search}>
+      {/* <div className={classes.search}>
         <TextField
           id='outlined-search'
           label='Search'
@@ -66,7 +66,7 @@ const Drawer = ({ currentUser, handleLogOut }) => {
             )
           }}
         />
-      </div>
+      </div> */}
 
       <Divider />
 

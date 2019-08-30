@@ -34,6 +34,7 @@ const ModalForm = ({ children, CustomButton, customWith = 'sm' }) => {
     <>
       {CustomButton && <CustomButton handleClick={handleOpen} />}
       <Dialog
+        className={classes.dialogForm}
         open={open}
         scroll='body'
         maxWidth={customWith}

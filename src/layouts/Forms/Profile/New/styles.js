@@ -7,6 +7,10 @@ export default makeStyles(theme => ({
     '& h4:first-child': {
       fontSize: '1em',
       marginBottom: theme.spacing(3)
+    },
+
+    [theme.breakpoints.down('md')]: {
+      padding: theme.spacing(1, 2, 1, 2)
     }
   },
 
