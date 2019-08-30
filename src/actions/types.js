@@ -17,6 +17,10 @@ export const SET_LOADNG_PROFILE = 'SET_LOADNG_PROFILE';
 export const SET_USER_LOADNG_PROFILE = 'SET_USER_LOADNG_PROFILE';
 export const CLEAR_PROFILE = 'CLEAR_PROFILE';
 
+// Profile Developers
+export const SAVE_DEVELOPERS = 'SAVE_DEVELOPERS';
+export const SET_LOADNG_DEVELOPERS = 'SET_LOADNG_DEVELOPERS';
+
 // Post
 export const SAVE_POST = 'SAVE_POST';
 export const ADD_POST = 'ADD_POST';

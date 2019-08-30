@@ -6,17 +6,14 @@ import styles from './styles';
 // Shared component
 import UserCard from '../UserCard';
 
-const Body = ({ title }) => {
+const Body = ({ profiles }) => {
   const classes = styles();
 
   return (
     <div className={classes.root}>
-      <UserCard />
-      <UserCard />
-      <UserCard />
-      <UserCard />
-      <UserCard />
-      <UserCard />
+      {profiles.map(profile => (
+        <UserCard key={profile._id} profile={profile} />
+      ))}
     </div>
   );
 };

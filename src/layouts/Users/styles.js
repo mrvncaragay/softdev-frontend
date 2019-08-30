@@ -10,5 +10,20 @@ export default makeStyles(theme => ({
       width: '90%',
       padding: theme.spacing(0)
     }
+  },
+
+  paginate: {
+    display: 'flex',
+    justifyContent: 'flex-end',
+    '& button': {
+      padding: theme.spacing(1.5, 3, 1.5, 3),
+
+      '&:last-child': {
+        marginLeft: theme.spacing(2)
+      }
+    },
+    '& .Mui-disabled': {
+      border: 'none'
+    }
   }
 }));

@@ -34,3 +34,5 @@ export {
   deletePostComment,
   paginatePost
 } from './postActions';
+
+export { fetchDevelopersProfile } from './developersActions';

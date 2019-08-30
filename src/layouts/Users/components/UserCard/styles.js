@@ -3,18 +3,15 @@ import { makeStyles } from '@material-ui/styles';
 export default makeStyles(theme => ({
   root: {
     display: 'flex',
-    flex: '1 0 340px',
+    width: '32%',
     flexDirection: 'column',
     backgroundColor: 'white',
     padding: theme.spacing(2, 1, 2, 1),
     margin: theme.spacing(0, 2, 2, 0),
 
-    [theme.breakpoints.down('md')]: {
-      margin: theme.spacing(0, 2, 2, 0)
-    },
-
     [theme.breakpoints.down('sm')]: {
-      margin: theme.spacing(0, 0, 2, 0)
+      margin: theme.spacing(0, 0, 2, 0),
+      width: '100%'
     }
   },
 
@@ -63,15 +60,17 @@ export default makeStyles(theme => ({
 
   userSkills: {
     display: 'flex',
+    flexWrap: 'wrap',
     marginTop: theme.spacing(2),
 
     '& h6': {
       backgroundColor: '#f1f1f1',
-      padding: theme.spacing(0.5)
-    },
+      padding: theme.spacing(0.5),
+      margin: theme.spacing(0, 0.5, 0, 0.5),
 
-    '& h6:first-child': {
-      margin: theme.spacing(0, 1, 0, 1)
+      [theme.breakpoints.down('md')]: {
+        margin: theme.spacing(0, 0.5, 0.5, 0.5)
+      }
     }
   }
 }));
