@@ -12,6 +12,10 @@ export default makeStyles(theme => ({
 
     '& .MuiCheckbox-colorPrimary.Mui-checked': {
       color: theme.palette.background.default
+    },
+
+    [theme.breakpoints.down('md')]: {
+      padding: theme.spacing(1, 2, 1, 2)
     }
   },
 

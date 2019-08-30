@@ -36,9 +36,7 @@ const Post = ({
   const [imgName, setName] = useState('');
 
   const handleSubmitForm = () => {
-    setTimeout(() => {
-      closeForm(false);
-    }, 300);
+    closeForm(false);
 
     update ? editPost(state, data._id) : addPost(state);
   };
@@ -132,11 +130,7 @@ const Post = ({
           onChange={handleUpload}
         />
         <label htmlFor='contained-button-file'>
-          <Button
-            variant='outlined'
-            component='span'
-            className={classes.btnCancel}
-          >
+          <Button size='small' variant='outlined' component='span'>
             Upload Image
           </Button>
         </label>

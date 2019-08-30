@@ -55,7 +55,8 @@ const userReducer = (state = initialState, action) => {
         profile: {
           ...state.profile,
           experience: [...action.payload.experience]
-        }
+        },
+        isLoading: false
       };
     }
 
@@ -65,7 +66,8 @@ const userReducer = (state = initialState, action) => {
         profile: {
           ...state.profile,
           education: [...action.payload.education]
-        }
+        },
+        isLoading: false
       };
     }
 

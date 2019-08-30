@@ -83,6 +83,10 @@ export const deleteProfile = id => async dispatch => {
  *  @return   none
  */
 export const createExperience = input => async dispatch => {
+  dispatch({
+    type: SET_LOADNG_USER
+  });
+
   try {
     const { data } = await axios.put('/api/profiles/me/experience', {
       ...input
@@ -100,6 +104,10 @@ export const createExperience = input => async dispatch => {
  *  @return   none
  */
 export const updateExperience = (input, id) => async dispatch => {
+  dispatch({
+    type: SET_LOADNG_USER
+  });
+
   const { current, ...rest } = input;
 
   try {
@@ -120,6 +128,10 @@ export const updateExperience = (input, id) => async dispatch => {
  *  @return   none
  */
 export const removeExperience = id => async dispatch => {
+  dispatch({
+    type: SET_LOADNG_USER
+  });
+
   try {
     const { data } = await axios.put(
       '/api/profiles/me/experience/remove/' + id
@@ -137,6 +149,10 @@ export const removeExperience = id => async dispatch => {
  *  @return   none
  */
 export const addEducation = input => async dispatch => {
+  dispatch({
+    type: SET_LOADNG_USER
+  });
+
   try {
     const { data } = await axios.put('/api/profiles/me/education', {
       ...input
@@ -154,6 +170,10 @@ export const addEducation = input => async dispatch => {
  *  @return   none
  */
 export const updateEducation = (input, id) => async dispatch => {
+  dispatch({
+    type: SET_LOADNG_USER
+  });
+
   const { current, ...rest } = input;
   try {
     const { data } = await axios.put('/api/profiles/me/education/' + id, {
@@ -173,6 +193,10 @@ export const updateEducation = (input, id) => async dispatch => {
  *  @return   none
  */
 export const removeEducation = id => async dispatch => {
+  dispatch({
+    type: SET_LOADNG_USER
+  });
+
   try {
     const { data } = await axios.put('/api/profiles/me/education/remove/' + id);
 

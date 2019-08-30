@@ -54,15 +54,18 @@ export default makeStyles(theme => ({
     },
 
     [theme.breakpoints.down('md')]: {
+      display: 'flex',
       padding: theme.spacing(0, 2, 4, 2),
 
       '& h4': {
         marginBottom: theme.spacing(0),
         display: 'inline-flex',
-        marginRight: theme.spacing(4)
+        marginRight: theme.spacing(4),
+        alignSelf: 'center'
       },
 
       '& a': {
+        marginTop: '0 !important',
         paddingLeft: theme.spacing(4),
         borderLeft: `1px solid ${theme.palette.border}`
       }

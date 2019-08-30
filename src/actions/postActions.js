@@ -21,6 +21,10 @@ import history from 'util/history';
  *  @return   none
  */
 export const addPost = input => async dispatch => {
+  dispatch({
+    type: SET_LOADNG_POST
+  });
+
   const { text, title, subtitle, image } = input;
 
   // Use form data form set encoding to 'multipart/form-data'
@@ -166,6 +170,10 @@ export const fetchPosts = () => async dispatch => {
  *  @return   none
  */
 export const editPost = (input, id) => async dispatch => {
+  dispatch({
+    type: SET_LOADNG_POST
+  });
+
   const { text, title, subtitle, image, posturl } = input;
 
   // Use form data form set encoding to 'multipart/form-data'
