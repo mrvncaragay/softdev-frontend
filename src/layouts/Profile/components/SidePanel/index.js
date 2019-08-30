@@ -42,7 +42,7 @@ const SidePanel = ({ profile, currentUser }) => {
 
       <Avatar
         alt='User Avatar'
-        src={`${profile.user.avatar}`}
+        src={profile.user.avatar}
         className={classes.bigAvatar}
       />
 

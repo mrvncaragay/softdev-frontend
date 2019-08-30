@@ -31,5 +31,15 @@ export default makeStyles(theme => ({
         cursor: 'pointer'
       }
     }
+  },
+
+  media: {
+    marginLeft: 'auto',
+    marginRight: theme.spacing(2),
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'contain',
+    height: '60px',
+    width: '100px'
   }
 }));

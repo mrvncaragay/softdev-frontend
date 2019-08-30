@@ -1,4 +1,5 @@
 import React from 'react';
+import { randomCorps } from 'util/randomHelpers';
 
 // External
 import moment from 'moment';
@@ -9,6 +10,7 @@ import { ModalForm, NewExperience } from 'layouts';
 // Material UI component
 import Typography from '@material-ui/core/Typography';
 import Edit from '@material-ui/icons/Create';
+import CardMedia from '@material-ui/core/CardMedia';
 
 // Component styles
 import styles from './styles';
@@ -36,7 +38,6 @@ const ExperienceTab = ({ experience, actions }) => {
         <Typography variant='h4'>{experience.title}</Typography>
         <Typography variant='h5'>{experience.company}</Typography>
       </div>
-
       {actions && (
         <div className={classes.edit}>
           <ModalForm CustomButton={iconButton}>
@@ -44,6 +45,12 @@ const ExperienceTab = ({ experience, actions }) => {
           </ModalForm>
         </div>
       )}
+
+      <CardMedia
+        className={classes.media}
+        image={randomCorps()}
+        title='experience'
+      />
     </div>
   );
 };
