@@ -9,7 +9,7 @@ export default makeStyles(theme => ({
     padding: theme.spacing(12),
 
     [theme.breakpoints.down('sm')]: {
-      padding: theme.spacing(1)
+      padding: theme.spacing(6, 2, 2, 2)
     }
   },
 
@@ -54,10 +54,18 @@ export default makeStyles(theme => ({
 
     '& h5': {
       fontSize: '11px'
+    },
+
+    [theme.breakpoints.down('sm')]: {
+      display: 'none'
     }
   },
 
   body: {
-    padding: theme.spacing(5)
+    padding: theme.spacing(5),
+
+    [theme.breakpoints.down('sm')]: {
+      padding: theme.spacing(2)
+    }
   }
 }));

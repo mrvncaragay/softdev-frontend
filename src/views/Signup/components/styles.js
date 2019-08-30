@@ -26,10 +26,20 @@ export default makeStyles(theme => ({
     '& span, &:hover span': {
       padding: theme.spacing(1),
       color: theme.palette.text.main
+    },
+
+    [theme.breakpoints.down('sm')]: {
+      '& span': {
+        padding: 0
+      }
     }
   },
 
   createAccountLink: {
-    textAlign: 'end'
+    textAlign: 'end',
+
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '10px'
+    }
   }
 }));

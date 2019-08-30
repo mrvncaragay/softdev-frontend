@@ -101,9 +101,9 @@ const Navbar = ({ children, currentUser, logout }) => {
             </div>
 
             <div className={classes.mobile}>
-              <IconButton>
-                <MenuIcon />
-              </IconButton>
+              <Button size='small'>
+                <Link to='/login'>log in</Link>
+              </Button>
             </div>
           </Toolbar>
         </AppBar>

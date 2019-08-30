@@ -8,15 +8,15 @@ export default makeStyles(theme => ({
     alignItems: 'center',
     padding: theme.spacing(12),
 
-    [theme.breakpoints.down('sm')]: {
-      padding: theme.spacing(1)
+    [theme.breakpoints.down('md')]: {
+      padding: theme.spacing(6, 2, 2, 2)
     }
   },
 
   paper: {
     // width: '60%',
     width: '40%',
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('md')]: {
       width: '100%'
     }
   },
@@ -54,10 +54,18 @@ export default makeStyles(theme => ({
 
     '& h5': {
       fontSize: '11px'
+    },
+
+    [theme.breakpoints.down('md')]: {
+      display: 'none'
     }
   },
 
   body: {
-    padding: theme.spacing(5)
+    padding: theme.spacing(5),
+
+    [theme.breakpoints.down('md')]: {
+      padding: theme.spacing(2)
+    }
   }
 }));
