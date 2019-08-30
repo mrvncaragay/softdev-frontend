@@ -13,6 +13,7 @@ export default makeStyles(theme => ({
 
   body: {
     display: 'flex',
+    flexWrap: 'wrap',
     justifyContent: 'space-between'
   },
 
@@ -22,7 +23,11 @@ export default makeStyles(theme => ({
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
-    border: `1px solid ${theme.palette.border}`
+    border: `1px solid ${theme.palette.border}`,
+
+    [theme.breakpoints.down('md')]: {
+      marginBottom: theme.spacing(4)
+    }
   },
 
   footer: {
@@ -38,7 +43,8 @@ export default makeStyles(theme => ({
     },
 
     '& span': {
-      fontSize: '11px'
+      fontSize: '11px',
+      letterSpacing: '0.2em'
     }
   }
 }));

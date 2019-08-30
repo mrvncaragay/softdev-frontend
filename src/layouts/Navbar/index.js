@@ -39,17 +39,17 @@ const Navbar = ({ children, currentUser, logout }) => {
             </div>
 
             <div className={classes.linkList}>
-              {!isAuthenticated && (
-                <Fragment>
-                  <Typography variant='h5' display='inline'>
-                    <Link to='/'>developers</Link>
-                  </Typography>
+              {/* {!isAuthenticated && ( */}
+              <Fragment>
+                <Typography variant='h5' display='inline'>
+                  <Link to='/developers'>developers</Link>
+                </Typography>
 
-                  <Typography variant='h5' display='inline'>
-                    <Link to='/'>posts</Link>
-                  </Typography>
-                </Fragment>
-              )}
+                <Typography variant='h5' display='inline'>
+                  <Link to='/'>posts</Link>
+                </Typography>
+              </Fragment>
+              {/* )} */}
             </div>
 
             <div className={classes.info}>

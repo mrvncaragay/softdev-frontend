@@ -77,9 +77,9 @@ const MainPanel = ({ profile, currentUser }) => {
         />
       </Card>
 
-      <Card title='Following'>
+      {/* <Card title='Following'>
         <InfoCard title='Interest' icon={<CustomIcon type={<Following />} />} />
-      </Card>
+      </Card> */}
     </div>
   );
 };

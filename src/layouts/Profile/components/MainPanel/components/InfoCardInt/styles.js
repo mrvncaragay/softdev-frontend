@@ -40,7 +40,16 @@ export default makeStyles(theme => ({
 
     '& button': {
       margin: theme.spacing(2, 0, 2, 0),
-      padding: theme.spacing(2, 3, 2, 3)
+      padding: theme.spacing(2, 3, 2, 3),
+
+      [theme.breakpoints.down('md')]: {
+        margin: theme.spacing(1, 0, 1, 0),
+        padding: theme.spacing(1, 2, 1, 2),
+
+        '& .MuiButton-label': {
+          fontSize: '10px'
+        }
+      }
     }
   }
 }));

@@ -10,7 +10,7 @@ import Avatar from '@material-ui/core/Avatar';
 // Component styles
 import styles from './styles';
 
-const InfoCardRecom = ({ title, icon, bio }) => {
+const InfoCardRecom = () => {
   const classes = styles();
 
   return (
@@ -27,11 +27,7 @@ const InfoCardRecom = ({ title, icon, bio }) => {
             </div>
 
             <div className={classes.footer}>
-              <Avatar
-                alt='Random Pic'
-                src={randomPics(1)}
-                className={classes.avatar}
-              />
+              <Avatar alt='Random Pic' src={randomPics(1)[0]} />
 
               <div className={classes.nameJob}>
                 <Typography variant='h5'>Salsalito Sanchez</Typography>
@@ -54,7 +50,7 @@ const InfoCardRecom = ({ title, icon, bio }) => {
             <div className={classes.footer}>
               <Avatar
                 alt='Random Pic'
-                src={randomPics(1)}
+                src={randomPics(1)[0]}
                 className={classes.avatar}
               />
 
@@ -79,7 +75,7 @@ const InfoCardRecom = ({ title, icon, bio }) => {
             <div className={classes.footer}>
               <Avatar
                 alt='Random Pic'
-                src={randomPics(1)}
+                src={randomPics(1)[0]}
                 className={classes.avatar}
               />
 
