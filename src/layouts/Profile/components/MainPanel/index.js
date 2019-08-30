@@ -18,6 +18,7 @@ import {
   InfoCardEdu,
   InfoCardSkills,
   InfoCardExp,
+  InfoCardInt,
   Card
 } from './components';
 
@@ -62,7 +63,10 @@ const MainPanel = ({ profile, currentUser }) => {
           icon={<CustomIcon type={<Skills />} />}
         />
 
-        <InfoCard title='Interest' icon={<CustomIcon type={<Interest />} />} />
+        <InfoCardInt
+          title='Interest'
+          icon={<CustomIcon type={<Interest />} />}
+        />
       </Card>
 
       <Card title='Recommendations'>
