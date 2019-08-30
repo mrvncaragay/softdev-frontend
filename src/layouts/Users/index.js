@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import { Link } from 'react-router-dom';
-import { likePost, unlikePost } from 'actions';
+import React from 'react';
+import pagination from 'hooks/pagination';
+import { CSSTransition } from 'react-transition-group';
+
+import { paginateProfiles } from 'actions';
 
 // External
 import { connect } from 'react-redux';
@@ -15,17 +16,39 @@ import { Header, Body } from './components';
 // Component styles
 import styles from './styles';
 
-const Users = ({ profiles }) => {
+const Users = ({ profiles, paginateProfiles }) => {
   const classes = styles();
+  const [paginate, handleNextMove] = pagination(
+    {
+      pageNumber: 1,
+      pageSize: 9
+    },
+    paginateProfiles
+  );
 
   return (
     <div className={classes.root}>
       <Header />
-      <Body profiles={profiles} />
+
+      <CSSTransition classNames='fade' timeout={300}>
+        <Body profiles={profiles} />
+      </CSSTransition>
 
       <div className={classes.paginate}>
-        <Button variant='outlined'>Previous Page</Button>
-        <Button variant='outlined'>Next Page</Button>
+        <Button
+          variant='outlined'
+          disabled={paginate.pageNumber <= 1}
+          onClick={handleNextMove('Prev')}
+        >
+          Previous Page
+        </Button>
+        <Button
+          variant='outlined'
+          disabled={profiles.length < paginate.pageSize}
+          onClick={handleNextMove('Next')}
+        >
+          Next Page
+        </Button>
       </div>
     </div>
   );
@@ -37,5 +60,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { likePost, unlikePost }
+  { paginateProfiles }
 )(Users);

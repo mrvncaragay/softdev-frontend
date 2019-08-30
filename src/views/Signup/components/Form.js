@@ -23,7 +23,7 @@ const Form = ({ signup }) => {
     email: '',
     password: ''
   };
-  const [state, handleChange, reset] = handleInputChange(initValue);
+  const [state, handleChange] = handleInputChange(initValue);
 
   const handleSubmitForm = () => {
     signup(state);

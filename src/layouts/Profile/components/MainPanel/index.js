@@ -9,7 +9,7 @@ import School from '@material-ui/icons/SchoolOutlined';
 import Work from '@material-ui/icons/WorkOutline';
 import Skills from '@material-ui/icons/VerifiedUserOutlined';
 import Interest from '@material-ui/icons/StarBorderOutlined';
-import Following from '@material-ui/icons/DeviceHubOutlined';
+// import Following from '@material-ui/icons/DeviceHubOutlined';
 import Recomendation from '@material-ui/icons/ThumbUpOutlined';
 
 // Shared Component

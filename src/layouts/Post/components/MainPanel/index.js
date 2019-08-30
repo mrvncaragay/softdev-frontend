@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { paginatePost } from 'actions';
+import pagination from 'hooks/pagination';
 
 // External
 import { connect } from 'react-redux';
@@ -16,28 +17,13 @@ import styles from './styles';
 
 const MainPanel = ({ largePosts, paginatePost }) => {
   const classes = styles();
-  const [paginate, setPaginate] = useState({
-    pageNumber: 1,
-    pageSize: 5
-  });
-
-  const handlePrevPage = () => {
-    setPaginate({
-      ...paginate,
-      pageNumber: --paginate.pageNumber
-    });
-
-    paginatePost(paginate.pageNumber, 5);
-  };
-
-  const handleNextPage = () => {
-    setPaginate({
-      ...paginate,
-      pageNumber: ++paginate.pageNumber
-    });
-
-    paginatePost(paginate.pageNumber, 5);
-  };
+  const [paginate, handleNextMove] = pagination(
+    {
+      pageNumber: 1,
+      pageSize: 5
+    },
+    paginatePost
+  );
 
   return (
     <div className={classes.root}>
@@ -54,14 +40,14 @@ const MainPanel = ({ largePosts, paginatePost }) => {
         <Button
           variant='outlined'
           disabled={paginate.pageNumber <= 1}
-          onClick={handlePrevPage}
+          onClick={handleNextMove('Prev')}
         >
           Previous Page
         </Button>
         <Button
           variant='outlined'
           disabled={largePosts.length < paginate.pageSize}
-          onClick={handleNextPage}
+          onClick={handleNextMove('Next')}
         >
           Next Page
         </Button>

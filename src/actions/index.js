@@ -1,5 +1,3 @@
-import { CLEAR_ERROR } from './types';
-
 // Auth
 export { login } from './authActions';
 
@@ -35,4 +33,4 @@ export {
   paginatePost
 } from './postActions';
 
-export { fetchDevelopersProfile } from './developersActions';
+export { fetchDevelopersProfile, paginateProfiles } from './developersActions';

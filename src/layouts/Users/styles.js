@@ -19,7 +19,8 @@ export default makeStyles(theme => ({
       padding: theme.spacing(1.5, 3, 1.5, 3),
 
       '&:last-child': {
-        marginLeft: theme.spacing(2)
+        marginLeft: theme.spacing(2),
+        marginRight: theme.spacing(2)
       }
     },
     '& .Mui-disabled': {

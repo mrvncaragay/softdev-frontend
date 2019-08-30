@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 // Material UI component
 import Typography from '@material-ui/core/Typography';
@@ -28,10 +29,17 @@ const UserCard = ({ profile }) => {
           className={classes.avatar}
         />
 
-        <div className={classes.userTitle}>
-          <Typography variant='h5'>{profile.user.name}</Typography>
-          <Typography variant='h6'>{profile.status}</Typography>
-        </div>
+        <Link
+          to={{
+            pathname: `/user/${profile.user._id}`,
+            state: { uid: profile.user._id }
+          }}
+        >
+          <div className={classes.userTitle}>
+            <Typography variant='h5'>{profile.user.name}</Typography>
+            <Typography variant='h6'>{profile.status}</Typography>
+          </div>
+        </Link>
 
         <div className={classes.btns}>
           <Button size='small' variant='outlined'>

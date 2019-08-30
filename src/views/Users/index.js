@@ -6,35 +6,17 @@ import { fetchDevelopersProfile } from 'actions';
 import { connect } from 'react-redux';
 
 // Material UI components
-import Create from '@material-ui/icons/CreateOutlined';
 import Typography from '@material-ui/core/Typography';
 
 // Shared component
 import { Navbar, Users as DevelopersLayout } from 'layouts';
-import { ModalForm, NewPost, CircularLoading } from 'layouts';
+import { CircularLoading } from 'layouts';
 
 // Component styles
 import styles from './styles';
 
 const Users = ({ fetchDevelopersProfile, developers }) => {
   const classes = styles();
-
-  // const button = ({ handleClick }) => {
-  //   const handleOpen = () => {
-  //     handleClick();
-  //   };
-
-  //   return (
-  //     <Button
-  //       variant='outlined'
-  //       className={classes.button}
-  //       onClick={handleOpen}
-  //     >
-  //       <Create className={classes.rightIcon} />
-  //       Write
-  //     </Button>
-  //   );
-  // };
 
   /* eslint-disable */
   useEffect(() => {

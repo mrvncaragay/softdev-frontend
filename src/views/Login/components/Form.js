@@ -20,7 +20,7 @@ const Form = ({ login, error }) => {
     email: '',
     password: ''
   };
-  const [state, handleChange, reset] = handleInputChange(initialState);
+  const [state, handleChange] = handleInputChange(initialState);
 
   const handleSubmitForm = () => {
     login(state);

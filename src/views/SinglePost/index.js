@@ -34,7 +34,6 @@ const SinglePost = ({ fetchPost, posts, currentUser }) => {
     );
   };
 
-  console.log(history);
   /* eslint-disable */
   useEffect(() => {
     fetchPost(history.location.state.id);

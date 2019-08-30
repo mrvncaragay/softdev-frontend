@@ -19,6 +19,7 @@ export const CLEAR_PROFILE = 'CLEAR_PROFILE';
 
 // Profile Developers
 export const SAVE_DEVELOPERS = 'SAVE_DEVELOPERS';
+export const PAGINATE_PROFILES = 'PAGINATE_PROFILES';
 export const SET_LOADNG_DEVELOPERS = 'SET_LOADNG_DEVELOPERS';
 
 // Post

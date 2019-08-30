@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import jwtHelper from 'util/jwtHelper';
+import styles from './SoftDevAppStyles';
 
 // Shared views
 import Homepage from './views/Homepage';
@@ -22,6 +23,9 @@ if (token) {
 }
 
 const SoftDevApp = () => {
+  // Initialized global css
+  styles();
+
   return (
     <Switch>
       <Route exact path='/' component={Homepage} />
