@@ -13,11 +13,8 @@ import Person from '@material-ui/icons/PermIdentityOutlined';
 import People from '@material-ui/icons/PeopleOutlined';
 import MenuIcon from '@material-ui/icons/Menu';
 import IconButton from '@material-ui/core/IconButton';
-import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
-import SearchIcon from '@material-ui/icons/Search';
-import InputAdornment from '@material-ui/core/InputAdornment';
 
 // Component styles
 import styles from './styles';

@@ -47,7 +47,7 @@ const Navbar = ({ children, currentUser, logout }) => {
                 </Typography>
 
                 <Typography variant='h5' display='inline'>
-                  <Link to='/'>posts</Link>
+                  <Link to='/posts'>posts</Link>
                 </Typography>
               </Fragment>
             </div>

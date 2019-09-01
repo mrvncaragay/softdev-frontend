@@ -18,7 +18,7 @@ export const fetchDevelopersProfile = () => async dispatch => {
   });
 
   try {
-    const { data } = await axios.get('/api/profiles');
+    const { data } = await axios.get('api/profiles');
 
     dispatch({ type: SAVE_DEVELOPERS, payload: data });
   } catch (error) {

@@ -2,6 +2,7 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import jwtHelper from 'util/jwtHelper';
 import styles from './SoftDevAppStyles';
+import axios from 'axios';
 
 // Shared views
 import Homepage from './views/Homepage';
@@ -15,6 +16,8 @@ import SinglePost from './views/SinglePost';
 
 // Private uitl/Routes
 import PrivateRoutes from 'util/privateRoutes';
+
+axios.defaults.baseURL = 'https://softdev-backend-9ab1f.firebaseapp.com';
 
 // Persist user data if jwt token is valid, if not return to login
 let token = localStorage.getItem('x-auth-token');

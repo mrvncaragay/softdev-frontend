@@ -12,8 +12,8 @@ import {
   PAGINATE_POST,
   clearErrorMessage
 } from './types';
-import axios from 'axios';
 import history from 'util/history';
+import axios from 'axios';
 
 /*
  *  @desc     Add a post
@@ -185,7 +185,7 @@ export const editPost = (input, id) => async dispatch => {
   form.append('image', image);
 
   try {
-    const { data } = await axios.put('/api/posts/' + id, form);
+    const { data } = await axios.put('/api/posts' + id, form);
 
     dispatch({
       type: UPDATE_POST,
