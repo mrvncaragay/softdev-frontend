@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import { Link } from 'react-router-dom';
-import history from 'util/history';
-import { fetchPost } from 'actions';
+import history from '../../util/history';
+import { fetchPost } from '../../actions';
 
 // External
 import { connect } from 'react-redux';
@@ -18,7 +18,7 @@ import {
   SinglePost as SinglePostLayout,
   ModalForm,
   NewPost
-} from 'layouts';
+} from '../../layouts';
 
 // Component styles
 import styles from './styles';

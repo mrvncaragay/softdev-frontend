@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { CSSTransition } from 'react-transition-group';
-import { fetchMyProfile } from 'actions';
+import { fetchMyProfile } from '../../actions';
 
 // External
 import { connect } from 'react-redux';
@@ -13,7 +13,7 @@ import {
   Profile as ProfileLayout,
   NewProfile,
   AddBox
-} from 'layouts';
+} from '../../layouts';
 
 // Component styles
 import styles from './styles';

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import handleInputChange from 'hooks/handleInputChange';
-import { addPost, deletePost, editPost } from 'actions';
+import handleInputChange from '../../../../hooks/handleInputChange';
+import { addPost, deletePost, editPost } from '../../../../actions';
 
 // External
 import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';

@@ -12,7 +12,7 @@ import styles from './styles';
 import CardContent from '@material-ui/core/CardContent';
 
 // Shared Components
-import { ModalForm, NewExperience } from 'layouts';
+import { ModalForm, NewExperience } from '../../../../../../layouts';
 
 const InfoCardExp = ({ title, icon, experience, actions }) => {
   const classes = styles();

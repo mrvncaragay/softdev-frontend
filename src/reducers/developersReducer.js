@@ -2,7 +2,7 @@ import {
   SAVE_DEVELOPERS,
   SET_LOADNG_DEVELOPERS,
   PAGINATE_PROFILES
-} from 'actions/types';
+} from '../actions/types';
 const initialState = {
   isLoading: false
 };

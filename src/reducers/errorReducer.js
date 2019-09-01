@@ -1,4 +1,4 @@
-import { ERROR, CLEAR_ERROR } from 'actions/types';
+import { ERROR, CLEAR_ERROR } from '../actions/types';
 const initialState = {};
 
 const errorReducer = (state = initialState, action) => {

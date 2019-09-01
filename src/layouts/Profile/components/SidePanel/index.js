@@ -9,7 +9,7 @@ import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 
 // Shared Components
-import { ModalForm, NewProfile } from 'layouts';
+import { ModalForm, NewProfile } from '../../../../layouts';
 
 // Component Styles
 import styles from './styles';

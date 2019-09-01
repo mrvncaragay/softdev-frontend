@@ -9,7 +9,7 @@ import {
   SET_USER_LOADNG_PROFILE
 } from './types';
 import axios from 'axios';
-import history from 'util/history';
+import history from '../util/history';
 
 /*
  *  @desc     Create new profile

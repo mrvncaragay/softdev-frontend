@@ -1,8 +1,8 @@
 import { LOGIN, SET_LOADNG_USER, clearErrorMessage } from './types';
 import axios from 'axios';
-import history from 'util/history';
-import axiosHelper from 'util/axiosHelper';
-import jwtHelper from 'util/jwtHelper';
+import history from '../util/history';
+import axiosHelper from '../util/axiosHelper';
+import jwtHelper from '../util/jwtHelper';
 
 // Login
 /*

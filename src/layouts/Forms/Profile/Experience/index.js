@@ -1,6 +1,10 @@
 import React from 'react';
-import handleInputChange from 'hooks/handleInputChange';
-import { createExperience, updateExperience, removeExperience } from 'actions';
+import handleInputChange from '../../../../hooks/handleInputChange';
+import {
+  createExperience,
+  updateExperience,
+  removeExperience
+} from '../../../../actions';
 
 // External
 import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';

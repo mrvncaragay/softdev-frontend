@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { CSSTransition } from 'react-transition-group';
-import { fetchDevelopersProfile } from 'actions';
+import { fetchDevelopersProfile } from '../../actions';
 
 // External
 import { connect } from 'react-redux';
@@ -9,8 +9,11 @@ import { connect } from 'react-redux';
 import Typography from '@material-ui/core/Typography';
 
 // Shared component
-import { Navbar, Users as DevelopersLayout } from 'layouts';
-import { CircularLoading } from 'layouts';
+import {
+  Navbar,
+  Users as DevelopersLayout,
+  CircularLoading
+} from '../../layouts';
 
 // Component styles
 import styles from './styles';

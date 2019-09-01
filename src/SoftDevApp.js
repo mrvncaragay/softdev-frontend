@@ -15,7 +15,7 @@ import Users from './views/Users';
 import SinglePost from './views/SinglePost';
 
 // Private uitl/Routes
-import PrivateRoutes from 'util/privateRoutes';
+import PrivateRoutes from './util/privateRoutes';
 
 axios.defaults.baseURL = 'https://softdev-backend-9ab1f.firebaseapp.com';
 

@@ -4,7 +4,7 @@ import { Router } from 'react-router-dom';
 // Externals
 import { Provider } from 'react-redux';
 import { store, persistor } from './store';
-import history from 'util/history';
+import history from './util/history';
 import { PersistGate } from 'redux-persist/integration/react';
 
 // Main App

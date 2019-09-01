@@ -12,7 +12,7 @@ import {
   PAGINATE_POST,
   clearErrorMessage
 } from './types';
-import history from 'util/history';
+import history from '../util/history';
 import axios from 'axios';
 
 /*

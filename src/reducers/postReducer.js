@@ -11,7 +11,7 @@ import {
   CLEAR_POST,
   DELETE_POST,
   PAGINATE_POST
-} from 'actions/types';
+} from '../actions/types';
 
 const initialState = {
   isLoading: false

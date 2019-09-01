@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { Link } from 'react-router-dom';
-import { likePost, unlikePost } from 'actions';
+import { likePost, unlikePost } from '../../actions';
 
 // External
 import { connect } from 'react-redux';
@@ -16,7 +16,7 @@ import ThumbUp from '@material-ui/icons/ThumbUpOutlined';
 import Comment from '@material-ui/icons/CommentOutlined';
 
 // Shared component
-import { CommentBox, NewComment } from 'layouts';
+import { CommentBox, NewComment } from '../../layouts';
 
 // Component styles
 import styles from './styles';

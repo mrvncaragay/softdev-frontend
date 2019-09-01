@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { deletePostComment } from 'actions';
+import { deletePostComment } from '../../actions';
 // External
 import moment from 'moment';
 import { connect } from 'react-redux';

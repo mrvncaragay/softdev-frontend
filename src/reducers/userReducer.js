@@ -7,7 +7,7 @@ import {
   SET_LOADNG_USER,
   SAVE_EXPERIENCE,
   SAVE_EDUCATION
-} from 'actions/types';
+} from '../actions/types';
 
 const initialState = {
   isAuthenticated: false,

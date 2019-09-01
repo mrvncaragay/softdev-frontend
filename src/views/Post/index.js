@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { CSSTransition } from 'react-transition-group';
-import { fetchPosts } from 'actions';
+import { fetchPosts } from '../../actions';
 
 // External
 import { connect } from 'react-redux';
@@ -10,8 +10,8 @@ import Create from '@material-ui/icons/CreateOutlined';
 import Button from '@material-ui/core/Button';
 
 // Shared component
-import { Navbar, Post as PostLayout } from 'layouts';
-import { ModalForm, NewPost, CircularLoading } from 'layouts';
+import { Navbar, Post as PostLayout } from '../../layouts';
+import { ModalForm, NewPost, CircularLoading } from '../../layouts';
 
 // Component styles
 import styles from './styles';

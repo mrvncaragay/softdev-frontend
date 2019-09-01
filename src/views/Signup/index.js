@@ -5,7 +5,7 @@ import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
 
 // Shared components
-import { Navbar } from 'layouts';
+import { Navbar } from '../../layouts';
 import Form from './components/Form';
 
 // Component styles

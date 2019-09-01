@@ -1,11 +1,11 @@
 import React from 'react';
-import { randomCorps } from 'util/randomHelpers';
+import { randomCorps } from '../../../../../../../../util/randomHelpers';
 
 // External
 import moment from 'moment';
 
 // Shared Components
-import { ModalForm, NewExperience } from 'layouts';
+import { ModalForm, NewExperience } from '../../../../../../../../layouts';
 
 // Material UI component
 import Typography from '@material-ui/core/Typography';

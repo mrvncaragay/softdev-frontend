@@ -1,7 +1,11 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import handleInputChange from 'hooks/handleInputChange';
-import { addPostComment, updateEducation, removeEducation } from 'actions';
+import handleInputChange from '../../../hooks/handleInputChange';
+import {
+  addPostComment,
+  updateEducation,
+  removeEducation
+} from '../../../actions';
 
 // External
 import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';

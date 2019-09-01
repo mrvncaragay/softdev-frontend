@@ -1,7 +1,7 @@
 import React from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import { paginatePost } from 'actions';
-import pagination from 'hooks/pagination';
+import { paginatePost } from '../../../../actions';
+import pagination from '../../../../hooks/pagination';
 
 // External
 import { connect } from 'react-redux';

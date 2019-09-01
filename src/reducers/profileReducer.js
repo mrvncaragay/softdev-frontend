@@ -2,7 +2,7 @@ import {
   SAVE_USER_PROFILE,
   SET_USER_LOADNG_PROFILE,
   CLEAR_PROFILE
-} from 'actions/types';
+} from '../actions/types';
 const initialState = {
   isLoading: false
 };

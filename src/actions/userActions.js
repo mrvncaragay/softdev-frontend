@@ -8,11 +8,11 @@ import {
   CLEAR_PROFILE
 } from './types';
 import axios from 'axios';
-import history from 'util/history';
-import jwtHelper from 'util/jwtHelper';
-import axiosHelper from 'util/axiosHelper';
+import history from '../util/history';
+import jwtHelper from '../util/jwtHelper';
+import axiosHelper from '../util/axiosHelper';
 
-import { persistor } from 'store';
+import { persistor } from '../store';
 
 /*
  *  @desc     Signup request
