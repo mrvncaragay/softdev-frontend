@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/styles';
 export default makeStyles(theme => ({
   root: {
     display: 'flex',
-    width: '32%',
+    width: '31.8%',
     flexDirection: 'column',
     backgroundColor: 'white',
     padding: theme.spacing(2, 1, 2, 1),
