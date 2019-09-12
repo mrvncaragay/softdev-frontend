@@ -5,7 +5,7 @@ import styles from './SoftDevAppStyles';
 import axios from 'axios';
 
 // Shared views
-import Homepage from './views/Homepage';
+import Homepage from './views/HomePage';
 import Login from './views/Login';
 import Signup from './views/Signup';
 import Profile from './views/Profile';
